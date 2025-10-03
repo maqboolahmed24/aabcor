@@ -1,0 +1,19 @@
+# OS cruft
+.DS_Store
+
+# Archives
+landingpage.zip
+*.zip
+
+# Temporary unzip folders
+.tmp_unzip_*
+__MACOSX/
+
+# Node dependencies (anywhere)
+node_modules/
+**/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
