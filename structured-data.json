@@ -1,0 +1,28 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "aabcor.com",
+    "url": "https://aabcor.com/",
+    "logo": "https://aabcor.com/attachment/d.svg?v=green2",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "parziwal24@gmail.com",
+        "telephone": "+44 7501397969",
+        "areaServed": "GB"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "NRW Leak & Theft Detection",
+    "operatingSystem": "Web",
+    "applicationCategory": "BusinessApplication",
+    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" },
+    "url": "https://aabcor.com/",
+    "publisher": { "@type": "Organization", "name": "aabcor.com" }
+  }
+]

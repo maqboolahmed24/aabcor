@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Water Drop Logo</title>
+  <desc id="desc">Symmetric blue water droplet with a clearly defined white heart.</desc>
+
+  <!-- Teardrop -->
+  <path d="M128 16
+           C176 76, 208 120, 208 160
+           C208 206, 171 240, 128 240
+           C85 240, 48 206, 48 160
+           C48 120, 80 76, 128 16 Z"
+        fill="#1E8E5A"
+        shape-rendering="geometricPrecision"/>
+
+  <!-- Proper heart (double-lobe), centered -->
+  <!-- Base heart is centered at (0,0); we place & size with transform -->
+  <path d="M0,-28
+           C 12,-44 40,-44 40,-16
+           C 40,   0 24, 12  0, 32
+           C -24, 12 -40, 0 -40,-16
+           C -40,-44 -12,-44 0,-28 Z"
+        transform="translate(128,160) scale(0.9)"
+        fill="#FFFFFF"
+        shape-rendering="geometricPrecision"/>
+</svg>

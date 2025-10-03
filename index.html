@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>aabcor.com - NRW Leak & Theft Detection</title>
+  <meta name="description" content="Multi‑modal detection and explainability with DMA‑level risk control and audit‑ready evidence - packaged with OpenAPI, observability, and enterprise deployment options." />
+  <link rel="canonical" id="canonical" href="https://aabcor.com/" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#1f4ed8" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Open Graph / Twitter cards -->
+  <meta property="og:title" content="aabcor.com - AI‑Driven NRW Leak & Theft Detection" />
+  <meta property="og:description" content="Multi‑modal detection and explainability with DMA‑level risk control and audit‑ready evidence - packaged with OpenAPI, observability, and enterprise deployment options." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aabcor.com/" />
+  <!-- Open Graph image (1200x630 PNG) -->
+  <meta property="og:image" content="https://aabcor.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="aabcor.com - AI‑Driven NRW Leak & Theft Detection" />
+  <meta name="twitter:description" content="Multi‑modal detection and explainability with DMA‑level risk control and audit‑ready evidence." />
+  <meta name="twitter:image" content="https://aabcor.com/og.png" />
+  <link rel="icon" href="attachment/d.svg?v=green2" />
+  <link rel="apple-touch-icon" href="og.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Resource hints -->
+  <link rel="preload" as="image" href="attachment/d.svg?v=green2" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Compiled CSS (Tailwind + custom) -->
+  <link rel="stylesheet" href="dist/styles.css" />
+  <style>
+    /* Brand */
+    :root{ --brand-green:#1E8E5A; --line:#e5e7eb; }
+    .brand-name{ font-size:30px; font-weight:800; line-height:1; letter-spacing:.01em; }
+    .brand-com{ color:var(--brand-green); font-weight:800; }
+    .kicker .brand-fixed{ text-transform:none; letter-spacing:.01em; font-size:inherit; font-weight:inherit; }
+    .kicker .brand-com{ font-weight:inherit; }
+
+    /* Card rail glow (tapered, dissolving ends) */
+    .card.rail{ position:relative; overflow:hidden; }
+    .card.rail::before{
+      content:""; position:absolute; left:-1px; top:8px; bottom:8px; width:6px; border-radius:999px;
+      /* Two-layer background: moving sheen + base gradient */
+      background:linear-gradient(180deg, rgba(255,255,255,0) 35%, rgba(255,255,255,.45) 50%, rgba(255,255,255,0) 65%) no-repeat, linear-gradient(180deg, #22c55e 0%, #34d399 50%, #16a34a 100%);
+      background-size: 100% 260%, 100% 100%;
+      background-position: center -150%, center 0%;
+      animation:railSheen 3.2s cubic-bezier(.45,0,.25,1) infinite;
+      pointer-events:none;
+      /* fade out at the rail ends to blend with card radius */
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+              mask-image: linear-gradient(to bottom, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+    }
+    .card.rail::after{
+      content:""; position:absolute; left:-18px; top:0; bottom:0; width:32px; border-radius:16px;
+      /* stronger, saturated glow constrained to the left edge */
+      background:
+        radial-gradient(20px 18px at 14px 16px, rgba(34,197,94,.85), rgba(34,197,94,0) 70%),
+        radial-gradient(20px 18px at 14px calc(100% - 16px), rgba(34,197,94,.85), rgba(34,197,94,0) 70%),
+        radial-gradient(closest-side, rgba(52,211,153,.65), rgba(52,211,153,0));
+      filter:blur(10px);
+      opacity:.96; pointer-events:none;
+      animation:railGlow 4.4s ease-in-out infinite;
+      /* fade out horizontally so the glow doesn’t wash over text */
+      -webkit-mask-image: linear-gradient(to right, #000 0, #000 16px, transparent 100%);
+              mask-image: linear-gradient(to right, #000 0, #000 16px, transparent 100%);
+    }
+    /* Move the overlay sheen vertically while base stays fixed */
+    @keyframes railSheen{
+      0%   { background-position: center -150%, center 0%; }
+      50%  { background-position: center 150%,   center 0%; }
+      100% { background-position: center -150%, center 0%; }
+    }
+    @keyframes railGlow{ 0%{opacity:.55} 50%{opacity:.95} 100%{opacity:.55} }
+
+    /* Flow diagram styling */
+    .flow .badge{display:inline-block;background:#f8fafc;color:#10213b;border:1px solid #e2e8f0;border-radius:999px;padding:.5rem .9rem;font:600 15px/1.2 Inter,system-ui;margin:.35rem .35rem 0 0}
+    .flow .badge .dot{display:inline-block;width:.5rem;height:.5rem;border-radius:999px;background:#0B7A3B;box-shadow:0 0 6px rgba(11,122,59,.25);margin-right:.35rem;vertical-align:middle}
+    .flow svg .stage{ transition: transform .18s ease; }
+    .flow svg .stage:hover{ transform: translateY(-2px); }
+    .flow svg .node{ fill:url(#nodeGrad); stroke:var(--brand-green); stroke-width:1; rx:12; ry:12; filter:url(#flowGlow); transition: filter .2s ease, stroke-width .2s ease }
+    .flow svg .stage:hover .node{ filter: drop-shadow(0 2px 6px rgba(11,122,59,.18)); stroke-width:1.5 }
+    .flow svg .label{ font: 16px/1.6 Inter, ui-sans-serif, system-ui; fill:#0f2439 }
+    .flow svg .arrow{ stroke:#94a3b8; stroke-opacity:.7; stroke-width:1.2; stroke-linecap:round; marker-end:url(#arrowHead); stroke-dasharray:4 12; animation: dashMove 7s linear infinite }
+    @keyframes dashMove{ to { stroke-dashoffset: -260; } }
+
+    /* Reduced motion preferences */
+    @media (prefers-reduced-motion: reduce){
+      * { animation: none !important; transition: none !important; }
+      .flow svg .arrow { animation: none !important; }
+    }
+
+    /* Flow tooltip */
+    .flow{ position:relative; }
+    #flow-tooltip{ position:absolute; top:0; left:0; transform:translate(-50%,-110%) scale(.98); opacity:0; pointer-events:none; transition:opacity .15s ease, transform .18s ease; background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:.6rem .75rem; box-shadow:0 10px 22px rgba(16,33,59,.12), 0 2px 6px rgba(16,33,59,.06); max-width:280px; z-index:20; color:#10213b; font: 13px/1.45 Inter, ui-sans-serif, system-ui; }
+    #flow-tooltip.show{ opacity:1; transform:translate(-50%,-110%) scale(1); }
+    #flow-tooltip::after{ content:""; position:absolute; left:50%; bottom:-6px; transform:translateX(-50%); border:6px solid transparent; border-top-color:#e5e7eb; }
+    #flow-tooltip::before{ content:""; position:absolute; left:50%; bottom:-5px; transform:translateX(-50%); border:6px solid transparent; border-top-color:#fff; }
+
+    /* Flow info icons */
+    .flow svg .info{ pointer-events:none; }
+    .flow svg .info-ring{ fill:var(--brand-green); stroke:#ffffff; stroke-width:1; }
+    .flow svg .info-dot{ fill:var(--brand-green); }
+    .flow svg .info-i{ font: 700 10px/1 Inter, ui-sans-serif, system-ui; fill:#ffffff; text-anchor:middle; dominant-baseline:middle; }
+    @keyframes pulseMobile { 0%{ transform:scale(1); opacity:.7 } 50%{ transform:scale(1.18); opacity:1 } 100%{ transform:scale(1); opacity:.7 } }
+    @media (max-width: 640px){ .flow svg .pulse-mobile{ animation:pulseMobile 1.8s ease-in-out infinite; transform-origin:center; } }
+
+    /* Navbar visual clarity */
+    .nav-link{ padding:.35rem .6rem; border-radius:999px; transition:background-color .15s ease,color .15s ease; }
+    .nav-link:hover{ background:#f8fafc; }
+    .nav-link[aria-current="true"]{ background:rgba(11,122,59,.10); color:var(--brand-green); }
+    #nav-more-menu{ border:1px solid #e5e7eb; box-shadow:0 12px 28px rgba(16,33,59,.12), 0 2px 8px rgba(16,33,59,.06); }
+    #nav-more-menu .menu-item{ display:flex; align-items:center; gap:.6rem; padding:.5rem .65rem; border-radius:.5rem; color:#10213b; }
+    #nav-more-menu .menu-item:hover{ background:#f8fafc; }
+    #nav-more-menu .menu-icon{ width:16px; height:16px; color:#6b7890; }
+    #nav-more-menu .menu-item:hover .menu-icon{ color:var(--brand-green); }
+    
+    /* Hero CTA buttons */
+    .cta{ display:inline-flex; align-items:center; gap:.5rem; padding:.6rem 1rem; border-radius:12px; font:600 14px/1.2 Inter, ui-sans-serif, system-ui; box-shadow:0 1px 2px rgba(16,33,59,.06); transition:transform .12s ease, background-color .12s ease, box-shadow .12s ease, color .12s ease, border-color .12s ease }
+    .cta-primary{ background:var(--brand-green); color:#fff }
+    .cta-primary:hover{ background:#187a4d; transform:translateY(-1px); box-shadow:0 6px 18px rgba(30,142,90,.18), 0 2px 6px rgba(16,33,59,.06) }
+    .cta-primary:focus-visible{ outline:2px solid #1f4ed8; outline-offset:2px }
+    .cta-secondary{ background:#fff; color:#10213b; border:1px solid #e5e7eb }
+    .cta-secondary:hover{ background:#f8fafc; border-color:#d7dee9; transform:translateY(-1px) }
+    .cta-secondary:focus-visible{ outline:2px solid #1f4ed8; outline-offset:2px }
+   </style>
+  
+</head>
+<body class="antialiased">
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:shadow">Skip to content</a>
+  
+<nav class="sticky top-0 z-50" aria-label="Primary">
+  <div class="container flex h-16 items-center justify-between">
+    <div class="flex items-center gap-2">
+      <img src="attachment/d.svg?v=green2" alt="aabcor.com logo" class="h-7 w-7 rounded-md" />
+      <span class="brand-name tracking-wide">aabcor.<span class="brand-com">com</span></span>
+    </div>
+    <div class="hidden items-center gap-4 sm:flex">
+      <a href="#overview" class="nav-link text-sm text-ink-700 hover:text-ink-900">Overview</a>
+      <a href="#capabilities" class="nav-link text-sm text-ink-700 hover:text-ink-900">Capabilities</a>
+      <a href="#how" class="nav-link text-sm text-ink-700 hover:text-ink-900">How It Works</a>
+      <a href="#apis" class="nav-link text-sm text-ink-700 hover:text-ink-900">APIs</a>
+      <a href="#roi" class="nav-link text-sm text-ink-700 hover:text-ink-900">ROI</a>
+      <a href="#investors" class="nav-link text-sm text-ink-700 hover:text-ink-900">Investors</a>
+      <a href="#contact" class="nav-link text-sm text-ink-700 hover:text-ink-900">Contact</a>
+      <div class="relative">
+        <button id="nav-more-btn" class="nav-link text-sm text-ink-700 hover:text-ink-900 inline-flex items-center gap-1" aria-haspopup="menu" aria-expanded="false" aria-controls="nav-more-menu">More ▾</button>
+        <div id="nav-more-menu" aria-labelledby="nav-more-btn" class="absolute right-0 top-full mt-2 w-56 rounded-md bg-white shadow-lg border hidden" style="z-index:1000;">
+          <a href="#benchmarks" class="menu-item text-sm">
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3a2 2 0 0 1 2 2v14H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm6 6a2 2 0 0 1 2 2v10h-4V11a2 2 0 0 1 2-2Zm8 4a2 2 0 0 1 2 2v6h-4v-6a2 2 0 0 1 2-2Z"/></svg>
+            <span>Benchmarks</span>
+          </a>
+          <a href="#security" class="menu-item text-sm">
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 4 5v6c0 5.55 3.84 10.74 8 11 4.16-.26 8-5.45 8-11V5l-8-3Zm0 6a3 3 0 0 1 3 3v2h-6v-2a3 3 0 0 1 3-3Z"/></svg>
+            <span>Deployment &amp; Security</span>
+          </a>
+          <a href="#roadmap" class="menu-item text-sm">
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 5h6a2 2 0 0 1 2 2v10H6a2 2 0 0 1-2-2V5Zm10 0h6v12a2 2 0 0 1-2 2h-6V7a2 2 0 0 1 2-2Z"/></svg>
+            <span>Roadmap</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</nav>
+
+  <main id="main">
+    
+<section id="overview" class="section relative isolate pt-28 sm:pt-32 lg:pt-40">
+  <div class="hero-shell absolute inset-0 -z-10">
+    <div class="hero-pattern"></div>
+    <div class="hero-lines" aria-hidden="true">
+      <svg viewBox="0 0 1200 420" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="wire" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#88a3ff"/>
+            <stop offset="100%" stop-color="#2b5cf6"/>
+          </linearGradient>
+        </defs>
+        <path d="M20 360 C180 330, 240 220, 380 200 S 620 260, 760 220 980 120, 1180 140" fill="none" stroke="url(#wire)" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 16"/>
+        <path d="M0 300 C160 260, 300 260, 460 220 S 780 120, 1080 160" fill="none" stroke="#c9d5f2" stroke-width="1" stroke-linecap="round" stroke-dasharray="2 10"/>
+      </svg>
+    </div>
+  </div>
+  <div class="container">
+    <div class="grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <span class="kicker"><span class="brand-fixed">aabcor.<span class="brand-com">com</span></span> - AI‑Driven NRW</span>
+        <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">Stop Losing Water.<br class="hidden sm:block" /> Start Proving It.</h1>
+        <p class="mt-4 max-w-xl text-[17px] leading-7 text-ink-700">Multi‑modal detection and explainability with DMA‑level risk control and audit‑ready evidence - shipped with OpenAPI, observability, and enterprise deployment options.</p>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a href="#contact" class="cta cta-primary" aria-label="Request a Pilot">Request a Pilot</a>
+          <a href="openapi.json" class="cta cta-secondary" rel="nofollow" aria-label="View OpenAPI contract">View OpenAPI</a>
+        </div>
+        <ul class="mt-6 grid max-w-xl grid-cols-1 gap-3 text-[15px] text-ink-700 sm:grid-cols-2">
+          <li class="feature-item">Multimodal fusion & explainability</li>
+          <li class="feature-item">Per‑DMA conformal thresholds</li>
+          <li class="feature-item">WORM evidence bundles</li>
+          <li class="feature-item">OpenAPI + /metrics + /health</li>
+        </ul>
+        <p class="mt-6 text-sm text-ink-500">Metrics shown use curated datasets; field performance depends on telemetry quality and per‑DMA calibration.</p>
+        <p class="mt-4 text-[15px] leading-7 text-ink-700">Telemetry sources include Hong Kong acoustics, Yorkshire &amp; Wessex logger/hydraulic data, and BattLeDIM simulation. Synthetic augmentation is governed: no raw customer data is committed, and waivers are documented when bypassing data‑quality gates.</p>
+      </div>
+      <div class="relative">
+        <div class="card rail relative overflow-hidden p-6">
+          <div class="relative">
+            <img src="attachment/d.svg?v=green2" alt="aabcor.com schematic" width="56" height="56" class="rounded" />
+            <h3 class="mt-4 text-xl font-semibold tracking-tight">Audit‑Ready Leak Detection</h3>
+            <p class="mt-2 text-[15px] leading-6 text-ink-700">Calibrated fusion with uncertainty, smoothing and guards, and evidence bundles that stand up to scrutiny.</p>
+            <div class="mt-4 grid grid-cols-2 gap-3 text-sm text-ink-700">
+              <div class="rounded-md border border-[var(--line)] bg-white p-3">
+              <p class="font-medium">Conformal per DMA</p>
+              <p class="mt-1 text-ink-500">Recall at low FPR after calibration.</p>
+            </div><div class="rounded-md border border-[var(--line)] bg-white p-3">
+              <p class="font-medium">Explainability</p>
+              <p class="mt-1 text-ink-500">Grad‑CAM / SHAP‑like artefacts.</p>
+            </div><div class="rounded-md border border-[var(--line)] bg-white p-3">
+              <p class="font-medium">Evidence</p>
+              <p class="mt-1 text-ink-500">WORM manifests; optional signing.</p>
+            </div><div class="rounded-md border border-[var(--line)] bg-white p-3">
+              <p class="font-medium">Observability</p>
+              <p class="mt-1 text-ink-500">/metrics • /health • /openapi.json</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- removed duplicate early investors block -->
+
+<!-- investors section moved below ROI -->
+
+<section id="capabilities" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="container">
+    
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-2 kicker">Product</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Multi‑modal detection with built‑in governance</h2>
+  </div>
+
+    <div class="mt-8">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Multimodal fusion + explainability</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">Acoustic CNN + hydraulic detectors and HydroGNN feed a calibrated fusion meta‑learner with quantified uncertainty. Explainability artefacts (acoustic Grad‑CAM, SHAP‑like top features, and node heatmaps when available) attach to events.</p>
+</div><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Conformal thresholds per DMA</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">Operate in low‑FPR regimes after per‑DMA calibration. A temporal smoother and changepoint guards stabilize alerts before event lifecycle updates. Conformal quantiles (<code>conformal_q</code>) and thresholds are exported to metrics.</p>
+</div><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Evidence & audit trail</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">WORM manifests capture scores, thresholds, timestamps, and optional location; an optional signature and a verify script are emitted to support independent audit and dispute resolution.</p>
+</div><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Observability + OpenAPI</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">Prometheus /metrics and /health, OTEL traces, and structured logs. Key gauges (e.g., <code>threshold_tc</code>, <code>threshold_tx</code>, <code>conformal_q</code>) feed dashboards. Contract‑driven APIs with OpenAPI and contract tests.</p>
+</div><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Events & Attachments</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">Manage lifecycle via /events and /events/{event_id}; attach heatmaps and WORM manifests under /events/{event_id}/attachments.</p>
+</div><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Packaging & Deployment</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">SBOMs and image signing are included in releases (e.g., Syft + Cosign). Helm/K8s manifests support cloud, on‑prem, and edge rollouts; standard deployments integrate mTLS/RBAC patterns.</p>
+</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="container">
+    
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-2 text-sm font-medium uppercase tracking-wider text-ink-500">Architecture</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">From telemetry to trusted, auditable events</h2>
+  </div>
+
+    <div class="mt-8">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="card rail p-5">
+          <h3 class="text-lg font-semibold tracking-tight">Ingest &amp; Validate</h3>
+          <p class="mt-2 text-[15px] leading-6 text-ink-700">SCADA/AMI and optional acoustics pass data‑quality gates first (<code>quality_report</code>). Valid inputs feed acoustic spectrograms and hydraulic graph features; waivers (for emergencies) are documented.</p>
+        </div>
+        <div class="card rail p-5">
+          <h3 class="text-lg font-semibold tracking-tight">Model &amp; Fuse</h3>
+          <p class="mt-2 text-[15px] leading-6 text-ink-700">Acoustic CRNN and HydroGNN produce calibrated probabilities and uncertainties; a meta-learner fuses them, and conformal thresholds per DMA control risk.</p>
+        </div>
+        <div class="card rail p-5">
+          <h3 class="text-lg font-semibold tracking-tight">Explain &amp; Evidence</h3>
+          <p class="mt-2 text-[15px] leading-6 text-ink-700">Grad‑CAM/SHAP‑like artefacts, node heatmaps (when inputs present), thresholds and uncertainties are attached to events; WORM evidence bundles on close.</p>
+        </div>
+        <div class="card rail p-5">
+          <h3 class="text-lg font-semibold tracking-tight">Localize (when available)</h3>
+          <p class="mt-2 text-[15px] leading-6 text-ink-700">HydroGNN heatmaps and TDOA‑based localization are provided when the request includes sensor geometry/arrivals and graph inputs are available.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6 text-[15px] leading-7 text-ink-700">
+      <p><span class="font-medium">Governance.</span> Contract‑driven changes ship with updated <code>openapi.yaml</code>, schemas, and DB migrations plus contract tests. Builds are deterministic (seeded RNGs), secrets remain external, and every ingest emits a <code>quality_report</code>; non‑<code>pass</code> statuses block downstream use.</p>
+    </div>
+  </div>
+</section>
+
+<section id="apis" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="container">
+    
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-2 kicker">Integration</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">APIs & Contracts</h2>
+  </div>
+
+    <div class="mt-8">
+      
+<div class="overflow-hidden rounded-xl border border-[var(--line)] bg-white">
+  <table class="w-full border-collapse text-left text-[15px]">
+    <thead class="bg-blue-50"><tr>
+        <th class="px-4 py-3 text-left font-medium">Method</th>
+        <th class="px-4 py-3 text-left font-medium">Path</th>
+        <th class="px-4 py-3 text-left font-medium">Description</th>
+    </tr></thead>
+    <tbody>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">POST</td>
+            <td class="px-4 py-3 font-mono text-sm">/predict_frame</td>
+            <td class="px-4 py-3">Run calibrated inference on a single frame or window (manages event lifecycle).</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">POST</td>
+            <td class="px-4 py-3 font-mono text-sm">/explain_frame</td>
+            <td class="px-4 py-3">Return acoustic Grad‑CAM and SHAP‑like features; HydroGNN maps via predict when available.</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">GET</td>
+            <td class="px-4 py-3 font-mono text-sm">/events</td>
+            <td class="px-4 py-3">List recent events.</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">GET</td>
+            <td class="px-4 py-3 font-mono text-sm">/events/{event_id}</td>
+            <td class="px-4 py-3">Fetch a specific event.</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">GET</td>
+            <td class="px-4 py-3 font-mono text-sm">/events/{event_id}/attachments</td>
+            <td class="px-4 py-3">Evidence bundles, heatmaps, and attachments.</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">GET</td>
+            <td class="px-4 py-3 font-mono text-sm">/explain/{event_id}</td>
+            <td class="px-4 py-3">Fetch explanation bundle for an event.</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">GET</td>
+            <td class="px-4 py-3 font-mono text-sm">/metrics</td>
+            <td class="px-4 py-3">Prometheus scrape endpoint.</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">GET</td>
+            <td class="px-4 py-3 font-mono text-sm">/health</td>
+            <td class="px-4 py-3">Service health for probes.</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">GET</td>
+            <td class="px-4 py-3 font-mono text-sm">/openapi.json</td>
+            <td class="px-4 py-3">OpenAPI contract.</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">GET</td>
+            <td class="px-4 py-3 font-mono text-sm">/admin/thresholds</td>
+            <td class="px-4 py-3">List thresholds &amp; conformal quantiles <span class="text-ink-500">(Admin)</span>.</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">GET</td>
+            <td class="px-4 py-3 font-mono text-sm">/admin/thresholds/{dma}</td>
+            <td class="px-4 py-3">Get thresholds for a DMA <span class="text-ink-500">(Admin)</span>.</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">PUT</td>
+            <td class="px-4 py-3 font-mono text-sm">/admin/thresholds</td>
+            <td class="px-4 py-3">Update thresholds <span class="text-ink-500">(Admin)</span>.</td>
+        </tr>
+        <tr class="border-t border-[var(--line)]">
+            <td class="px-4 py-3 font-mono text-sm">POST</td>
+            <td class="px-4 py-3 font-mono text-sm">/admin/reload_twin</td>
+            <td class="px-4 py-3">Hot‑reload the digital twin graph <span class="text-ink-500">(Admin)</span>.</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+  <div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+    <div class="card p-6 sm:p-8 overflow-auto">
+      <h3 class="text-lg font-semibold tracking-tight">Example: /predict_frame</h3>
+      <pre class="mt-2 text-[13px] leading-5 whitespace-pre-wrap"><code>{
+  "dma": "dma_A",
+  "ts": "2025-01-01T00:00:00Z",
+  "spectrogram": [[0.1, 0.2], [0.3, 0.4]],
+  "scada_window": [
+    {"ts": "2025-01-01T00:00:00Z", "inlet_flow": 20.5, "press_N1": 3.1, "quality": "GOOD"}
+  ],
+  "arrivals": [0.0, 0.012, 0.021],
+  "sensors": [[-1.23, 53.80], [-1.24, 53.81], [-1.22, 53.79]]
+}</code></pre>
+      <pre class="mt-3 text-[13px] leading-5 whitespace-pre-wrap"><code>{
+  "decision": "LEAK",
+  "q": 0.94,
+  "decision_set": ["LEAK"],
+  "event": {"id": "evt123", "status": "OPEN", "type": "LEAK", "q": 0.94},
+  "location": {"lon": -1.23, "lat": 53.80, "conf": 0.78, "valves": ["V-12", "V-13"]},
+  "scores": {
+    "acoustic_prob": 0.88,
+    "dma_score_xgb": 0.91,
+    "dma_score_gnn": 0.85,
+    "fused": 0.94,
+    "fusion_nonconformity": 0.06,
+    "conformal_quantile": 2.0
+  }
+}</code></pre>
+    </div>
+    <div class="card p-6 sm:p-8 flow">
+      <h3 id="flow-title" class="text-lg font-semibold tracking-tight">Flow &amp; conditions</h3>
+      <p class="mt-2 sm:hidden text-[13px] text-ink-500">Tap a stage to see details</p>
+      <svg viewBox="0 0 760 520" class="mt-4 w-full" preserveAspectRatio="xMidYMid meet" aria-labelledby="flow-title">
+        <defs>
+          <linearGradient id="nodeGrad" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(20)">
+            <stop offset="0%" stop-color="#1E8E5A">
+              <animate attributeName="stop-color" values="#1E8E5A; #2ecc71; #1E8E5A" dur="6s" repeatCount="indefinite" />
+            </stop>
+            <stop offset="100%" stop-color="#36d399">
+              <animate attributeName="stop-color" values="#36d399; #1E8E5A; #36d399" dur="6s" repeatCount="indefinite" />
+            </stop>
+          </linearGradient>
+          <filter id="flowGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#1E8E5A" flood-opacity="0.22" />
+          </filter>
+          <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3 z" fill="#6b7890" />
+          </marker>
+        </defs>
+        <!-- Vertical flow: centered nodes -->
+        <!-- Step 1 -->
+        <g class="stage" tabindex="0" role="button" aria-label="Inputs stage" aria-describedby="flow-tooltip" data-tip="Preprocessed acoustic spectrogram and SCADA window validated by quality gates; optional arrivals/sensors for localization.">
+        <rect class="node" x="200" y="20" width="360" height="64" />
+        <text class="label" x="380" y="54" text-anchor="middle">Inputs: Spectrogram + SCADA</text>
+          <g class="info pulse-mobile">
+            <circle class="info-ring" cx="548" cy="52" r="10" />
+            <text class="info-i" x="548" y="52">?</text>
+          </g>
+        </g>
+        <line class="arrow" x1="380" y1="92" x2="380" y2="120" />
+        <!-- Step 2 -->
+        <g class="stage" tabindex="0" role="button" aria-label="Models stage" aria-describedby="flow-tooltip" data-tip="Acoustic CNN probability + XGB DMA score; HydroGNN adds node heatmaps when available.">
+        <rect class="node" x="200" y="120" width="360" height="64" />
+        <text class="label" x="380" y="156" text-anchor="middle">Models: Acoustic + XGB + HydroGNN</text>
+          <g class="info pulse-mobile">
+            <circle class="info-ring" cx="548" cy="152" r="10" />
+            <text class="info-i" x="548" y="152">?</text>
+          </g>
+        </g>
+        <line class="arrow" x1="380" y1="192" x2="380" y2="220" />
+        <!-- Step 3 -->
+        <g class="stage" tabindex="0" role="button" aria-label="Fusion stage" aria-describedby="flow-tooltip" data-tip="Meta‑learner blends modalities with uncertainties and context features.">
+        <rect class="node" x="260" y="220" width="240" height="64" />
+        <text class="label" x="380" y="256" text-anchor="middle">Fusion</text>
+          <g class="info pulse-mobile">
+            <circle class="info-ring" cx="488" cy="252" r="10" />
+            <text class="info-i" x="488" y="252">?</text>
+          </g>
+        </g>
+        <line class="arrow" x1="380" y1="292" x2="380" y2="320" />
+        <!-- Step 4 -->
+        <g class="stage" tabindex="0" role="button" aria-label="Guard, Smoothing, Conformal stage" aria-describedby="flow-tooltip" data-tip="Changepoint guard, temporal smoothing, and per‑DMA conformal thresholds control risk.">
+        <rect class="node" x="230" y="320" width="300" height="64" />
+        <text class="label" x="380" y="356" text-anchor="middle">Guard • Smooth • Conformal</text>
+          <g class="info pulse-mobile">
+            <circle class="info-ring" cx="520" cy="352" r="10" />
+            <text class="info-i" x="520" y="352">?</text>
+          </g>
+        </g>
+        <line class="arrow" x1="380" y1="392" x2="380" y2="420" />
+        <!-- Step 5-6 -->
+        <g class="stage" tabindex="0" role="button" aria-label="Decision and evidence stage" aria-describedby="flow-tooltip" data-tip="Event lifecycle update; WORM evidence bundle with scores, thresholds, timestamps; optional localization & attachments.">
+        <rect class="node" x="260" y="420" width="240" height="64" />
+        <text class="label" x="380" y="458" text-anchor="middle">Decision → Event &amp; Evidence</text>
+          <g class="info pulse-mobile">
+            <circle class="info-ring" cx="488" cy="452" r="10" />
+            <text class="info-i" x="488" y="452">?</text>
+          </g>
+        </g>
+      </svg>
+      <div class="mt-3">
+        <span class="badge"><span class="dot"></span>Node heatmap when HydroGNN available</span>
+        <span class="badge"><span class="dot"></span>Localization with ≥3 sensors</span>
+        <span class="badge"><span class="dot"></span>Conformal gate yields decision_set</span>
+        <span class="badge"><span class="dot"></span>WORM evidence on close</span>
+      </div>
+      <div id="flow-tooltip" role="tooltip" aria-hidden="true"></div>
+    </div>
+    </div>
+
+  
+
+    </div>
+  </div>
+</section>
+
+<section id="benchmarks" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="container">
+    
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-2 kicker">Evidence</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Benchmarks & caveats (curated datasets)</h2>
+  </div>
+
+    <div class="mt-8">
+      <div class="card p-6 sm:p-8">
+        <ul class="list-disc space-y-4 pl-5 text-[15px] leading-7 text-ink-700">
+          <li>Hydraulic/logger models show AUROC ≈ 0.98–0.999 at low false-positive rates on curated datasets. The acoustic CNN is earlier-stage (≈0.75 AUROC on HK set).</li>
+          <li>Field performance varies with telemetry quality and per-DMA calibration. We operate in low‑FPR regimes <em>after</em> calibration, enforced via a conformal guard.</li>
+          <li>Detection latency depends on cadence: continuous telemetry enables near-real-time detection; acoustic nightly programs are typically overnight; satellite scans periodic.</li>
+          <li>Datasets referenced: Hong Kong acoustics; Yorkshire &amp; Wessex loggers/hydraulic; BattLeDIM simulation (for stress &amp; coverage). Synthetic augmentation follows documented governance.</li>
+        </ul>
+        <p class="mt-4 text-sm text-ink-500">Figures shown are illustrative unless tied to current run artefacts; use our OpenAPI &amp; evidence bundles to audit live performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="security" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="container">
+    
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-2 kicker">Operations</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Deployment, security & observability</h2>
+  </div>
+
+    <div class="mt-8">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Cloud / On‑prem / Edge</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">Deploy as containers with Helm/K8s. SBOMs and image signing are included in the release process; signing requires a configured signer/HSM or software key.</p>
+</div><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Observability</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">Prometheus metrics, health endpoints, traces and structured logs for end‑to‑end visibility and SLOs.</p>
+</div><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Evidence & Compliance</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">WORM evidence bundles with optional signing and an on‑close attachment flow; audit verifiers provided.</p>
+</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="roi" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="container">
+    
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-2 text-sm font-medium uppercase tracking-wider text-ink-500">Economics</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">ROI examples (assumptions disclosed)</h2>
+  </div>
+
+    <div class="mt-8">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="card rail p-5">
+          <h3 class="text-lg font-semibold tracking-tight">Mid-case</h3>
+          <p class="mt-2 text-[15px] leading-6 text-ink-700">Illustrative ~5× ROI with continuous monitoring and calibrated thresholds; depends on leak incidence and water value.</p>
+        </div>
+        <div class="card rail p-5">
+          <h3 class="text-lg font-semibold tracking-tight">High-scarcity</h3>
+          <p class="mt-2 text-[15px] leading-6 text-ink-700">Higher ROI in regions with expensive water or strict NRW targets; energy/carbon savings add to value.</p>
+        </div>
+        <div class="card rail p-5">
+          <h3 class="text-lg font-semibold tracking-tight">Case studies</h3>
+          <p class="mt-2 text-[15px] leading-6 text-ink-700">External case studies show large savings with event analytics and satellite-augmented programs; our platform integrates these strengths.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="investors" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="container">
+    <div class="mx-auto max-w-3xl">
+      <p class="mb-2 kicker">Investors</p>
+      <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Investor brief</h2>
+      <p class="mt-3 text-[15px] leading-7 text-ink-700">NRW reduction is a board‑level priority for many utilities. Our platform focuses on audit‑ready detection built on authentic telemetry with governed synthetic augmentation, contract‑driven releases, and evidence that stands up to scrutiny.</p>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="card rail p-5">
+        <h3 class="text-lg font-semibold tracking-tight">Why now</h3>
+        <p class="mt-2 text-[15px] leading-6 text-ink-700">Utilities face tighter NRW targets, water scarcity pressures, and audit requirements. Modern telemetry and explainable AI enable measurable, reportable improvements.</p>
+      </div>
+      <div class="card rail p-5">
+        <h3 class="text-lg font-semibold tracking-tight">Product moat</h3>
+        <p class="mt-2 text-[15px] leading-6 text-ink-700">Conformal thresholds per DMA, WORM evidence bundles (optional signing), OpenAPI + observability, and strong governance (quality gates, seeded builds, signed artefacts).</p>
+      </div>
+      <div class="card rail p-5">
+        <h3 class="text-lg font-semibold tracking-tight">Model &amp; GTM</h3>
+        <p class="mt-2 text-[15px] leading-6 text-ink-700">SaaS per‑DMA subscription with optional services for onboarding and integration. Land‑and‑expand via pilot → region → utility‑wide rollouts; channel partners where helpful.</p>
+      </div>
+      <div class="card rail p-5">
+        <h3 class="text-lg font-semibold tracking-tight">Economics</h3>
+        <p class="mt-2 text-[15px] leading-6 text-ink-700">ROI comes from shorter leak duration, fewer truck rolls, energy/carbon savings, and avoided penalties. See ROI examples; field outcomes depend on telemetry quality and calibration.</p>
+      </div>
+      <div class="card rail p-5">
+        <h3 class="text-lg font-semibold tracking-tight">Compliance &amp; trust</h3>
+        <p class="mt-2 text-[15px] leading-6 text-ink-700">Evidence bundles, signed artefacts, and contract tests support audits and regulated reporting. Observability and SLOs de‑risk operations.</p>
+      </div>
+      <div class="card rail p-5">
+        <h3 class="text-lg font-semibold tracking-tight">Risks &amp; mitigations</h3>
+        <p class="mt-2 text-[15px] leading-6 text-ink-700">Data quality and integration friction are addressed via ingest gates, conformal guards, shadow deployments, and acceptance runs before cutover.</p>
+      </div>
+    </div>
+
+    <div class="mt-8 card p-6 sm:p-8">
+      <h3 class="text-lg font-semibold tracking-tight">What we’re seeking</h3>
+      <p class="mt-2 text-[15px] leading-7 text-ink-700">Pilot partners and design partners to validate in diverse DMAs, plus investor conversations aligned with an evidence‑first rollout plan. For materials (decks, acceptance run outputs), reach out via the contact details below.</p>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="container">
+    
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-2 kicker">Roadmap</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">What’s coming</h2>
+  </div>
+
+    <div class="mt-8">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Theft detection</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">Enhanced scenarios and classifiers (synthetic generators already include theft cases).</p>
+</div><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Satellite fusion UI</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">UI overlays and fusion controls for periodic satellite layers.</p>
+</div><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Leak sizing</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">Expose leak sizing estimates in operator workflows with uncertainties.</p>
+</div><div class="card p-5">
+  <h3 class="text-lg font-semibold tracking-tight">Certifications</h3>
+  <p class="mt-2 text-[15px] leading-6 text-ink-700">Security attestations and programme‑level M&V reports.</p>
+</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="container">
+    
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-2 kicker">Contact</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Get in touch</h2>
+  </div>
+
+    <div class="mt-8">
+<div class="card p-6 sm:p-8">
+  <h3 class="text-xl font-semibold tracking-tight">Contact Us</h3>
+  <p class="mt-2 text-[15px] leading-7 text-ink-700">We'd love to hear from you. For engagements, partnerships, or media enquiries, use the details below.</p>
+  <div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <div class="flex items-center gap-3">
+      <span class="avatar-glow"><img src="attachment/maqbool.png" alt="Maqbool Ahmed profile photo" class="h-16 w-16 object-contain" /></span>
+      <div>
+        <p class="text-[15px] font-medium">Maqbool Ahmed</p>
+        <p class="text-[13px] text-ink-500">Founder and CEO</p>
+        <p class="text-[13px] text-ink-500">MSc Computer Games Artificial Intelligence</p>
+        <p class="text-[13px] text-ink-500">London, United Kingdom</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="avatar-glow"><img src="attachment/haseena.jpg" alt="Haseena Inamdar profile photo" class="h-16 w-16 object-contain" /></span>
+      <div>
+        <p class="text-[15px] font-medium">Haseena Inamdar</p>
+        <p class="text-[13px] text-ink-500">Cofounder and Business Advisor</p>
+        <p class="text-[13px] text-ink-500">B Tech Electronics and Communication Engineering</p>
+        <p class="text-[13px] text-ink-500">Bengaluru, India</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="avatar-glow"><img src="attachment/khadar.jpg" alt="Khadar R J profile photo" class="h-16 w-16 object-contain" /></span>
+      <div>
+        <p class="text-[15px] font-medium">Khadar R J</p>
+        <p class="text-[13px] text-ink-500">Cofounder and Business Admin</p>
+        <p class="text-[13px] text-ink-500">B Tech Computer Science and Engineering</p>
+        <p class="text-[13px] text-ink-500">Bengaluru, India</p>
+      </div>
+    </div>
+  </div>
+  <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
+    <div>
+      <p class="text-sm font-medium text-ink-500">Organization</p>
+      <p class="mt-1 text-[15px]">aabcor.com</p>
+    </div>
+    <div>
+      <p class="text-sm font-medium text-ink-500">Email</p>
+      <p class="mt-1 text-[15px]"><a class="underline underline-offset-2" href="mailto:parziwal24@gmail.com">parziwal24@gmail.com</a></p>
+    </div>
+    <div>
+      <p class="text-sm font-medium text-ink-500">Phone</p>
+      <p class="mt-1 text-[15px]">+44 7501397969</p>
+    </div>
+  </div>
+  
+</div>
+</div>
+  </div>
+</section>
+
+  </main>
+  
+<footer class="mt-16 border-t border-[var(--line)] py-12">
+  <div class="container">
+    <p class="text-[15px] text-ink-500">&copy; aabcor.com. All rights reserved.</p>
+  </div>
+</footer>
+  
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">[
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "aabcor.com",
+      "url": "https://aabcor.com/",
+      "logo": "https://aabcor.com/attachment/d.svg?v=green2",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "parziwal24@gmail.com",
+          "telephone": "+44 7501397969",
+          "areaServed": "GB"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "NRW Leak & Theft Detection",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" },
+      "url": "https://aabcor.com/",
+      "publisher": { "@type": "Organization", "name": "aabcor.com" }
+    }
+  ]</script>
+
+  <!-- Adjust canonical on non-production hosts -->
+  <script>
+    (function(){ try {
+      var c = document.querySelector('link[rel="canonical"]');
+      if (c && location.hostname && location.hostname !== 'aabcor.com') {
+        c.setAttribute('href', location.origin + location.pathname);
+      }
+    } catch(e){} })();
+  </script>
+
+  <!-- Active section highlighting for accessibility -->
+  <script src="main.js?v=3" defer></script>
+</body>
+</html>

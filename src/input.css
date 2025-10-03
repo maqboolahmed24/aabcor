@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base + tokens */
+html, body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+:root{
+  --bg:#f6f8fb; 
+  --card:#ffffff; 
+  --ink:#0f1b2d; 
+  --muted:#56637a; 
+  --line:#e2e8f4;
+  --accent:#2b5cf6; 
+  --accent-ink:#0f2a72;
+  --accent-soft:rgba(43,92,246,.10);
+  --ok:#2ea36a; --warn:#f2c84c; --err:#e14f4f;
+  --radius:16px;
+  --elev:0 14px 40px rgba(15,27,45,.08), 0 2px 12px rgba(15,27,45,.05);
+  --focus:0 0 0 3px rgba(43,92,246,.35);
+  --brand-green:#0B7A3B;
+}
+
+/* Layout & helpers */
+html,body{background:var(--bg);color:var(--ink);} 
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+.container{max-width:72rem;margin-left:auto;margin-right:auto;padding-left:1.25rem;padding-right:1.25rem;}
+@media(min-width:640px){.container{padding-left:1.5rem;padding-right:1.5rem;}}
+@media(min-width:1024px){.container{padding-left:2rem;padding-right:2rem;}}
+.section{scroll-margin-top:6rem;}
+
+/* Color utility shims for custom class names already in markup */
+.text-ink-900{color:var(--ink);} 
+.text-ink-700{color:#29384b;} 
+.text-ink-500{color:#6b7890;}
+
+/* Card with left rail (unique motif) */
+.card{position:relative;background:var(--card);border:1px solid var(--line);box-shadow:var(--elev);border-radius:calc(var(--radius) + 2px);} 
+.card.rail::before{content:"";position:absolute;left:-1px;top:10px;bottom:10px;width:3px;border-radius:2px;background:linear-gradient(180deg,var(--accent),#88a3ff);} 
+.card:hover{box-shadow:0 18px 48px rgba(15,27,45,.12),0 3px 16px rgba(15,27,45,.06);transition:box-shadow .2s ease, transform .2s ease;}
+.card:focus-within{outline:0;box-shadow:var(--elev), var(--focus);} 
+
+/* Section kickers */
+.kicker{display:inline-flex;align-items:center;gap:.5rem;font:600 12px/1.1 Inter,system-ui;letter-spacing:.14em;text-transform:uppercase;color:#5d6a81;}
+.kicker::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);} 
+
+/* Nav refinement with active indicator */
+nav{border-bottom:1px solid var(--line);background:rgba(255,255,255,0.86);}
+nav a{position:relative;padding-top:2px;padding-bottom:2px;}
+nav a[aria-current="true"]{color:var(--ink);} 
+nav a[aria-current="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:2px;background:linear-gradient(90deg,var(--accent),#88a3ff);border-radius:2px;} 
+
+/* Hero blueprint pattern (no generic blur/glass) */
+.hero-shell{position:relative;}
+.hero-pattern{position:absolute;inset:0;z-index:-1;opacity:.45;mask-image:radial-gradient(1200px 400px at 80% 0, #000 55%, transparent 80%);} 
+.hero-pattern::before{content:"";position:absolute;inset:-1px;background-image:linear-gradient(to right, var(--line) 1px, transparent 1px),linear-gradient(to bottom, var(--line) 1px, transparent 1px);background-size:24px 24px;}
+.hero-lines{position:absolute;inset:0;pointer-events:none;opacity:.35;}
+.hero-lines svg{width:100%;height:100%;display:block;}
+
+/* Lists with subtle left border */
+.feature-item{position:relative;border:1px solid var(--line);background:#fff;border-radius:12px;padding:.6rem .8rem .6rem 1rem;}
+.feature-item::before{content:"";position:absolute;left:-1px;top:10px;bottom:10px;width:2px;border-radius:2px;background:var(--accent);} 
+
+@media print{
+  body{background:white;}
+  .section{page-break-after:always;}
+  nav,.no-print{display:none!important;}
+}
+
+/* Brand tweaks */
+.brand-name{ font-size:30px; font-weight:800; line-height:1; letter-spacing:.01em; }
+.brand-com{ color:var(--brand-green); font-weight:800; }
+.kicker .brand-fixed{ text-transform:none; letter-spacing:.01em; font-size:inherit; font-weight:inherit; }
+.kicker .brand-com{ font-weight:inherit; }
+
+/* Animated left rail glow for cards (green variant) */
+.card.rail{ position:relative; }
+.card.rail::before{
+  content:""; position:absolute; left:-1px; top:10px; bottom:10px; width:4px; border-radius:3px;
+  background:linear-gradient(180deg, var(--brand-green) 0%, #36d399 50%, var(--brand-green) 100%);
+  background-size:100% 200%;
+  animation:railSheen 3.2s ease-in-out infinite;
+  box-shadow:0 0 0 rgba(0,0,0,0);
+}
+.card.rail::after{
+  content:""; position:absolute; left:-10px; top:0; bottom:0; width:24px; border-radius:14px;
+  background:radial-gradient(closest-side, rgba(11,122,59,.42), rgba(11,122,59,0));
+  filter:blur(12px); opacity:.75; pointer-events:none;
+  animation:railGlow 4.4s ease-in-out infinite;
+}
+@keyframes railSheen{ 0%{background-position:0% 0%} 50%{background-position:0% 100%} 100%{background-position:0% 0%} }
+@keyframes railGlow{ 0%{opacity:.55} 50%{opacity:.95} 100%{opacity:.55} }
+
+/* Hover utility for custom color class */
+.hover\:text-ink-900:hover{ color: var(--ink); }
+
+/* Table header tint override */
+thead.bg-blue-50{ background-color:#ecfdf5 !important; }
+
+/* Subtle avatar glow */
+.avatar-glow{ position:relative; display:inline-block; }
+.avatar-glow::before{
+  content:""; position:absolute; inset:-6px; border-radius:10px;
+  background:radial-gradient(closest-side, rgba(11,122,59,0.12), rgba(11,122,59,0) 70%);
+  filter:blur(12px); z-index:0; pointer-events:none;
+}
+.avatar-glow > img{ position:relative; z-index:1; border-radius:0; display:block; }
+
+/* (brand tweaks, green rail, hover override, header tint were inline before; reverted) */

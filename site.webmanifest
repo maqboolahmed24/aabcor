@@ -1,0 +1,16 @@
+{
+  "name": "aabcor.com",
+  "short_name": "aabcor",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#1f4ed8",
+  "icons": [
+    {
+      "src": "attachment/d.svg?v=green1",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
