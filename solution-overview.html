@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI‑Driven NRW Leak & Theft Detection – Solution Overview | aabcor.com</title>
+  <meta name="description" content="A professional overview of the AI‑Driven NRW Leak & Theft Detection pipeline: multi‑modal fusion, HydroGNN, WATER‑CLIP, calibration, and audit‑ready evidence." />
+  <link rel="icon" href="attachment/d.svg?v=green2" />
+  <link rel="apple-touch-icon" href="og.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="dist/styles.css" />
+  <style>
+    .shell{ min-height:100vh; display:flex; flex-direction:column; }
+    .container{ margin-inline:auto; max-width:1100px; padding: 0 1rem; }
+    .topbar{ position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(6px); background:rgba(255,255,255,.78); border-bottom:1px solid #e5e7eb; }
+    .brand-name{ font: 800 20px/1 Inter, ui-sans-serif, system-ui; letter-spacing:.01em; }
+    .brand-com{ color:#1E8E5A; }
+    .back{ font:600 14px/1.2 Inter, ui-sans-serif, system-ui; color:#10213b; border:1px solid #e5e7eb; padding:.5rem .75rem; border-radius:10px; background:#fff }
+    .back:hover{ background:#f8fafc; border-color:#d7dee9 }
+    .h1{ font-weight:700; letter-spacing:-.01em }
+    .lead{ color:#374151 }
+    .muted{ color:#6b7280 }
+    .prose h2{ font-weight:700; margin-top:2rem }
+    .prose h3{ font-weight:600; margin-top:1.25rem }
+    .prose p{ color:#10213b; line-height:1.7; margin-top:.75rem }
+    .pill{ display:inline-block; padding:.25rem .5rem; border:1px solid #e5e7eb; border-radius:999px; font:600 12px/1 Inter, ui-sans-serif, system-ui; color:#065f46; background:#ecfdf5 }
+    .card{ border:1px solid #e5e7eb; border-radius:12px; background:#fff; padding:1.25rem }
+    :root{ --line:#e5e7eb; --brand:#1E8E5A; }
+    .layout{ display:grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    .toc-aside{ display:none; position:sticky; top:84px; align-self:start; }
+    .toc-aside .toc{ list-style:none; margin:.5rem 0 0; padding-left:0; }
+    .toc-aside .toc a{ display:block; padding:.35rem .5rem; color:#374151; border-left:2px solid transparent; text-decoration:none; border-radius:6px; }
+    .toc-aside .toc a[aria-current="true"]{ color:var(--brand); border-left-color: var(--brand); background:#ecfdf5; }
+    .nav-mobile.card{ border:1px solid var(--line); border-radius:12px; background:#fff }
+    .cta-bar{ display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap }
+    .btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.6rem 1rem; border-radius:10px; font:600 14px/1.2 Inter, ui-sans-serif, system-ui; border:1px solid var(--line); background:#fff; color:#10213b; text-decoration:none; box-shadow:0 1px 2px rgba(16,33,59,.06) }
+    .btn:hover{ background:#f8fafc; border-color:#d7dee9 }
+    .btn-primary{ background:var(--brand); color:#fff; border-color:var(--brand) }
+    .btn-primary:hover{ background:#187a4d }
+    article h2, article h3{ position:relative; scroll-margin-top:90px }
+    .anchor{ opacity:0; margin-left:.4rem; text-decoration:none; color:#6b7280; font-weight:600 }
+    article h2:hover .anchor, article h3:hover .anchor{ opacity:1 }
+    .back-top{ position:fixed; right:20px; bottom:20px; width:40px; height:40px; border-radius:999px; background:var(--brand); color:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(16,33,59,.18); text-decoration:none; opacity:0; transform:translateY(6px); transition:opacity .15s ease, transform .15s ease; pointer-events:none }
+    .back-top.show{ opacity:1; transform:translateY(0); pointer-events:auto }
+    .back-top:focus-visible{ outline:2px solid #1f4ed8; outline-offset:3px }
+    @media (min-width:1024px){ .layout{ grid-template-columns:260px 1fr } .toc-aside{ display:block } .nav-mobile{ display:none } }
+    @media print { .topbar, .toc-aside, .nav-mobile, .back-top{ display:none !important } .container{ max-width:none; padding:0 .5in } .card{ border:0 } a{ color:#000; text-decoration:none } }
+  </style>
+</head>
+<body class="antialiased">
+  <div class="shell">
+    <header class="topbar">
+      <div class="container flex h-14 items-center justify-between">
+        <div class="flex items-center gap-2">
+          <img src="attachment/d.svg?v=green2" alt="aabcor.com logo" class="h-7 w-7 rounded-md" />
+          <span class="brand-name">aabcor.<span class="brand-com">com</span></span>
+        </div>
+        <nav class="flex items-center gap-2">
+          <a href="index.html" class="back" aria-label="Back to home">← Back to Home</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container pt-8 pb-16">
+      <header>
+        <p class="pill">Solution Overview</p>
+        <h1 class="h1 text-3xl sm:text-4xl tracking-tight mt-2">AI‑Driven NRW Leak & Theft Detection</h1>
+        <p class="lead text-[17px] mt-3">Executive overview of the solution – key innovations, operating workflow, deployment options, and validation pathways for measurable NRW reduction.</p>
+      </header>
+
+      <nav class="nav-mobile mt-6 card">
+        <p class="muted">Contents</p>
+        <ul class="toc">
+          <li><a href="#summary">Solution Summary</a></li>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#innovations">Key Innovations</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#competitive">Competitive Landscape</a></li>
+          <li><a href="#benchmarks">Benchmarks</a></li>
+          <li><a href="#deployment-security">Deployment &amp; Security</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#pilot-roi">Pilot & ROI</a></li>
+          <li><a href="#references">References</a></li>
+        </ul>
+      </nav>
+
+      <div class="layout mt-6">
+        <aside class="toc-aside">
+          <p class="muted">Contents</p>
+          <ul class="toc">
+            <li><a href="#summary">Solution Summary</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#innovations">Key Innovations</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#competitive">Competitive Landscape</a></li>
+            <li><a href="#benchmarks">Benchmarks</a></li>
+            <li><a href="#deployment-security">Deployment &amp; Security</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#pilot-roi">Pilot & ROI</a></li>
+            <li><a href="#references">References</a></li>
+          </ul>
+        </aside>
+        <article class="prose">
+          <section class="card">
+            <h2 id="summary" class="text-xl">Solution Summary</h2>
+            <p>Non‑Revenue Water (NRW) – water lost to leaks and theft – often averages 25–30% globally. The platform presented here combines multi‑modal sensing, advanced AI, and calibrated decisioning to detect leaks early, quantify confidence, and package audit‑ready evidence. It is pilot‑ready and designed for real‑world utility operations.</p>
+            <ul class="mt-3 text-[15px]" style="display:grid; gap:.5rem; grid-template-columns: repeat(1, minmax(0,1fr));">
+              <li>Multi‑modal fusion of acoustic and hydraulic telemetry</li>
+              <li>Hydraulic Graph Neural Network (HydroGNN) with topology awareness</li>
+              <li>WATER‑CLIP embeddings align sound and pressure patterns</li>
+              <li>Per‑DMA calibration for high recall at low false‑positive rates</li>
+              <li>Explainability artefacts and WORM evidence bundles</li>
+              <li>OpenAPI, observability endpoints, and enterprise deployment</li>
+            </ul>
+          </section>
+
+          <h2 id="introduction">Introduction</h2>
+          <p>Non‑Revenue Water (NRW) – the portion of supply lost through leaks or theft – remains a critical challenge for utilities, with typical losses around 25–30% of production. The platform described here was developed in the context of Middle Eastern NRW programs and is pilot‑ready. It leverages advanced analytics and machine learning to detect pipeline leaks and unauthorized consumption early, with quantified confidence and clear operator workflows.</p>
+
+          <h2 id="innovations">Key Innovations and Unique Features</h2>
+          <h3>1) Multi‑Modal Sensing and Data Fusion</h3>
+          <p>Unlike single‑source systems, the pipeline natively fuses acoustic sensors with flow/pressure (SCADA) telemetry and contextual data. Real‑world datasets (e.g., Hong Kong acoustics; UK pressure logger data) are augmented under governance to expand coverage. Cross‑validating modalities increases confidence and reduces false alarms, improving localization compared to bolt‑on integrations.</p>
+
+          <h3>2) Advanced AI: CRNN + HydroGNN</h3>
+          <p>An acoustic CRNN classifies spectral signatures from leak sensors. A Hydraulic Graph Neural Network (HydroGNN) models pressure/flow dynamics over the distribution graph (nodes and pipes), using topology and physics to pinpoint anomalies. The system emits calibrated probabilities, uncertainty estimates, and likely leak locations – turning alarms into actionable guidance.</p>
+
+          <h3>3) WATER‑CLIP Cross‑Modal Embeddings</h3>
+          <p>A contrastive learning stage aligns acoustic spectrograms with the corresponding SCADA windows. When modalities agree on a normal state, the system suppresses noise; when they disagree, it elevates suspicion. This self‑validation between modalities is novel in commercial leak detection and materially improves signal quality.</p>
+
+          <h3>4) Synthetic Data & Digital Twin</h3>
+          <p>Because true leak events are rare, a governed simulation environment produces realistic leak scenarios and sensor responses to enrich training. Blending synthetic with authentic field data exposes models to diverse conditions, sensor noise, and network configurations – improving robustness while reducing dependence on long local data collection cycles.</p>
+
+          <h3>5) Calibration, Explainability, and Evidence</h3>
+          <p>Per‑DMA threshold calibration targets utility‑specific recall/FPR trade‑offs. Explainability artefacts (e.g., gradient‑style saliency for acoustics and SHAP‑like attributions) clarify why an alert was raised. For auditability, detections are packaged with WORM manifests and optional signing, enabling traceable, tamper‑evident evidence bundles.</p>
+
+          <h3>6) Operability: APIs, Metrics, and Health</h3>
+          <p>The service ships with OpenAPI endpoints, standard observability (e.g., <code>/metrics</code>, <code>/health</code>), and deployment profiles suitable for enterprise environments. Operator‑ready outputs include calibrated risk scores, locations, summaries, and downloadable artefacts.</p>
+
+          <h2 id="how-it-works">How It Works</h2>
+          <h3>Data Ingest</h3>
+          <p>Acoustic waveforms and SCADA time‑series are ingested and time‑aligned. Contextual signals (e.g., DMA metadata, assets) are attached to each window.</p>
+          <h3>Feature Extraction</h3>
+          <p>Acoustic spectrograms and hydraulic features are computed. WATER‑CLIP learns cross‑modal embeddings that capture normal relationships between sound and pressure/flow.</p>
+          <h3>Modeling</h3>
+          <p>CRNN scores acoustic leak likelihood; HydroGNN evaluates graph‑structured hydraulic anomalies. Outputs include confidence and estimated locations.</p>
+          <h3>Fusion & Calibration</h3>
+          <p>Modality agreement suppresses noise; disagreement elevates risk for review. Per‑DMA calibration sets operating thresholds to meet utility targets.</p>
+          <h3>Evidence & Operator Workflow</h3>
+          <p>Each alert includes rationale, artefacts, and a WORM evidence package. Operators receive clear next actions and can export bundles for audit or field crews.</p>
+
+          <h2 id="competitive">Competitive Landscape</h2>
+          <p>Utilities evaluate offerings spanning control‑room analytics, acoustic hardware, and AI services. The platform’s native multi‑modal fusion and topology‑aware modeling contrast with single‑source approaches or loosely coupled integrations.</p>
+          <ul>
+            <li><strong>Event analytics (control‑room tools):</strong> Strong on SCADA alarms and dashboards; typically single‑modality until paired with acoustic vendors. The platform natively fuses modalities and quantifies agreement/disagreement to reduce false positives.</li>
+            <li><strong>Acoustic hardware vendors:</strong> High‑quality sensors and correlation; analytics often focus on sound alone. The platform includes acoustic CRNNs and adds hydraulics and graph context to localize and prioritize with calibrated risk.</li>
+            <li><strong>AI‑for‑acoustics services:</strong> Helpful on audio, sometimes hardware‑agnostic; usually limited hydraulic/topology context. HydroGNN and per‑DMA calibration convert alerts into actionable, operator‑ready guidance.</li>
+            <li><strong>Partnership models:</strong> Some platforms connect SCADA analytics with third‑party acoustics, noting dual‑source alerts increase confidence. The platform builds agreement/disagreement logic (WATER‑CLIP) into the core.</li>
+          </ul>
+
+          <h3 class="mt-6">Competitive Landscape: Named Examples</h3>
+          <ul>
+            <li><strong><a href="https://www.takadu.com/news-and-updates/gutermann-and-takadu-combine-data-driven-technologies-for-heightened-water-efficiency/" target="_blank" rel="noopener">TaKaDu + Gutermann</a>:</strong> Event analytics integrated with acoustic loggers to boost confidence and narrow search. The platform embeds multi‑modal fusion natively (acoustics + hydraulics + topology) with agreement/disagreement logic.</li>
+            <li><strong>FIDO AI:</strong> AI‑assisted acoustic analysis for leak signatures. The platform extends beyond audio with HydroGNN, DMA calibration, and evidence packaging to prioritize field actions.</li>
+            <li><strong>Syrinix:</strong> High‑rate pressure transient monitoring for bursts and asset risk. The platform adds cross‑modal correlation and per‑DMA thresholds to separate persistent leaks from transient events.</li>
+            <li><strong>Asterra (Utilis):</strong> Satellite SAR to screen large areas for probable leaks. Satellite is treated as complementary targeting, while operational detection and evidence come from fused acoustics + hydraulics.</li>
+          </ul>
+
+          <h2 id="benchmarks">Benchmarks</h2>
+          <p>Benchmarks are evaluated on curated datasets and validated with utility pilots. Field performance depends on telemetry quality, sensor placement, and per‑DMA calibration.</p>
+          <h3>KPIs Tracked in Pilots</h3>
+          <ul>
+            <li><strong>Detection quality:</strong> Precision and recall at an operator‑targeted false‑positive rate (FPR); time‑to‑detection across signal‑to‑noise levels.</li>
+            <li><strong>Localization:</strong> Median network distance to confirmed leak, DMA‑level hit rate, and calibration error.</li>
+            <li><strong>Operational impact:</strong> Reduction in unnecessary truck‑rolls; triage time saved per incident; evidence‑supported first‑time fix rate.</li>
+            <li><strong>Robustness:</strong> Stability across sensor types, sampling rates, and seasonal demand shifts.</li>
+          </ul>
+          <p class="muted">Benchmark figures are available to qualified partners.</p>
+
+          <h2 id="deployment-security">Deployment &amp; Security</h2>
+          <ul>
+            <li><strong>Deployment modes:</strong> Single‑tenant containers in VPC/VNet; on‑prem options for sensitive networks.</li>
+            <li><strong>Data governance:</strong> No raw customer data committed; governed synthetic augmentation; configurable retention.</li>
+            <li><strong>Security controls:</strong> TLS in transit; encryption at rest; KMS‑managed keys; role‑based access.</li>
+            <li><strong>Network isolation:</strong> Private subnets, egress controls, and allow‑listed endpoints for telemetry ingestion.</li>
+            <li><strong>Observability:</strong> <code>/metrics</code>, <code>/health</code>, and structured audit logs; WORM evidence bundles with optional signing.</li>
+            <li><strong>Compliance posture:</strong> Alignment with security baselines and EU AI‑Act readiness roadmap.</li>
+          </ul>
+
+          <h2 id="roadmap">Roadmap</h2>
+          <ul>
+            <li>Active learning and operator feedback loops for threshold tuning</li>
+            <li>Enhanced conformal prediction for per‑DMA risk guarantees</li>
+            <li>Broader sensor support and on‑device pre‑filters for low‑power nodes</li>
+            <li>Additional modalities (e.g., satellite or aerial cues) for sparse areas</li>
+            <li>Deeper evidence bundling with cryptographic transparency logs</li>
+          </ul>
+
+          <h2 id="pilot-roi">Pilot and ROI</h2>
+          <p>Pilots are structured to validate detection precision/recall, time‑to‑detection, and operational cost savings. Typical milestones span data onboarding, calibration, field validation, and scaled rollout. ROI derives from reduced water loss, avoided production costs, and lower truck‑rolls through targeted interventions.</p>
+
+          <h2 id="references">References</h2>
+          <ul>
+            <li><a href="https://nocamels.com/2023/12/israeli-ai-platform-spots-leaks-saves-water-worldwide/" target="_blank" rel="noopener">NoCamels: Israeli AI platform spots leaks</a></li>
+            <li><a href="https://sajdi.com/smart-leak-detection-water-waste-aziz-sajdi/" target="_blank" rel="noopener">Sajdi: Smart Leak Detection</a></li>
+            <li><a href="https://technicalreviewmiddleeast.com/water-a-environment/bentley-interview-ai-water-management" target="_blank" rel="noopener">Technical Review ME: AI & Water Management</a></li>
+            <li><a href="https://wiplat.com/blog/saudi-arabia-buraydah-pilot-demonstration-of-smart-water-leak-detection-project-in-buraydah-saudi-arabia/" target="_blank" rel="noopener">Wiplat: Saudi Arabia Buraydah pilot</a></li>
+            <li><a href="https://www.middleeastwatertech.com/p/middle-east-water-tech-brief-april" target="_blank" rel="noopener">Middle East Water Tech Brief</a></li>
+            <li><a href="https://www.takadu.com/news-and-updates/gutermann-and-takadu-combine-data-driven-technologies-for-heightened-water-efficiency/" target="_blank" rel="noopener">TaKaDu + Gutermann partnership</a></li>
+            <li><a href="https://www.xylem.com/en-ai/brand/xylem-vue/platform/" target="_blank" rel="noopener">Xylem Vue Platform</a></li>
+            <li><a href="https://www.xylem.com/en-ai/solutions/clean-water/network-assessment-management-and-leak-detection/" target="_blank" rel="noopener">Xylem leak detection solutions</a></li>
+            <li><a href="https://www.xylem.com/en-us/making-waves/water-utilities-news/5-ways-artificial-intelligence/" target="_blank" rel="noopener">Xylem on AI in utilities</a></li>
+          </ul>
+
+          <div class="cta-bar card" style="margin-top:2rem">
+            <p class="text-[15px]">Ready to evaluate the solution?</p>
+            <a href="index.html#contact" class="btn btn-primary">Request a Pilot</a>
+          </div>
+        </article>
+      </div>
+
+      <footer class="mt-10 muted text-sm">© aabcor.com</footer>
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      try {
+        var tocLinks = Array.from(document.querySelectorAll('.toc a[href^="#"]'));
+        var sections = tocLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+        if (sections.length && 'IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if (!e.isIntersecting) return;
+              var id = '#' + e.target.id;
+              tocLinks.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href')===id ? 'true' : 'false'); });
+            });
+          }, { rootMargin: '-30% 0px -60% 0px', threshold: [0,.25,.5,.75,1] });
+          sections.forEach(function(s){ io.observe(s); });
+        }
+        // Heading anchors
+        Array.from(document.querySelectorAll('article h2[id], article h3[id]')).forEach(function(h){
+          var a = document.createElement('a');
+          a.href = '#' + h.id;
+          a.className = 'anchor';
+          a.setAttribute('aria-label','Link to this section');
+          a.textContent = '#';
+          h.appendChild(a);
+        });
+        // Back to top button
+        var bt = document.createElement('a');
+        bt.href = '#'; bt.className = 'back-top'; bt.setAttribute('aria-label','Back to top'); bt.textContent = '↑';
+        document.body.appendChild(bt);
+        var toggle = function(){ if (window.scrollY > 400) bt.classList.add('show'); else bt.classList.remove('show'); };
+        window.addEventListener('scroll', toggle, { passive: true });
+        toggle();
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
+
