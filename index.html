@@ -131,6 +131,27 @@
     .cta-secondary{ background:#fff; color:#10213b; border:1px solid #e5e7eb }
     .cta-secondary:hover{ background:#f8fafc; border-color:#d7dee9; transform:translateY(-1px) }
     .cta-secondary:focus-visible{ outline:2px solid #1f4ed8; outline-offset:2px }
+
+    /* Evidence bundle presentation */
+    .evidence-metric-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px }
+    .evidence-metric{ border:1px solid var(--line); border-radius:16px; padding:16px 18px; background:rgba(30,142,90,.05); box-shadow:inset 0 1px 0 rgba(255,255,255,.35) }
+    .evidence-metric-title{ font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#0f5132 }
+    .evidence-metric-value{ font-size:26px; font-weight:700; letter-spacing:-.01em; color:#0f172a }
+    .evidence-metric-sub{ font-size:13px; color:#475569; line-height:1.4 }
+    .evidence-timeline{ list-style:none; margin:0; padding:0 }
+    .evidence-timeline li{ position:relative; padding-left:28px; margin-bottom:18px; color:#1f2937 }
+    .evidence-timeline li:last-child{ margin-bottom:0 }
+    .evidence-timeline li::before{ content:""; position:absolute; left:9px; top:6px; width:12px; height:12px; border-radius:999px; border:3px solid rgba(30,142,90,.45); background:#fff; box-shadow:0 0 0 4px rgba(30,142,90,.08) }
+    .evidence-timeline li::after{ content:""; position:absolute; left:14px; top:22px; bottom:-18px; width:2px; background:rgba(15,23,42,.08) }
+    .evidence-timeline li:last-child::after{ display:none }
+    .status-pill{ display:inline-flex; align-items:center; gap:.35rem; padding:.2rem .6rem; border-radius:999px; font:600 11px/1 Inter,ui-sans-serif,system-ui; letter-spacing:.08em; text-transform:uppercase }
+    .status-pill.status-pass{ background:rgba(47,160,109,.18); color:#065f46 }
+    .status-pill.status-warn{ background:rgba(245,158,11,.18); color:#92400e }
+    .status-pill.status-fail{ background:rgba(248,113,113,.22); color:#b91c1c }
+    .evidence-figure{ border:1px solid var(--line); border-radius:18px; padding:12px; background:#fff; box-shadow:0 16px 38px rgba(15,23,42,.16) }
+    .evidence-figure img{ display:block; width:100%; border-radius:12px }
+    .evidence-figure figcaption{ margin-top:12px; font-size:12px; line-height:1.6; color:#64748b }
+    .code-block{ background:#0f172a; color:#e2e8f0; border-radius:16px; padding:16px 18px; font:500 13px/1.55 \"JetBrains Mono\",\"SFMono-Regular\",Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace; overflow:auto; max-height:220px; border:1px solid rgba(148,163,184,.35); box-shadow:0 18px 40px rgba(15,23,42,.35) }
    </style>
   
 </head>
@@ -149,6 +170,7 @@
       <a href="#capabilities" class="nav-link text-sm text-ink-700 hover:text-ink-900">Capabilities</a>
       <a href="#how" class="nav-link text-sm text-ink-700 hover:text-ink-900">How It Works</a>
       <a href="#apis" class="nav-link text-sm text-ink-700 hover:text-ink-900">APIs</a>
+      <a href="#evidence" class="nav-link text-sm text-ink-700 hover:text-ink-900">Evidence</a>
       <a href="#roi" class="nav-link text-sm text-ink-700 hover:text-ink-900">ROI</a>
       <a href="#investors" class="nav-link text-sm text-ink-700 hover:text-ink-900">Investors</a>
       <a href="#contact" class="nav-link text-sm text-ink-700 hover:text-ink-900">Contact</a>
@@ -513,6 +535,130 @@
 
   
 
+    </div>
+  </div>
+</section>
+
+<section id="evidence" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="container">
+    
+  <div class="mx-auto max-w-3xl">
+    <p class="mb-2 kicker">Audit trail</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Evidence bundle: Oct 2025 fusion run</h2>
+    <p class="mt-3 text-[15px] leading-7 text-ink-700">The latest bundle packages logs, models, API contracts and charts from the 14 Oct 2025 run. Everything here is surfaced directly from the extracted artefacts so decision makers can trace performance without leaving the page.</p>
+  </div>
+
+    <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div class="space-y-6">
+        <div class="card rail p-6 sm:p-8">
+          <h3 class="text-lg font-semibold tracking-tight">Key metrics at 2% false-positive rate</h3>
+          <p class="mt-2 text-[15px] leading-6 text-ink-700">Scores come straight from fusion/metrics.json and fusion/detection_delays.json. Logistic fusion blends hydraulic, logger and acoustic signals; only the acoustic feed carried an overnight delay in this run.</p>
+          <div class="evidence-metric-grid mt-6">
+            <div class="evidence-metric">
+              <p class="evidence-metric-title">Fusion</p>
+              <p class="evidence-metric-value">AUROC 1.00</p>
+              <p class="evidence-metric-sub">AUPRC 1.00 and recall 1.0 at 2% FPR</p>
+              <p class="evidence-metric-sub">Detection delay 0 minutes</p>
+            </div>
+            <div class="evidence-metric">
+              <p class="evidence-metric-title">Hydraulic</p>
+              <p class="evidence-metric-value">AUROC 0.995</p>
+              <p class="evidence-metric-sub">AUPRC 0.9997 and recall 0.96 at 2% FPR</p>
+              <p class="evidence-metric-sub">Detection delay 0 minutes</p>
+            </div>
+            <div class="evidence-metric">
+              <p class="evidence-metric-title">Logger (Wessex)</p>
+              <p class="evidence-metric-value">AUROC 0.985</p>
+              <p class="evidence-metric-sub">AUPRC 0.990 and recall 0.68 at 2% FPR</p>
+              <p class="evidence-metric-sub">Threshold 0.859</p>
+            </div>
+            <div class="evidence-metric">
+              <p class="evidence-metric-title">Acoustic</p>
+              <p class="evidence-metric-value">AUROC 0.754</p>
+              <p class="evidence-metric-sub">AUPRC 0.878 and recall 0.42 at 2% FPR</p>
+              <p class="evidence-metric-sub">Delay 865 minutes (overnight)</p>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="evidence_bundle.zip" class="cta cta-primary" download>Download bundle (832 KB)</a>
+            <a href="evidence_bundle/evidence_summary.html" class="cta cta-secondary" target="_blank" rel="noopener">View HTML summary</a>
+          </div>
+        </div>
+        <div class="card p-6 sm:p-7">
+          <h3 class="text-lg font-semibold tracking-tight">Run timeline</h3>
+          <p class="mt-2 text-[15px] leading-6 text-ink-700">Each checkpoint below links back to the logs inside the evidence bundle so review teams can drill deeper.</p>
+          <ul class="evidence-timeline mt-5">
+            <li>
+              <span class="status-pill status-warn">Setup</span>
+              <p class="mt-2 text-[14px] leading-6 text-ink-700">Homebrew bash upgrade and Python 3.11 environment prepared; Matplotlib cache permissions noted for future runs.</p>
+              <p class="text-[13px] text-ink-500">01_setup.log</p>
+            </li>
+            <li>
+              <span class="status-pill status-pass">Lint</span>
+              <p class="mt-2 text-[14px] leading-6 text-ink-700">Black reported a clean tree with no fixes required.</p>
+              <p class="text-[13px] text-ink-500">02_lint.log</p>
+            </li>
+            <li>
+              <span class="status-pill status-fail">Tests</span>
+              <p class="mt-2 text-[14px] leading-6 text-ink-700">pytest flagged test_custom_weights_change_q (0.0834 vs 0.0983 expected); fusion weights tune-up remains open.</p>
+              <p class="text-[13px] text-ink-500">03_tests.log</p>
+            </li>
+            <li>
+              <span class="status-pill status-pass">Training</span>
+              <p class="mt-2 text-[14px] leading-6 text-ink-700">Logger Yorkshire, logger Wessex and hydraulic models completed training successfully.</p>
+              <p class="text-[13px] text-ink-500">06_train.log</p>
+            </li>
+            <li>
+              <span class="status-pill status-warn">Fusion eval</span>
+              <p class="mt-2 text-[14px] leading-6 text-ink-700">Logistic fusion dropped 10 mismatched rows before scoring and emitted expected CPU info warnings in the sandbox.</p>
+              <p class="text-[13px] text-ink-500">07_fuse_eval.log</p>
+            </li>
+            <li>
+              <span class="status-pill status-pass">API deploy</span>
+              <p class="mt-2 text-[14px] leading-6 text-ink-700">nrw-ai-api-smoke came up after two health retries and held steady on http://127.0.0.1:8000/health.</p>
+              <p class="text-[13px] text-ink-500">09_deploy_api_numba_fix.log</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="space-y-6">
+        <div class="card p-6 sm:p-7">
+          <h3 class="text-lg font-semibold tracking-tight">Charts direct from the artefacts</h3>
+          <p class="mt-2 text-[15px] leading-6 text-ink-700">These high resolution exports live under evidence_bundle/charts/ so what you see here is exactly what auditors download.</p>
+          <div class="mt-5 space-y-4">
+            <figure class="evidence-figure">
+              <img src="evidence_bundle/charts/fusion_metrics_hi.svg" alt="Fusion precision and recall curves for score_fusion" loading="lazy" />
+              <figcaption>AUROC and precision-recall curves for the logistic fusion run (14 Oct 2025).</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+              <img src="evidence_bundle/charts/detection_delays_score_hydraulic_hi.svg" alt="Detection delay comparison for hydraulic and acoustic scores" loading="lazy" />
+              <figcaption>Hydraulic detections landed at zero minutes while the acoustic channel lagged overnight (865 minutes).</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="card p-6 sm:p-7">
+          <h3 class="text-lg font-semibold tracking-tight">API smoke check</h3>
+          <p class="mt-2 text-[15px] leading-6 text-ink-700">Health and /predict responses are streamed directly from api_health.json and api_predict.json so operators can rehearse integrations.</p>
+          <div class="mt-4">
+            <pre class="code-block" aria-label="Sample /predict response">{
+  "detail": {
+    "code": "scada_contract",
+    "message": "ok",
+    "details": {
+      "ok": true,
+      "issues": []
+    },
+    "trace_id": "local-sample"
+  }
+}</pre>
+          </div>
+          <p class="mt-3 text-[13px] leading-6 text-ink-500">Trace local-sample shows the contract guard responding with scada_contract. Use the OpenAPI snapshot for the full schema.</p>
+          <div class="mt-4 flex flex-wrap items-center gap-3">
+            <a href="evidence_bundle/openapi.json" class="cta cta-secondary" target="_blank" rel="noopener">OpenAPI snapshot</a>
+            <span class="status-pill status-pass">Health: ok</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

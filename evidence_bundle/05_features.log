@@ -1,0 +1,469 @@
+--------------------------------------------------------------------
+| NRW Feature Engineering |
+--------------------------------------------------------------------
+-> Using python interpreter: /Users/test/Code/aabcor/projectK/venv/bin/python (v3.11.13)
+--------------------------------------------------------------------
+| Feature Build :: Yorkshire logger tabular features |
+--------------------------------------------------------------------
+-> [logger_yorkshire] Starting feature build (Yorkshire logger tabular features)
+<frozen runpy>:128: RuntimeWarning: 'src.features.build_logger_features' found in sys.modules after import of package 'src.features', but prior to execution of 'src.features.build_logger_features'; this may result in unpredictable behaviour
+INFO __main__: Wrote yorkshire logger features -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/yorkshire/yorkshire_logger_features.parquet (97580 rows, 30 features)
+INFO src.ingest._utils: Wrote metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/yorkshire_logger_features/profile.json
+-> [logger_yorkshire] Feature build completed
+-> [logger_yorkshire] Feature file -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/yorkshire/yorkshire_logger_features.parquet
+-> [logger_yorkshire] Metadata summary: profile rows=97580 cols=33; time_range=2018-02-07T00:00:00→2018-05-02T00:00:00; feature_count=30
+-> [logger_yorkshire] Metadata profile -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/yorkshire_logger_features/profile.json
+--------------------------------------------------------------------
+| Feature Build :: Wessex logger tabular features |
+--------------------------------------------------------------------
+-> [logger_wessex] Starting feature build (Wessex logger tabular features)
+<frozen runpy>:128: RuntimeWarning: 'src.features.build_logger_features' found in sys.modules after import of package 'src.features', but prior to execution of 'src.features.build_logger_features'; this may result in unpredictable behaviour
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:115: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[col] = df[col]
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:116: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_lag_1d"] = series_group.shift(1)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:117: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_mean_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:120: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_std_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:123: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_min_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:126: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_max_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:129: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_rolling_median_{lookback_days}d"] = _rolling_stat(
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:132: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_relative_to_mean_{lookback_days}d"] = base[col] - base[
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:136: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base[f"{col}_diff_{lookback_days}d"] = series_group.diff(lookback_days)
+/Users/test/Code/aabcor/projectK/nrw-ai/src/features/build_logger_features.py:138: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  base["days_since_previous_reading"] = (
+INFO __main__: Wrote wessex logger features -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/wessex/wessex_logger_features.parquet (230066 rows, 327 features)
+INFO src.ingest._utils: Wrote metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/wessex_logger_features/profile.json
+-> [logger_wessex] Feature build completed
+-> [logger_wessex] Feature file -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/wessex/wessex_logger_features.parquet
+-> [logger_wessex] Metadata summary: profile rows=230066 cols=330; time_range=2016-07-25T00:00:00→2019-09-17T00:00:00; feature_count=327
+-> [logger_wessex] Metadata profile -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/wessex_logger_features/profile.json
+--------------------------------------------------------------------
+| Feature Build :: BattLeDIM hydraulic sliding-window features |
+--------------------------------------------------------------------
+-> [hydraulic] Starting feature build (BattLeDIM hydraulic sliding-window features)
+<frozen runpy>:128: RuntimeWarning: 'src.features.build_hydraulic_features' found in sys.modules after import of package 'src.features', but prior to execution of 'src.features.build_hydraulic_features'; this may result in unpredictable behaviour
+INFO __main__: Wrote hydraulic features -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/battledim/battledim_hydraulic_features.parquet (105109 rows, 324 features)
+INFO __main__: Sanitised hydraulic features: replaced 31346 non-finite values; clipped 0 values
+INFO src.ingest._utils: Wrote metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/battledim_hydraulic_features/profile.json
+-> [hydraulic] Feature build completed
+-> [hydraulic] Feature file -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/battledim/battledim_hydraulic_features.parquet
+-> [hydraulic] Metadata summary: profile rows=105109 cols=330; time_range=2019-01-01T00:55:00→2019-12-31T23:55:00; feature_count=324; window_size_rows=12
+-> [hydraulic] Metadata profile -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/battledim_hydraulic_features/profile.json
+--------------------------------------------------------------------
+| Feature Build :: Synthetic acoustic spectrogram features |
+--------------------------------------------------------------------
+-> [synthetic_acoustic] Starting feature build (Synthetic acoustic spectrogram features)
+<frozen runpy>:128: RuntimeWarning: 'src.features.make_melspecs' found in sys.modules after import of package 'src.features', but prior to execution of 'src.features.make_melspecs'; this may result in unpredictable behaviour
+INFO __main__: Wrote Mel-spectrogram manifest -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/synthetic/acoustic/synthetic_melspec_manifest.parquet (4096 items)
+INFO src.ingest._utils: Wrote metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/synthetic/acoustic_melspec/profile.json
+-> [synthetic_acoustic] Feature build completed
+-> [synthetic_acoustic] Feature file -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/synthetic/acoustic/synthetic_melspec_manifest.parquet
+-> [synthetic_acoustic] Metadata summary: profile rows=4096 cols=13; clips=4096
+-> [synthetic_acoustic] Metadata profile -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/synthetic/acoustic_melspec/profile.json
+--------------------------------------------------------------------
+| Feature Build :: Synthetic hydraulic sliding-window features |
+--------------------------------------------------------------------
+-> [synthetic_hydraulic] Starting feature build (Synthetic hydraulic sliding-window features)
+<frozen runpy>:128: RuntimeWarning: 'src.features.build_hydraulic_features' found in sys.modules after import of package 'src.features', but prior to execution of 'src.features.build_hydraulic_features'; this may result in unpredictable behaviour
+INFO __main__: Wrote hydraulic features -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/synthetic/hydraulic/synthetic_hydraulic_features.parquet (31910 rows, 18 features)
+INFO src.ingest._utils: Wrote metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/synthetic/hydraulic_features/profile.json
+-> [synthetic_hydraulic] Feature build completed
+-> [synthetic_hydraulic] Feature file -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/synthetic/hydraulic/synthetic_hydraulic_features.parquet
+-> [synthetic_hydraulic] Metadata summary: profile rows=31910 cols=24; time_range=2024-01-01T00:20:00+00:00→2024-01-08T11:55:00+00:00; feature_count=18; window_size_rows=60
+-> [synthetic_hydraulic] Metadata profile -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/synthetic/hydraulic_features/profile.json
+-> Feature generation complete for: logger_yorkshire logger_wessex hydraulic synthetic_acoustic synthetic_hydraulic

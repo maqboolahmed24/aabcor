@@ -1,0 +1,453 @@
+{
+  "input_path": "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/yorkshire/yorkshire_daily.parquet",
+  "lookback_days": 7,
+  "min_periods": 3,
+  "feature_columns": [
+    "reading",
+    "reading_lag_1d",
+    "reading_rolling_mean_7d",
+    "reading_rolling_std_7d",
+    "reading_rolling_min_7d",
+    "reading_rolling_max_7d",
+    "reading_rolling_median_7d",
+    "reading_relative_to_mean_7d",
+    "reading_diff_7d",
+    "days_since_previous_reading",
+    "weekday_0",
+    "weekday_1",
+    "weekday_2",
+    "weekday_3",
+    "weekday_4",
+    "weekday_5",
+    "weekday_6",
+    "month_1",
+    "month_2",
+    "month_3",
+    "month_4",
+    "month_5",
+    "month_6",
+    "month_7",
+    "month_8",
+    "month_9",
+    "month_10",
+    "month_11",
+    "month_12",
+    "leak_rate_7d"
+  ],
+  "total_rows": 97580,
+  "labelled_rows": 81,
+  "profile": {
+    "rows": 97580,
+    "columns": 33,
+    "missing_ratio": {
+      "logger_id": 0.0,
+      "date": 0.0,
+      "is_leak": 0.9991699118671858,
+      "reading": 0.5892498462799755,
+      "reading_lag_1d": 0.5991186718589875,
+      "reading_rolling_mean_7d": 0.6066202090592334,
+      "reading_rolling_std_7d": 0.6066202090592334,
+      "reading_rolling_min_7d": 0.6066202090592334,
+      "reading_rolling_max_7d": 0.6066202090592334,
+      "reading_rolling_median_7d": 0.6066202090592334,
+      "reading_relative_to_mean_7d": 0.610094281615085,
+      "reading_diff_7d": 0.6558516089362574,
+      "days_since_previous_reading": 0.011764705882352941,
+      "weekday_0": 0.0,
+      "weekday_1": 0.0,
+      "weekday_2": 0.0,
+      "weekday_3": 0.0,
+      "weekday_4": 0.0,
+      "weekday_5": 0.0,
+      "weekday_6": 0.0,
+      "month_1": 0.0,
+      "month_2": 0.0,
+      "month_3": 0.0,
+      "month_4": 0.0,
+      "month_5": 0.0,
+      "month_6": 0.0,
+      "month_7": 0.0,
+      "month_8": 0.0,
+      "month_9": 0.0,
+      "month_10": 0.0,
+      "month_11": 0.0,
+      "month_12": 0.0,
+      "leak_rate_7d": 0.0
+    },
+    "numeric_summary": {
+      "logger_id": {
+        "min": 1.0,
+        "max": 1148.0,
+        "mean": 574.5,
+        "median": 574.5
+      },
+      "is_leak": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.7901234567901234,
+        "median": 1.0
+      },
+      "reading": {
+        "min": 0.0,
+        "max": 102.0,
+        "mean": 6.735186247848108,
+        "median": 5.0
+      },
+      "reading_lag_1d": {
+        "min": 0.0,
+        "max": 102.0,
+        "mean": 6.711360499003017,
+        "median": 5.0
+      },
+      "reading_rolling_mean_7d": {
+        "min": 0.0,
+        "max": 102.0,
+        "mean": 6.7440647383842816,
+        "median": 6.0
+      },
+      "reading_rolling_std_7d": {
+        "min": 0.0,
+        "max": 58.88972745734183,
+        "mean": 2.9890196620114824,
+        "median": 2.5071326821120357
+      },
+      "reading_rolling_min_7d": {
+        "min": 0.0,
+        "max": 102.0,
+        "mean": 3.915255561923618,
+        "median": 3.0
+      },
+      "reading_rolling_max_7d": {
+        "min": 0.0,
+        "max": 102.0,
+        "mean": 11.731099880164644,
+        "median": 11.0
+      },
+      "reading_rolling_median_7d": {
+        "min": 0.0,
+        "max": 102.0,
+        "mean": 5.994425050799771,
+        "median": 5.0
+      },
+      "reading_relative_to_mean_7d": {
+        "min": -34.0,
+        "max": 34.285714285714285,
+        "mean": -0.03911089917608172,
+        "median": -0.3999999999999999
+      },
+      "reading_diff_7d": {
+        "min": -102.0,
+        "max": 45.0,
+        "mean": -0.05943660294205229,
+        "median": 0.0
+      },
+      "days_since_previous_reading": {
+        "min": 1.0,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0
+      },
+      "weekday_0": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.1411764705882353,
+        "median": 0.0
+      },
+      "weekday_1": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.1411764705882353,
+        "median": 0.0
+      },
+      "weekday_2": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.15294117647058825,
+        "median": 0.0
+      },
+      "weekday_3": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.1411764705882353,
+        "median": 0.0
+      },
+      "weekday_4": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.1411764705882353,
+        "median": 0.0
+      },
+      "weekday_5": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.1411764705882353,
+        "median": 0.0
+      },
+      "weekday_6": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.1411764705882353,
+        "median": 0.0
+      },
+      "month_1": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0
+      },
+      "month_2": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.25882352941176473,
+        "median": 0.0
+      },
+      "month_3": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.36470588235294116,
+        "median": 0.0
+      },
+      "month_4": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.35294117647058826,
+        "median": 0.0
+      },
+      "month_5": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.023529411764705882,
+        "median": 0.0
+      },
+      "month_6": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0
+      },
+      "month_7": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0
+      },
+      "month_8": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0
+      },
+      "month_9": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0
+      },
+      "month_10": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0
+      },
+      "month_11": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0
+      },
+      "month_12": {
+        "min": 0.0,
+        "max": 0.0,
+        "mean": 0.0,
+        "median": 0.0
+      },
+      "leak_rate_7d": {
+        "min": 0.0,
+        "max": 0.2857142857142857,
+        "mean": 0.0006558721049395368,
+        "median": 0.0
+      }
+    },
+    "time_range": {
+      "start": "2018-02-07T00:00:00",
+      "end": "2018-05-02T00:00:00"
+    },
+    "preview": [
+      {
+        "logger_id": 1,
+        "date": "2018-02-07T00:00:00",
+        "is_leak": null,
+        "reading": NaN,
+        "reading_lag_1d": NaN,
+        "reading_rolling_mean_7d": NaN,
+        "reading_rolling_std_7d": NaN,
+        "reading_rolling_min_7d": NaN,
+        "reading_rolling_max_7d": NaN,
+        "reading_rolling_median_7d": NaN,
+        "reading_relative_to_mean_7d": NaN,
+        "reading_diff_7d": NaN,
+        "days_since_previous_reading": NaN,
+        "weekday_0": 0,
+        "weekday_1": 0,
+        "weekday_2": 1,
+        "weekday_3": 0,
+        "weekday_4": 0,
+        "weekday_5": 0,
+        "weekday_6": 0,
+        "month_1": 0,
+        "month_2": 1,
+        "month_3": 0,
+        "month_4": 0,
+        "month_5": 0,
+        "month_6": 0,
+        "month_7": 0,
+        "month_8": 0,
+        "month_9": 0,
+        "month_10": 0,
+        "month_11": 0,
+        "month_12": 0,
+        "leak_rate_7d": 0.0
+      },
+      {
+        "logger_id": 1,
+        "date": "2018-02-08T00:00:00",
+        "is_leak": null,
+        "reading": NaN,
+        "reading_lag_1d": NaN,
+        "reading_rolling_mean_7d": NaN,
+        "reading_rolling_std_7d": NaN,
+        "reading_rolling_min_7d": NaN,
+        "reading_rolling_max_7d": NaN,
+        "reading_rolling_median_7d": NaN,
+        "reading_relative_to_mean_7d": NaN,
+        "reading_diff_7d": NaN,
+        "days_since_previous_reading": 1.0,
+        "weekday_0": 0,
+        "weekday_1": 0,
+        "weekday_2": 0,
+        "weekday_3": 1,
+        "weekday_4": 0,
+        "weekday_5": 0,
+        "weekday_6": 0,
+        "month_1": 0,
+        "month_2": 1,
+        "month_3": 0,
+        "month_4": 0,
+        "month_5": 0,
+        "month_6": 0,
+        "month_7": 0,
+        "month_8": 0,
+        "month_9": 0,
+        "month_10": 0,
+        "month_11": 0,
+        "month_12": 0,
+        "leak_rate_7d": 0.0
+      },
+      {
+        "logger_id": 1,
+        "date": "2018-02-09T00:00:00",
+        "is_leak": null,
+        "reading": NaN,
+        "reading_lag_1d": NaN,
+        "reading_rolling_mean_7d": NaN,
+        "reading_rolling_std_7d": NaN,
+        "reading_rolling_min_7d": NaN,
+        "reading_rolling_max_7d": NaN,
+        "reading_rolling_median_7d": NaN,
+        "reading_relative_to_mean_7d": NaN,
+        "reading_diff_7d": NaN,
+        "days_since_previous_reading": 1.0,
+        "weekday_0": 0,
+        "weekday_1": 0,
+        "weekday_2": 0,
+        "weekday_3": 0,
+        "weekday_4": 1,
+        "weekday_5": 0,
+        "weekday_6": 0,
+        "month_1": 0,
+        "month_2": 1,
+        "month_3": 0,
+        "month_4": 0,
+        "month_5": 0,
+        "month_6": 0,
+        "month_7": 0,
+        "month_8": 0,
+        "month_9": 0,
+        "month_10": 0,
+        "month_11": 0,
+        "month_12": 0,
+        "leak_rate_7d": 0.0
+      },
+      {
+        "logger_id": 1,
+        "date": "2018-02-10T00:00:00",
+        "is_leak": null,
+        "reading": NaN,
+        "reading_lag_1d": NaN,
+        "reading_rolling_mean_7d": NaN,
+        "reading_rolling_std_7d": NaN,
+        "reading_rolling_min_7d": NaN,
+        "reading_rolling_max_7d": NaN,
+        "reading_rolling_median_7d": NaN,
+        "reading_relative_to_mean_7d": NaN,
+        "reading_diff_7d": NaN,
+        "days_since_previous_reading": 1.0,
+        "weekday_0": 0,
+        "weekday_1": 0,
+        "weekday_2": 0,
+        "weekday_3": 0,
+        "weekday_4": 0,
+        "weekday_5": 1,
+        "weekday_6": 0,
+        "month_1": 0,
+        "month_2": 1,
+        "month_3": 0,
+        "month_4": 0,
+        "month_5": 0,
+        "month_6": 0,
+        "month_7": 0,
+        "month_8": 0,
+        "month_9": 0,
+        "month_10": 0,
+        "month_11": 0,
+        "month_12": 0,
+        "leak_rate_7d": 0.0
+      },
+      {
+        "logger_id": 1,
+        "date": "2018-02-11T00:00:00",
+        "is_leak": null,
+        "reading": NaN,
+        "reading_lag_1d": NaN,
+        "reading_rolling_mean_7d": NaN,
+        "reading_rolling_std_7d": NaN,
+        "reading_rolling_min_7d": NaN,
+        "reading_rolling_max_7d": NaN,
+        "reading_rolling_median_7d": NaN,
+        "reading_relative_to_mean_7d": NaN,
+        "reading_diff_7d": NaN,
+        "days_since_previous_reading": 1.0,
+        "weekday_0": 0,
+        "weekday_1": 0,
+        "weekday_2": 0,
+        "weekday_3": 0,
+        "weekday_4": 0,
+        "weekday_5": 0,
+        "weekday_6": 1,
+        "month_1": 0,
+        "month_2": 1,
+        "month_3": 0,
+        "month_4": 0,
+        "month_5": 0,
+        "month_6": 0,
+        "month_7": 0,
+        "month_8": 0,
+        "month_9": 0,
+        "month_10": 0,
+        "month_11": 0,
+        "month_12": 0,
+        "leak_rate_7d": 0.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+----------------------------------------------------------------------
+| NRW Model Training |
+----------------------------------------------------------------------
+-> Using python interpreter: /Users/test/Code/aabcor/projectK/venv/bin/python (v3.11.13)
+-> Synthetic augmentation enabled (target ratio 0.2)
+----------------------------------------------------------------------
+| Model Training :: Yorkshire logger XGBoost [logger:yorkshire] |
+----------------------------------------------------------------------
+-> [logger:yorkshire] Starting training (Yorkshire logger XGBoost)
+-> [logger:yorkshire] Attempt 1/3
+/Users/test/Code/aabcor/projectK/venv/lib/python3.11/site-packages/xgboost/sklearn.py:889: UserWarning: `early_stopping_rounds` in `fit` method is deprecated for better compatibility with scikit-learn, use `early_stopping_rounds` in constructor or`set_params` instead.
+  warnings.warn(
+INFO __main__: Trained logger XGB (yorkshire) -> /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/logger_xgb/yorkshire/model.json | AUROC=1.000 AUPRC=1.000 Recall@FPR0.02=1.000
+-> [logger:yorkshire] Training completed
+-> [logger:yorkshire] Model artifacts -> /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/logger_xgb/yorkshire
+-> [logger:yorkshire] Metrics summary: AUROC=1.000 AUPRC=1.000 Recall@FPR0.02=1.000
+----------------------------------------------------------------------
+| Model Training :: Wessex logger XGBoost [logger:wessex] |
+----------------------------------------------------------------------
+-> [logger:wessex] Starting training (Wessex logger XGBoost)
+-> [logger:wessex] Attempt 1/3
+WARNING __main__: Dropping 27 feature(s) with no observed values for dataset 'wessex': date_laid, date_laid_lag_1d, date_laid_rolling_mean_7d, date_laid_rolling_std_7d, date_laid_rolling_min_7d, date_laid_rolling_max_7d, date_laid_rolling_median_7d, date_laid_relative_to_mean_7d, date_laid_diff_7d, stream_distance_m, stream_distance_m_lag_1d, stream_distance_m_rolling_mean_7d, stream_distance_m_rolling_std_7d, stream_distance_m_rolling_min_7d, stream_distance_m_rolling_max_7d, stream_distance_m_rolling_median_7d, stream_distance_m_relative_to_mean_7d, stream_distance_m_diff_7d, distance_to_large_water_user_metres, distance_to_large_water_user_metres_lag_1d, distance_to_large_water_user_metres_rolling_mean_7d, distance_to_large_water_user_metres_rolling_std_7d, distance_to_large_water_user_metres_rolling_min_7d, distance_to_large_water_user_metres_rolling_max_7d, distance_to_large_water_user_metres_rolling_median_7d, distance_to_large_water_user_metres_relative_to_mean_7d, distance_to_large_water_user_metres_diff_7d
+WARNING __main__: Dropping 1 feature(s) with no observed values in the training split: leakage_saving_m3_hr_diff_7d
+/Users/test/Code/aabcor/projectK/venv/lib/python3.11/site-packages/xgboost/sklearn.py:889: UserWarning: `early_stopping_rounds` in `fit` method is deprecated for better compatibility with scikit-learn, use `early_stopping_rounds` in constructor or`set_params` instead.
+  warnings.warn(
+INFO __main__: Trained logger XGB (wessex) -> /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/logger_xgb/wessex/model.json | AUROC=0.985 AUPRC=0.990 Recall@FPR0.02=0.679
+-> [logger:wessex] Training completed
+-> [logger:wessex] Model artifacts -> /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/logger_xgb/wessex
+-> [logger:wessex] Metrics summary: AUROC=0.985 AUPRC=0.990 Recall@FPR0.02=0.679
+----------------------------------------------------------------------
+| Model Training :: BattLeDIM hydraulic XGBoost [hydraulic] |
+----------------------------------------------------------------------
+-> [hydraulic] Starting training (BattLeDIM hydraulic XGBoost)
+-> [hydraulic] Attempt 1/3
+INFO __main__: Training mix -> real=16000 synthetic=4000 (requested ratio 0.20, actual 0.20)
+/Users/test/Code/aabcor/projectK/venv/lib/python3.11/site-packages/xgboost/sklearn.py:889: UserWarning: `early_stopping_rounds` in `fit` method is deprecated for better compatibility with scikit-learn, use `early_stopping_rounds` in constructor or`set_params` instead.
+  warnings.warn(
+INFO __main__: Trained hydraulic XGB -> /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/hydraulic_xgb/model.json | AUROC=0.995 AUPRC=1.000 Recall@FPR0.02=0.957
+-> [hydraulic] Training completed
+-> [hydraulic] Model artifacts -> /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/hydraulic_xgb
+-> [hydraulic] Metrics summary: AUROC=0.995 AUPRC=1.000 Recall@FPR0.02=0.957
+/Users/test/Code/aabcor/projectK/nrw-ai/models/_runs/20251011T192807Z_training.json
+-> Training summary -> /Users/test/Code/aabcor/projectK/nrw-ai/models/_runs/20251011T192807Z_training.json
+-> All requested training tasks completed successfully

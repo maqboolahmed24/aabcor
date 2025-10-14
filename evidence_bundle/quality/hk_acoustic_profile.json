@@ -1,0 +1,72 @@
+{
+  "clip_count": 140,
+  "label_distribution": {
+    "leak": 95,
+    "no_leak": 45
+  },
+  "duration_stats": {
+    "min": 10.0,
+    "max": 20.0,
+    "mean": 11.928571428571429
+  },
+  "profile": {
+    "rows": 140,
+    "columns": 5,
+    "missing_ratio": {
+      "source_path": 0.0,
+      "audio_path": 0.0,
+      "sample_rate": 0.0,
+      "duration_seconds": 0.0,
+      "label": 0.0
+    },
+    "numeric_summary": {
+      "sample_rate": {
+        "min": 16000.0,
+        "max": 16000.0,
+        "mean": 16000.0,
+        "median": 16000.0
+      },
+      "duration_seconds": {
+        "min": 10.0,
+        "max": 20.0,
+        "mean": 11.928571428571429,
+        "median": 10.0
+      }
+    },
+    "top_values": {
+      "source_path": {
+        "/Users/test/Code/aabcor/projectK/nrw-ai/data/raw/hk_acoustic/Hydrophones/Leak/1.1.01.0330.wav": 1,
+        "/Users/test/Code/aabcor/projectK/nrw-ai/data/raw/hk_acoustic/Noise Loggers/Leak-NonMetal/011_05576-20171123.wav": 1,
+        "/Users/test/Code/aabcor/projectK/nrw-ai/data/raw/hk_acoustic/Noise Loggers/Leak-Metal/019_05500-20180809.wav": 1,
+        "/Users/test/Code/aabcor/projectK/nrw-ai/data/raw/hk_acoustic/Noise Loggers/Leak-Metal/020_16178-20180808.wav": 1,
+        "/Users/test/Code/aabcor/projectK/nrw-ai/data/raw/hk_acoustic/Noise Loggers/Leak-Metal/021_16196-20180813.wav": 1
+      },
+      "audio_path": {
+        "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/hk_acoustic/audio/Hydrophones/Leak/1.1.01.0330.wav": 1,
+        "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/hk_acoustic/audio/Noise Loggers/Leak-NonMetal/011_05576-20171123.wav": 1,
+        "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/hk_acoustic/audio/Noise Loggers/Leak-Metal/019_05500-20180809.wav": 1,
+        "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/hk_acoustic/audio/Noise Loggers/Leak-Metal/020_16178-20180808.wav": 1,
+        "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/hk_acoustic/audio/Noise Loggers/Leak-Metal/021_16196-20180813.wav": 1
+      },
+      "label": {
+        "leak": 95,
+        "no_leak": 45
+      }
+    }
+  },
+  "quality_report": {
+    "dataset": "hk_acoustic",
+    "rows": 140,
+    "primary_key": [
+      "audio_path"
+    ],
+    "null_counts": {
+      "audio_path": 0,
+      "sample_rate": 0,
+      "duration_seconds": 0,
+      "label": 0
+    },
+    "future_records": 0,
+    "status": "pass"
+  }
+}

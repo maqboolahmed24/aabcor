@@ -1,0 +1,85 @@
+{
+  "generated_at": "2025-09-27T12:26:31.116044+00:00",
+  "tasks": [
+    {
+      "task": "acoustic",
+      "title": "HK acoustic CNN",
+      "status": 0,
+      "start_time": 1758975900,
+      "end_time": 1758975958,
+      "duration_seconds": 58,
+      "metrics_path": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/acoustic_cnn/metrics.json",
+      "output_dir": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/acoustic_cnn",
+      "metrics": {
+        "auroc": 0.7543859649122807,
+        "auprc": 0.8776726353189679,
+        "recall_at_fpr": 0.42105263157894735,
+        "fpr_target": 0.1,
+        "threshold": 0.5609990358352661
+      }
+    },
+    {
+      "task": "logger:yorkshire",
+      "title": "Yorkshire logger XGBoost",
+      "status": 0,
+      "start_time": 1758975958,
+      "end_time": 1758975962,
+      "duration_seconds": 4,
+      "metrics_path": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/logger_xgb/yorkshire/metrics.json",
+      "output_dir": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/logger_xgb/yorkshire",
+      "metrics": {
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "recall_at_fpr": 1.0,
+        "fpr_target": 0.1,
+        "threshold": 0.7764205932617188
+      }
+    },
+    {
+      "task": "logger:wessex",
+      "title": "Wessex logger XGBoost",
+      "status": 0,
+      "start_time": 1758975962,
+      "end_time": 1758975966,
+      "duration_seconds": 4,
+      "metrics_path": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/logger_xgb/wessex/metrics.json",
+      "output_dir": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/logger_xgb/wessex",
+      "metrics": {
+        "auroc": 0.9839477556673367,
+        "auprc": 0.9892895302252309,
+        "recall_at_fpr": 0.9933444259567388,
+        "fpr_target": 0.1,
+        "threshold": 0.572904646396637
+      }
+    },
+    {
+      "task": "hydraulic",
+      "title": "BattLeDIM hydraulic XGBoost",
+      "status": 0,
+      "start_time": 1758975966,
+      "end_time": 1758975991,
+      "duration_seconds": 25,
+      "metrics_path": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/hydraulic_xgb/metrics.json",
+      "output_dir": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/hydraulic_xgb",
+      "metrics": {
+        "auroc": 0.9990988490361176,
+        "auprc": 0.9999534943890276,
+        "recall_at_fpr": 0.9975479157283691,
+        "fpr_target": 0.1,
+        "threshold": 0.06829290837049484
+      }
+    }
+  ],
+  "context": {
+    "samples": null,
+    "xgb_rounds": null,
+    "output_base": "/Users/test/Code/drystate/projectK/nrw-ai/models",
+    "parallel": false,
+    "include_synthetic": true,
+    "synthetic_ratio": 0.2,
+    "retries": 2,
+    "retry_delay": 5,
+    "start_time": 1758975900,
+    "end_time": 1758975991
+  }
+}

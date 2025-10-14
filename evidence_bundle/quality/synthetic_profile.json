@@ -1,0 +1,398 @@
+{
+  "source": "synthetic",
+  "modalities": {
+    "acoustic": {
+      "runs": 16,
+      "samples": 4096,
+      "leak_ratio": 0.454833984375,
+      "manifest": "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/synthetic/acoustic/acoustic_manifest.parquet",
+      "waveforms_dir": "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/synthetic/acoustic/waveforms",
+      "raw_spectrograms_dir": "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/synthetic/acoustic/raw_spectrograms",
+      "raw_links": "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/synthetic/acoustic/jsonl",
+      "profile": {
+        "rows": 4096,
+        "columns": 11,
+        "missing_ratio": {
+          "sample_id": 0.0,
+          "run": 0.0,
+          "index": 0.0,
+          "leak": 0.0,
+          "waveform_path": 0.0,
+          "raw_spectrogram_path": 0.0,
+          "sample_rate": 0.0,
+          "duration_seconds": 0.0,
+          "leak_prior": 0.0,
+          "metadata_path": 0.0,
+          "source": 0.0
+        },
+        "numeric_summary": {
+          "index": {
+            "min": 0.0,
+            "max": 255.0,
+            "mean": 127.5,
+            "median": 127.5
+          },
+          "sample_rate": {
+            "min": 8000.0,
+            "max": 8000.0,
+            "mean": 8000.0,
+            "median": 8000.0
+          },
+          "duration_seconds": {
+            "min": 5.0,
+            "max": 5.0,
+            "mean": 5.0,
+            "median": 5.0
+          },
+          "leak_prior": {
+            "min": 0.3,
+            "max": 0.6,
+            "mean": 0.4499999999999999,
+            "median": 0.44999999999999996
+          }
+        },
+        "top_values": {
+          "sample_id": {
+            "run_000__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-6__00000": 1,
+            "run_000__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-6__00001": 1,
+            "run_010__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-6__00162": 1,
+            "run_010__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-6__00163": 1,
+            "run_010__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-6__00164": 1
+          },
+          "run": {
+            "run_000__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-6": 256,
+            "run_001__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-0": 256,
+            "run_002__leak_prob-0-3__noise_color-white__snr_max-12__snr_min-6": 256,
+            "run_003__leak_prob-0-3__noise_color-white__snr_max-12__snr_min-0": 256,
+            "run_004__leak_prob-0-3__noise_color-pink__snr_max-6__snr_min-6": 256
+          },
+          "waveform_path": {
+            "waveforms/run_000__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-6__00000.npy": 1,
+            "waveforms/run_000__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-6__00001.npy": 1,
+            "waveforms/run_010__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-6__00162.npy": 1,
+            "waveforms/run_010__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-6__00163.npy": 1,
+            "waveforms/run_010__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-6__00164.npy": 1
+          },
+          "raw_spectrogram_path": {
+            "raw_spectrograms/run_000__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-6__00000.npy": 1,
+            "raw_spectrograms/run_000__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-6__00001.npy": 1,
+            "raw_spectrograms/run_010__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-6__00162.npy": 1,
+            "raw_spectrograms/run_010__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-6__00163.npy": 1,
+            "raw_spectrograms/run_010__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-6__00164.npy": 1
+          },
+          "metadata_path": {
+            "run_000__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-6.meta.json": 256,
+            "run_001__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-0.meta.json": 256,
+            "run_002__leak_prob-0-3__noise_color-white__snr_max-12__snr_min-6.meta.json": 256,
+            "run_003__leak_prob-0-3__noise_color-white__snr_max-12__snr_min-0.meta.json": 256,
+            "run_004__leak_prob-0-3__noise_color-pink__snr_max-6__snr_min-6.meta.json": 256
+          },
+          "source": {
+            "synthetic": 4096
+          }
+        }
+      },
+      "quality_report": {
+        "dataset": "synthetic_acoustic",
+        "rows": 4096,
+        "primary_key": [
+          "sample_id"
+        ],
+        "null_counts": {
+          "sample_id": 0,
+          "run": 0,
+          "index": 0,
+          "waveform_path": 0,
+          "raw_spectrogram_path": 0,
+          "source": 0
+        },
+        "future_records": 0,
+        "labels": {
+          "column": "leak",
+          "labelled_rows": 4096,
+          "positives": 1863,
+          "negatives": 2233,
+          "missing": 0
+        },
+        "status": "pass"
+      }
+    },
+    "hydraulic": {
+      "runs": 16,
+      "windows": 2880,
+      "leak_ratio": 0.2,
+      "manifest": "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/synthetic/hydraulic/hydraulic_window_manifest.parquet",
+      "timeseries_path": "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/synthetic/hydraulic/hydraulic_timeseries.parquet",
+      "raw_links": "/Users/test/Code/aabcor/projectK/nrw-ai/data/processed/synthetic/hydraulic/jsonl",
+      "schema_normalization": {
+        "timestamp": "ts -> timestamp",
+        "sensor_columns": []
+      },
+      "profile": {
+        "rows": 2880,
+        "columns": 11,
+        "missing_ratio": {
+          "window_id": 0.0,
+          "run": 0.0,
+          "index": 0.0,
+          "window_start": 0.0,
+          "is_leak": 0.0,
+          "is_theft": 0.0,
+          "sample_count": 0.0,
+          "leak_prior": 0.0,
+          "theft_prior": 0.0,
+          "metadata_path": 0.0,
+          "source": 0.0
+        },
+        "numeric_summary": {
+          "index": {
+            "min": 0.0,
+            "max": 179.0,
+            "mean": 89.5,
+            "median": 89.5
+          },
+          "sample_count": {
+            "min": 4.0,
+            "max": 12.0,
+            "mean": 11.100347222222222,
+            "median": 12.0
+          },
+          "leak_prior": {
+            "min": 0.12,
+            "max": 0.3,
+            "mean": 0.21,
+            "median": 0.21
+          },
+          "theft_prior": {
+            "min": 0.0,
+            "max": 0.1,
+            "mean": 0.05,
+            "median": 0.05
+          }
+        },
+        "top_values": {
+          "window_id": {
+            "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0__00000": 1,
+            "run_010__dropout_prob-0-15__leak_prob-0-12__noise_std-0-08__theft_prob-0-0__00113": 1,
+            "run_010__dropout_prob-0-15__leak_prob-0-12__noise_std-0-08__theft_prob-0-0__00115": 1,
+            "run_010__dropout_prob-0-15__leak_prob-0-12__noise_std-0-08__theft_prob-0-0__00116": 1,
+            "run_010__dropout_prob-0-15__leak_prob-0-12__noise_std-0-08__theft_prob-0-0__00117": 1
+          },
+          "run": {
+            "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0": 180,
+            "run_001__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-1": 180,
+            "run_002__dropout_prob-0-0__leak_prob-0-12__noise_std-0-08__theft_prob-0-0": 180,
+            "run_003__dropout_prob-0-0__leak_prob-0-12__noise_std-0-08__theft_prob-0-1": 180,
+            "run_004__dropout_prob-0-0__leak_prob-0-3__noise_std-0-0__theft_prob-0-0": 180
+          },
+          "window_start": {
+            "2024-01-01T00:00:00Z": 16,
+            "2024-01-05T17:00:00Z": 16,
+            "2024-01-05T19:00:00Z": 16,
+            "2024-01-05T20:00:00Z": 16,
+            "2024-01-05T21:00:00Z": 16
+          },
+          "metadata_path": {
+            "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0.meta.json": 180,
+            "run_001__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-1.meta.json": 180,
+            "run_002__dropout_prob-0-0__leak_prob-0-12__noise_std-0-08__theft_prob-0-0.meta.json": 180,
+            "run_003__dropout_prob-0-0__leak_prob-0-12__noise_std-0-08__theft_prob-0-1.meta.json": 180,
+            "run_004__dropout_prob-0-0__leak_prob-0-3__noise_std-0-0__theft_prob-0-0.meta.json": 180
+          },
+          "source": {
+            "synthetic": 2880
+          }
+        }
+      },
+      "quality_report": {
+        "dataset": "synthetic_hydraulic_windows",
+        "rows": 2880,
+        "primary_key": [
+          "window_id"
+        ],
+        "null_counts": {
+          "window_id": 0,
+          "run": 0,
+          "index": 0,
+          "window_start": 0,
+          "is_leak": 0,
+          "is_theft": 0,
+          "sample_count": 0,
+          "source": 0
+        },
+        "future_records": 0,
+        "time_range": {
+          "start": "2024-01-01T00:00:00",
+          "end": "2024-01-08T11:00:00"
+        },
+        "labels": {
+          "column": "is_leak",
+          "labelled_rows": 2880,
+          "positives": 576,
+          "negatives": 2304,
+          "missing": 0
+        },
+        "status": "pass"
+      },
+      "timeseries_profile": {
+        "rows": 31969,
+        "columns": 10,
+        "missing_ratio": {
+          "timestamp": 0.0,
+          "inlet_flow": 0.0,
+          "press_n1": 0.0,
+          "quality": 0.0,
+          "units": 0.0,
+          "window_id": 0.0,
+          "run": 0.0,
+          "is_leak": 0.0,
+          "is_theft": 0.0,
+          "source": 0.0
+        },
+        "numeric_summary": {
+          "inlet_flow": {
+            "min": 21.733,
+            "max": 31.968,
+            "mean": 23.783613250336263,
+            "median": 23.226
+          },
+          "press_n1": {
+            "min": 1.911,
+            "max": 3.29,
+            "mean": 2.850234320748225,
+            "median": 2.881
+          }
+        },
+        "top_values": {
+          "quality": {
+            "GOOD": 31969
+          },
+          "units": {
+            "{'inlet_flow': 'm3/h', 'press_N1': 'bar'}": 31969
+          },
+          "window_id": {
+            "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0__00000": 12,
+            "run_006__dropout_prob-0-0__leak_prob-0-3__noise_std-0-08__theft_prob-0-0__00008": 12,
+            "run_006__dropout_prob-0-0__leak_prob-0-3__noise_std-0-08__theft_prob-0-0__00018": 12,
+            "run_006__dropout_prob-0-0__leak_prob-0-3__noise_std-0-08__theft_prob-0-0__00017": 12,
+            "run_006__dropout_prob-0-0__leak_prob-0-3__noise_std-0-08__theft_prob-0-0__00016": 12
+          },
+          "run": {
+            "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0": 2160,
+            "run_001__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-1": 2160,
+            "run_002__dropout_prob-0-0__leak_prob-0-12__noise_std-0-08__theft_prob-0-0": 2160,
+            "run_003__dropout_prob-0-0__leak_prob-0-12__noise_std-0-08__theft_prob-0-1": 2160,
+            "run_004__dropout_prob-0-0__leak_prob-0-3__noise_std-0-0__theft_prob-0-0": 2160
+          },
+          "source": {
+            "synthetic": 31969
+          }
+        },
+        "time_range": {
+          "start": "2024-01-01T00:00:00+00:00",
+          "end": "2024-01-08T11:55:00+00:00"
+        },
+        "preview": [
+          {
+            "timestamp": "2024-01-01T00:00:00+00:00",
+            "inlet_flow": 22.0,
+            "press_n1": 3.0,
+            "quality": "GOOD",
+            "units": {
+              "inlet_flow": "m3/h",
+              "press_N1": "bar"
+            },
+            "window_id": "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0__00000",
+            "run": "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0",
+            "is_leak": false,
+            "is_theft": false,
+            "source": "synthetic"
+          },
+          {
+            "timestamp": "2024-01-01T00:05:00+00:00",
+            "inlet_flow": 22.167,
+            "press_n1": 2.967,
+            "quality": "GOOD",
+            "units": {
+              "inlet_flow": "m3/h",
+              "press_N1": "bar"
+            },
+            "window_id": "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0__00000",
+            "run": "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0",
+            "is_leak": false,
+            "is_theft": false,
+            "source": "synthetic"
+          },
+          {
+            "timestamp": "2024-01-01T00:10:00+00:00",
+            "inlet_flow": 22.333,
+            "press_n1": 2.933,
+            "quality": "GOOD",
+            "units": {
+              "inlet_flow": "m3/h",
+              "press_N1": "bar"
+            },
+            "window_id": "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0__00000",
+            "run": "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0",
+            "is_leak": false,
+            "is_theft": false,
+            "source": "synthetic"
+          },
+          {
+            "timestamp": "2024-01-01T00:15:00+00:00",
+            "inlet_flow": 22.5,
+            "press_n1": 2.9,
+            "quality": "GOOD",
+            "units": {
+              "inlet_flow": "m3/h",
+              "press_N1": "bar"
+            },
+            "window_id": "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0__00000",
+            "run": "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0",
+            "is_leak": false,
+            "is_theft": false,
+            "source": "synthetic"
+          },
+          {
+            "timestamp": "2024-01-01T00:20:00+00:00",
+            "inlet_flow": 22.667,
+            "press_n1": 2.867,
+            "quality": "GOOD",
+            "units": {
+              "inlet_flow": "m3/h",
+              "press_N1": "bar"
+            },
+            "window_id": "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0__00000",
+            "run": "run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0",
+            "is_leak": false,
+            "is_theft": false,
+            "source": "synthetic"
+          }
+        ]
+      },
+      "timeseries_quality": {
+        "dataset": "synthetic_hydraulic_timeseries",
+        "rows": 31969,
+        "primary_key": [
+          "window_id",
+          "timestamp"
+        ],
+        "null_counts": {
+          "window_id": 0,
+          "run": 0,
+          "source": 0
+        },
+        "future_records": 0,
+        "time_range": {
+          "start": "2024-01-01T00:00:00",
+          "end": "2024-01-08T11:55:00"
+        },
+        "status": "pass"
+      }
+    }
+  },
+  "notes": [
+    "Hydraulic timestamps renamed from 'ts' to 'timestamp' and columns normalised to snake_case.",
+    "Acoustic waveforms and spectrograms stored as NumPy arrays under processed/synthetic/acoustic/."
+  ]
+}

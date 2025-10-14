@@ -1,0 +1,68 @@
+{
+  "generated_at": "2025-10-11T19:28:07.682190+00:00",
+  "tasks": [
+    {
+      "task": "logger:yorkshire",
+      "title": "Yorkshire logger XGBoost",
+      "status": 0,
+      "start_time": 1760210871,
+      "end_time": 1760210875,
+      "duration_seconds": 4,
+      "metrics_path": "/Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/logger_xgb/yorkshire/metrics.json",
+      "output_dir": "/Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/logger_xgb/yorkshire",
+      "metrics": {
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "recall_at_fpr": 1.0,
+        "fpr_target": 0.02,
+        "threshold": 0.5180721879005432
+      }
+    },
+    {
+      "task": "logger:wessex",
+      "title": "Wessex logger XGBoost",
+      "status": 0,
+      "start_time": 1760210875,
+      "end_time": 1760210880,
+      "duration_seconds": 5,
+      "metrics_path": "/Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/logger_xgb/wessex/metrics.json",
+      "output_dir": "/Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/logger_xgb/wessex",
+      "metrics": {
+        "auroc": 0.9845007838573475,
+        "auprc": 0.989868118277551,
+        "recall_at_fpr": 0.6788685524126455,
+        "fpr_target": 0.02,
+        "threshold": 0.8589534163475037
+      }
+    },
+    {
+      "task": "hydraulic",
+      "title": "BattLeDIM hydraulic XGBoost",
+      "status": 0,
+      "start_time": 1760210880,
+      "end_time": 1760210887,
+      "duration_seconds": 7,
+      "metrics_path": "/Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/hydraulic_xgb/metrics.json",
+      "output_dir": "/Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/hydraulic_xgb",
+      "metrics": {
+        "auroc": 0.9948286122668026,
+        "auprc": 0.9997311201415471,
+        "recall_at_fpr": 0.9568648079957917,
+        "fpr_target": 0.02,
+        "threshold": 0.7762534618377686
+      }
+    }
+  ],
+  "context": {
+    "samples": "20000",
+    "xgb_rounds": "300",
+    "output_base": "/Users/test/Code/aabcor/projectK/nrw-ai/models",
+    "parallel": false,
+    "include_synthetic": true,
+    "synthetic_ratio": 0.2,
+    "retries": 2,
+    "retry_delay": 5,
+    "start_time": 1760210871,
+    "end_time": 1760210887
+  }
+}

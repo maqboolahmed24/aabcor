@@ -1,0 +1,67 @@
+{
+  "generated_at": "2025-09-25T00:21:31.559217+00:00",
+  "tasks": [
+    {
+      "task": "acoustic",
+      "title": "HK acoustic CNN",
+      "status": 0,
+      "start_time": 1758759617,
+      "end_time": 1758759650,
+      "duration_seconds": 33,
+      "metrics_path": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/acoustic_cnn/metrics.json",
+      "output_dir": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/acoustic_cnn",
+      "metrics": {
+        "auroc": 0.7134502923976608,
+        "auprc": 0.8593769021339495,
+        "recall_at_fpr": 0.42105263157894735,
+        "fpr_target": 0.1,
+        "threshold": 0.5338390469551086
+      }
+    },
+    {
+      "task": "logger:yorkshire",
+      "title": "Yorkshire logger XGBoost",
+      "status": 0,
+      "start_time": 1758759650,
+      "end_time": 1758759664,
+      "duration_seconds": 14,
+      "metrics_path": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/logger_xgb/yorkshire/metrics.json",
+      "output_dir": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/logger_xgb/yorkshire",
+      "metrics": null
+    },
+    {
+      "task": "logger:wessex",
+      "title": "Wessex logger XGBoost",
+      "status": 0,
+      "start_time": 1758759664,
+      "end_time": 1758759677,
+      "duration_seconds": 13,
+      "metrics_path": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/logger_xgb/wessex/metrics.json",
+      "output_dir": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/logger_xgb/wessex",
+      "metrics": null
+    },
+    {
+      "task": "hydraulic",
+      "title": "BattLeDIM hydraulic XGBoost",
+      "status": 0,
+      "start_time": 1758759677,
+      "end_time": 1758759691,
+      "duration_seconds": 14,
+      "metrics_path": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/hydraulic_xgb/metrics.json",
+      "output_dir": "/Users/test/Code/drystate/projectK/nrw-ai/models/baseline/hydraulic_xgb",
+      "metrics": null
+    }
+  ],
+  "context": {
+    "samples": null,
+    "xgb_rounds": null,
+    "output_base": "/Users/test/Code/drystate/projectK/nrw-ai/models",
+    "parallel": false,
+    "include_synthetic": false,
+    "synthetic_ratio": null,
+    "retries": 2,
+    "retry_delay": 5,
+    "start_time": 1758759617,
+    "end_time": 1758759691
+  }
+}
