@@ -1,181 +1,308 @@
 (() => {
   const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
-  const sections = navLinks
-    .map(a => document.querySelector(a.getAttribute('href')))
-    .filter(Boolean);
-  const setActive = (id) => {
-    for (const a of navLinks) {
-      const match = a.getAttribute('href') === id;
-      a.toggleAttribute('aria-current', match);
-      a.classList.toggle('text-ink-900', match);
-    }
-  };
-  const io = new IntersectionObserver((entries) => {
-    const visible = entries
-      .filter(e => e.isIntersecting)
-      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (visible) setActive('#'+visible.target.id);
-  }, { rootMargin: '-20% 0px -70% 0px', threshold: [0, .25, .5, .75, 1] });
-  sections.forEach(s => io.observe(s));
-
-  // Prevent hash from sticking in the URL so refresh doesn't jump to a section.
-  // Intercept nav clicks to scroll without updating location.hash.
-  navLinks.forEach(a => {
-    a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target && typeof target.scrollIntoView === 'function') {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        if (history && typeof history.replaceState === 'function') {
-          try { history.replaceState(null, '', location.pathname + location.search); } catch {}
-        }
-      }
-    });
+  const sectionMap = new Map();
+  navLinks.forEach((link) => {
+    const href = link.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+    const id = href.slice(1);
+    const section = document.getElementById(id);
+    if (section && !sectionMap.has(id)) sectionMap.set(id, section);
   });
+  const sections = Array.from(sectionMap.values());
 
-  // If a hash is present from a previous visit, clear it (do not change scroll).
-  if (location.hash && history && typeof history.replaceState === 'function') {
-    try { history.replaceState(null, '', location.pathname + location.search); } catch {}
-  }
-
-  // Simple "More" menu for navbar to reduce clutter
   const moreBtn = document.getElementById('nav-more-btn');
   const moreMenu = document.getElementById('nav-more-menu');
-  if (moreBtn && moreMenu) {
-    const closeMenu = () => {
-      if (!moreMenu.classList.contains('hidden')) {
-        moreMenu.classList.add('hidden');
-        moreBtn.setAttribute('aria-expanded', 'false');
-      }
-    };
-    moreBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const isHidden = moreMenu.classList.contains('hidden');
-      if (isHidden) {
-        moreMenu.classList.remove('hidden');
-        moreBtn.setAttribute('aria-expanded', 'true');
-        // focus first item for accessibility
-        const first = moreMenu.querySelector('a');
-        if (first) first.focus();
+  const mobileToggle = document.getElementById('mobile-nav-toggle');
+  const mobilePanel = document.getElementById('mobile-nav-panel');
+  const reduceMotionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  const prefersReducedMotion = () => (reduceMotionQuery ? reduceMotionQuery.matches : false);
+
+  function setActive(id) {
+    if (!id) return;
+    let activeInMore = false;
+    navLinks.forEach((link) => {
+      const match = link.getAttribute('href') === id;
+      if (match) {
+        link.setAttribute('aria-current', 'true');
+        link.classList.add('text-ink-900');
       } else {
-        closeMenu();
+        link.removeAttribute('aria-current');
+        link.classList.remove('text-ink-900');
+      }
+      if (moreMenu && moreMenu.contains(link) && match) activeInMore = true;
+    });
+    if (moreBtn) {
+      if (activeInMore) {
+        moreBtn.setAttribute('data-active', 'true');
+        moreBtn.setAttribute('aria-current', 'true');
+      } else {
+        moreBtn.removeAttribute('data-active');
+        moreBtn.removeAttribute('aria-current');
+      }
+    }
+  }
+
+  function scrollToTarget(target) {
+    if (!target) return;
+    const behavior = prefersReducedMotion() ? 'auto' : 'smooth';
+    try {
+      target.scrollIntoView({ behavior, block: 'start' });
+    } catch (err) {
+      target.scrollIntoView();
+    }
+  }
+
+  function closeMoreMenu() {
+    if (!moreMenu || !moreBtn) return;
+    if (!moreMenu.hidden) {
+      moreMenu.hidden = true;
+      moreMenu.setAttribute('aria-hidden', 'true');
+      moreBtn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  function openMoreMenu() {
+    if (!moreMenu || !moreBtn) return;
+    moreMenu.hidden = false;
+    moreMenu.setAttribute('aria-hidden', 'false');
+    moreBtn.setAttribute('aria-expanded', 'true');
+    const first = moreMenu.querySelector('a');
+    if (first) {
+      try { first.focus({ preventScroll: true }); } catch { first.focus(); }
+    }
+  }
+
+  function closeMobileNav() {
+    if (!mobilePanel || !mobileToggle) return;
+    mobilePanel.classList.remove('open');
+    mobilePanel.hidden = true;
+    mobileToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  function openMobileNav() {
+    if (!mobilePanel || !mobileToggle) return;
+    mobilePanel.hidden = false;
+    mobilePanel.classList.add('open');
+    mobileToggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function initSectionObserver() {
+    if (!sections.length) return;
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(`#${visible.target.id}`);
+      }, { rootMargin: '-20% 0px -70% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
+      sections.forEach(section => observer.observe(section));
+      return;
+    }
+    const handleScroll = () => {
+      const offset = window.scrollY + window.innerHeight * 0.3;
+      let current = sections[0];
+      for (const section of sections) {
+        if (section.offsetTop <= offset) current = section;
+      }
+      if (current) setActive(`#${current.id}`);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  function disableFlowAnimation(flowRoot) {
+    if (!flowRoot || !prefersReducedMotion()) return;
+    flowRoot.querySelectorAll('animate').forEach((el) => {
+      if (el.parentNode) el.parentNode.removeChild(el);
+    });
+  }
+
+  if (moreMenu) {
+    moreMenu.hidden = true;
+    moreMenu.setAttribute('aria-hidden', 'true');
+  }
+  if (moreBtn && moreMenu) {
+    moreBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (moreMenu.hidden) openMoreMenu(); else closeMoreMenu();
+    });
+    document.addEventListener('click', (event) => {
+      if (!moreMenu.contains(event.target) && event.target !== moreBtn && !moreBtn.contains(event.target)) {
+        closeMoreMenu();
       }
     });
-    document.addEventListener('click', (e) => {
-      if (!moreMenu.contains(e.target) && e.target !== moreBtn && !moreBtn.contains(e.target)) {
-        closeMenu();
-      }
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
-      // simple up/down navigation
-      if (!moreMenu.classList.contains('hidden') && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) {
-        e.preventDefault();
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMoreMenu();
+      if (!moreMenu.hidden && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
+        event.preventDefault();
         const items = Array.from(moreMenu.querySelectorAll('a'));
-        const idx = items.indexOf(document.activeElement);
+        if (!items.length) return;
+        const index = items.indexOf(document.activeElement);
         let next = 0;
-        if (e.key === 'ArrowDown') next = idx < items.length - 1 ? idx + 1 : 0;
-        else next = idx > 0 ? idx - 1 : items.length - 1;
+        if (event.key === 'ArrowDown') {
+          next = index >= 0 && index < items.length - 1 ? index + 1 : 0;
+        } else {
+          next = index > 0 ? index - 1 : items.length - 1;
+        }
         items[next].focus();
       }
     });
-    // Close on link click
-    Array.from(moreMenu.querySelectorAll('a')).forEach(el => {
-      el.addEventListener('click', () => closeMenu());
+    moreMenu.addEventListener('focusout', (event) => {
+      if (!moreMenu.contains(event.relatedTarget)) closeMoreMenu();
+    });
+    Array.from(moreMenu.querySelectorAll('a')).forEach(link => {
+      link.addEventListener('click', () => closeMoreMenu());
     });
   }
 
-  // Flow tooltip interactions
+  if (mobileToggle && mobilePanel) {
+    mobileToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      if (expanded) closeMobileNav(); else openMobileNav();
+    });
+    document.addEventListener('click', (event) => {
+      if (!mobilePanel.contains(event.target) && event.target !== mobileToggle && !mobileToggle.contains(event.target)) {
+        closeMobileNav();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMobileNav();
+    });
+    if (window.matchMedia) {
+      const smQuery = window.matchMedia('(min-width: 640px)');
+      const handleChange = (evt) => {
+        if (evt.matches) closeMobileNav();
+      };
+      if (typeof smQuery.addEventListener === 'function') smQuery.addEventListener('change', handleChange);
+      else if (typeof smQuery.addListener === 'function') smQuery.addListener(handleChange);
+    }
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      event.preventDefault();
+      const target = document.querySelector(href);
+      scrollToTarget(target);
+      setActive(href);
+      if (history && typeof history.replaceState === 'function') {
+        try { history.replaceState(null, '', href); } catch (err) {}
+      }
+      closeMobileNav();
+      closeMoreMenu();
+    });
+  });
+
+  const initialHash = location.hash && sectionMap.has(location.hash.slice(1))
+    ? location.hash
+    : (sections[0] ? `#${sections[0].id}` : null);
+  if (initialHash) setActive(initialHash);
+
+  initSectionObserver();
+
   const flow = document.querySelector('.flow');
   if (flow) {
     const svg = flow.querySelector('svg');
     const tooltip = flow.querySelector('#flow-tooltip');
     const stages = flow.querySelectorAll('.stage');
     let activeStage = null;
+
     const placeTooltip = (target) => {
       if (!svg || !tooltip) return;
       const rectEl = target.querySelector('.node') || target;
       const br = rectEl.getBoundingClientRect();
       const cr = flow.getBoundingClientRect();
       let cx = br.left + br.width / 2 - cr.left;
-      let cy = br.top - cr.top; // position above the node
-      // Clamp horizontally inside the flow container
-      const minX = 16, maxX = cr.width - 16;
+      let cy = br.top - cr.top;
+      const minX = 16;
+      const maxX = cr.width - 16;
       cx = Math.max(minX, Math.min(cx, maxX));
-      // Ensure tooltip doesn't go off the top edge
       cy = Math.max(24, cy);
       tooltip.style.left = `${Math.round(cx)}px`;
       tooltip.style.top = `${Math.round(cy)}px`;
     };
+
     const showTip = (target) => {
       const tip = target.getAttribute('data-tip') || '';
-      if (tooltip) {
-        tooltip.textContent = tip;
-        placeTooltip(target);
-        tooltip.classList.add('show');
-        tooltip.setAttribute('aria-hidden', 'false');
-      }
+      if (!tooltip) return;
+      tooltip.textContent = tip;
+      placeTooltip(target);
+      tooltip.classList.add('show');
+      tooltip.setAttribute('aria-hidden', 'false');
     };
+
     const openTip = (target) => {
+      if (activeStage && activeStage !== target) {
+        activeStage.setAttribute('aria-pressed', 'false');
+      }
+      target.setAttribute('aria-pressed', 'true');
       showTip(target);
       activeStage = target;
     };
+
     const closeTip = () => {
       if (tooltip) {
         tooltip.classList.remove('show');
         tooltip.setAttribute('aria-hidden', 'true');
+        tooltip.textContent = '';
       }
+      if (activeStage) activeStage.setAttribute('aria-pressed', 'false');
       activeStage = null;
     };
-    stages.forEach((g) => {
-      g.addEventListener('mouseenter', () => {
-        // Hover shows non-sticky tooltip
-        showTip(g);
+
+    stages.forEach((stage) => {
+      stage.addEventListener('mouseenter', () => {
+        showTip(stage);
       });
-      g.addEventListener('mousemove', () => {
-        placeTooltip(g);
+      stage.addEventListener('mousemove', () => {
+        placeTooltip(stage);
       });
-      g.addEventListener('mouseleave', () => {
-        // only close hover tooltips if not manually activated via tap
+      stage.addEventListener('mouseleave', () => {
         if (!activeStage) closeTip();
       });
-      // Keyboard support: Enter/Space toggles
-      g.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          if (activeStage === g) closeTip(); else openTip(g);
+      stage.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          if (activeStage === stage) closeTip(); else openTip(stage);
         }
-        if (e.key === 'Escape') closeTip();
+        if (event.key === 'Escape') closeTip();
       });
-      // Tap/click to toggle tooltip on mobile
-      g.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (activeStage === g) {
+      stage.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (activeStage === stage) {
           closeTip();
         } else {
-          openTip(g);
+          openTip(stage);
         }
       });
-      g.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (activeStage === g) {
+      stage.addEventListener('touchstart', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (activeStage === stage) {
           closeTip();
         } else {
-          openTip(g);
+          openTip(stage);
         }
       }, { passive: false });
     });
-    // Close tooltip on outside tap/click
-    document.addEventListener('click', (e) => {
-      if (!flow.contains(e.target)) closeTip();
+
+    document.addEventListener('click', (event) => {
+      if (!flow.contains(event.target)) closeTip();
     });
-    document.addEventListener('touchstart', (e) => {
-      if (!flow.contains(e.target)) closeTip();
+    document.addEventListener('touchstart', (event) => {
+      if (!flow.contains(event.target)) closeTip();
     }, { passive: true });
+
+    disableFlowAnimation(flow);
+    if (reduceMotionQuery) {
+      const handleMotionChange = (event) => {
+        if (event.matches) disableFlowAnimation(flow);
+      };
+      if (typeof reduceMotionQuery.addEventListener === 'function') reduceMotionQuery.addEventListener('change', handleMotionChange);
+      else if (typeof reduceMotionQuery.addListener === 'function') reduceMotionQuery.addListener(handleMotionChange);
+    }
   }
 })();
