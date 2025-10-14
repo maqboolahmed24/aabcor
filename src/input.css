@@ -108,3 +108,11 @@ thead.bg-blue-50{ background-color:#ecfdf5 !important; }
 .avatar-glow > img{ position:relative; z-index:1; border-radius:0; display:block; }
 
 /* (brand tweaks, green rail, hover override, header tint were inline before; reverted) */
+
+@media (prefers-reduced-motion: reduce){
+  .card:hover{ transition:none !important; transform:none !important; }
+  .card.rail::before,
+  .card.rail::after{ animation:none !important; }
+  .flow svg .arrow{ animation:none !important; }
+  .pulse-mobile{ animation:none !important; }
+}
