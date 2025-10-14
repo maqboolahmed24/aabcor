@@ -1,0 +1,7 @@
+{
+  "auroc": 1.0,
+  "auprc": 1.0,
+  "recall_at_fpr": 1.0,
+  "fpr_target": 0.02,
+  "threshold": 0.5180721879005432
+}

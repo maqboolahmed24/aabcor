@@ -1,0 +1,34 @@
+{
+  "generated_at": "2025-09-28T21:17:14.015202+00:00",
+  "tasks": [
+    {
+      "task": "hydraulic",
+      "title": "BattLeDIM hydraulic XGBoost",
+      "status": 0,
+      "start_time": 1759094207,
+      "end_time": 1759094233,
+      "duration_seconds": 26,
+      "metrics_path": "/Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/hydraulic_xgb/metrics.json",
+      "output_dir": "/Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/hydraulic_xgb",
+      "metrics": {
+        "auroc": 0.9515789473684211,
+        "auprc": 0.9974896055297116,
+        "recall_at_fpr": 0.9368421052631579,
+        "fpr_target": 0.1,
+        "threshold": 0.297102689743042
+      }
+    }
+  ],
+  "context": {
+    "samples": "500",
+    "xgb_rounds": null,
+    "output_base": "/Users/test/Code/aabcor/projectK/nrw-ai/models",
+    "parallel": false,
+    "include_synthetic": true,
+    "synthetic_ratio": 0.2,
+    "retries": 2,
+    "retry_delay": 5,
+    "start_time": 1759094207,
+    "end_time": 1759094233
+  }
+}

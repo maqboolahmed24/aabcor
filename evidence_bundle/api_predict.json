@@ -1,0 +1,16 @@
+{
+  "detail": {
+    "code": "scada_contract",
+    "message": "ok",
+    "details": {
+      "ok": true,
+      "issues": [],
+      "diagnostics": {
+        "unit_mismatches": [],
+        "jitter": [],
+        "skew": []
+      }
+    },
+    "trace_id": "local-sample"
+  }
+}

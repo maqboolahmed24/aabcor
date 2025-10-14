@@ -1,0 +1,128 @@
+--------------------------------------------------------------------
+| NRW Data Ingestion |
+--------------------------------------------------------------------
+-> Using python interpreter: /Users/test/Code/aabcor/projectK/venv/bin/python (v3.11.13)
+--------------------------------------------------------------------
+| Synthetic Dataset Generation |
+--------------------------------------------------------------------
+-> [synthetic] Generating acoustic sweep -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic
+[run_000__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-6] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_000__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-6.jsonl
+[run_001__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-0] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_001__leak_prob-0-3__noise_color-white__snr_max-6__snr_min-0.jsonl
+[run_002__leak_prob-0-3__noise_color-white__snr_max-12__snr_min-6] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_002__leak_prob-0-3__noise_color-white__snr_max-12__snr_min-6.jsonl
+[run_003__leak_prob-0-3__noise_color-white__snr_max-12__snr_min-0] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_003__leak_prob-0-3__noise_color-white__snr_max-12__snr_min-0.jsonl
+[run_004__leak_prob-0-3__noise_color-pink__snr_max-6__snr_min-6] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_004__leak_prob-0-3__noise_color-pink__snr_max-6__snr_min-6.jsonl
+[run_005__leak_prob-0-3__noise_color-pink__snr_max-6__snr_min-0] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_005__leak_prob-0-3__noise_color-pink__snr_max-6__snr_min-0.jsonl
+[run_006__leak_prob-0-3__noise_color-pink__snr_max-12__snr_min-6] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_006__leak_prob-0-3__noise_color-pink__snr_max-12__snr_min-6.jsonl
+[run_007__leak_prob-0-3__noise_color-pink__snr_max-12__snr_min-0] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_007__leak_prob-0-3__noise_color-pink__snr_max-12__snr_min-0.jsonl
+[run_008__leak_prob-0-6__noise_color-white__snr_max-6__snr_min-6] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_008__leak_prob-0-6__noise_color-white__snr_max-6__snr_min-6.jsonl
+[run_009__leak_prob-0-6__noise_color-white__snr_max-6__snr_min-0] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_009__leak_prob-0-6__noise_color-white__snr_max-6__snr_min-0.jsonl
+[run_010__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-6] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_010__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-6.jsonl
+[run_011__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-0] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_011__leak_prob-0-6__noise_color-white__snr_max-12__snr_min-0.jsonl
+[run_012__leak_prob-0-6__noise_color-pink__snr_max-6__snr_min-6] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_012__leak_prob-0-6__noise_color-pink__snr_max-6__snr_min-6.jsonl
+[run_013__leak_prob-0-6__noise_color-pink__snr_max-6__snr_min-0] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_013__leak_prob-0-6__noise_color-pink__snr_max-6__snr_min-0.jsonl
+[run_014__leak_prob-0-6__noise_color-pink__snr_max-12__snr_min-6] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_014__leak_prob-0-6__noise_color-pink__snr_max-12__snr_min-6.jsonl
+[run_015__leak_prob-0-6__noise_color-pink__snr_max-12__snr_min-0] Wrote 256 samples -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/acoustic/run_015__leak_prob-0-6__noise_color-pink__snr_max-12__snr_min-0.jsonl
+-> [synthetic] Acoustic sweep completed
+-> [synthetic] Generating hydraulic sweep -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic
+INFO __main__: [run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_000__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-0.jsonl (180 windows)
+INFO __main__: [run_001__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-1] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_001__dropout_prob-0-0__leak_prob-0-12__noise_std-0-0__theft_prob-0-1.jsonl (180 windows)
+INFO __main__: [run_002__dropout_prob-0-0__leak_prob-0-12__noise_std-0-08__theft_prob-0-0] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_002__dropout_prob-0-0__leak_prob-0-12__noise_std-0-08__theft_prob-0-0.jsonl (180 windows)
+INFO __main__: [run_003__dropout_prob-0-0__leak_prob-0-12__noise_std-0-08__theft_prob-0-1] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_003__dropout_prob-0-0__leak_prob-0-12__noise_std-0-08__theft_prob-0-1.jsonl (180 windows)
+INFO __main__: [run_004__dropout_prob-0-0__leak_prob-0-3__noise_std-0-0__theft_prob-0-0] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_004__dropout_prob-0-0__leak_prob-0-3__noise_std-0-0__theft_prob-0-0.jsonl (180 windows)
+INFO __main__: [run_005__dropout_prob-0-0__leak_prob-0-3__noise_std-0-0__theft_prob-0-1] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_005__dropout_prob-0-0__leak_prob-0-3__noise_std-0-0__theft_prob-0-1.jsonl (180 windows)
+INFO __main__: [run_006__dropout_prob-0-0__leak_prob-0-3__noise_std-0-08__theft_prob-0-0] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_006__dropout_prob-0-0__leak_prob-0-3__noise_std-0-08__theft_prob-0-0.jsonl (180 windows)
+INFO __main__: [run_007__dropout_prob-0-0__leak_prob-0-3__noise_std-0-08__theft_prob-0-1] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_007__dropout_prob-0-0__leak_prob-0-3__noise_std-0-08__theft_prob-0-1.jsonl (180 windows)
+INFO __main__: [run_008__dropout_prob-0-15__leak_prob-0-12__noise_std-0-0__theft_prob-0-0] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_008__dropout_prob-0-15__leak_prob-0-12__noise_std-0-0__theft_prob-0-0.jsonl (180 windows)
+INFO __main__: [run_009__dropout_prob-0-15__leak_prob-0-12__noise_std-0-0__theft_prob-0-1] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_009__dropout_prob-0-15__leak_prob-0-12__noise_std-0-0__theft_prob-0-1.jsonl (180 windows)
+INFO __main__: [run_010__dropout_prob-0-15__leak_prob-0-12__noise_std-0-08__theft_prob-0-0] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_010__dropout_prob-0-15__leak_prob-0-12__noise_std-0-08__theft_prob-0-0.jsonl (180 windows)
+INFO __main__: [run_011__dropout_prob-0-15__leak_prob-0-12__noise_std-0-08__theft_prob-0-1] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_011__dropout_prob-0-15__leak_prob-0-12__noise_std-0-08__theft_prob-0-1.jsonl (180 windows)
+INFO __main__: [run_012__dropout_prob-0-15__leak_prob-0-3__noise_std-0-0__theft_prob-0-0] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_012__dropout_prob-0-15__leak_prob-0-3__noise_std-0-0__theft_prob-0-0.jsonl (180 windows)
+INFO __main__: [run_013__dropout_prob-0-15__leak_prob-0-3__noise_std-0-0__theft_prob-0-1] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_013__dropout_prob-0-15__leak_prob-0-3__noise_std-0-0__theft_prob-0-1.jsonl (180 windows)
+INFO __main__: [run_014__dropout_prob-0-15__leak_prob-0-3__noise_std-0-08__theft_prob-0-0] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_014__dropout_prob-0-15__leak_prob-0-3__noise_std-0-08__theft_prob-0-0.jsonl (180 windows)
+INFO __main__: [run_015__dropout_prob-0-15__leak_prob-0-3__noise_std-0-08__theft_prob-0-1] Wrote telemetry dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic/run_015__dropout_prob-0-15__leak_prob-0-3__noise_std-0-08__theft_prob-0-1.jsonl (180 windows)
+INFO __main__: Generated 16 parameterised runs -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic/hydraulic
+-> [synthetic] Hydraulic sweep completed
+-> [synthetic] Synthetic datasets staged under /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/synthetic
+-> [synthetic] Simulator generation completed
+--------------------------------------------------------------------
+| Ingestion :: Yorkshire logger tables [yorkshire] |
+--------------------------------------------------------------------
+-> [yorkshire] Starting ingestion (Yorkshire logger tables)
+INFO src.ingest._utils: /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/yorkshire/Acoustic_Logger_Data.csv already exists — skipping download
+INFO src.ingest._utils: /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/yorkshire/Leak_Alarm_Results.csv already exists — skipping download
+INFO __main__: Resolved logger identifier via value overlap: id ↔ id
+INFO __main__: Resolved leak label candidate 'leak_alarm' (coverage=100.0%, positives=69, negatives=17)
+INFO __main__: Realigned 17 label rows to nearest telemetry date due to missing exact matches
+INFO __main__: Wrote merged dataset -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/yorkshire/yorkshire_daily.parquet (97580 rows)
+INFO src.ingest._utils: Wrote metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/yorkshire/profile.json
+-> [yorkshire] Ingestion completed
+-> [yorkshire] raw -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/yorkshire (data/raw/yorkshire) [ok]
+-> [yorkshire] processed -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/yorkshire (data/processed/yorkshire) [ok]
+-> [yorkshire] metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/yorkshire (data/metadata/yorkshire) [ok]
+-> [yorkshire] QA -> rows=97580, labelled=172 (0.2%), label_source=leak_alarm, label_stats=score=8.0, coverage=1.0, positives=69, negatives=17
+-> [yorkshire] yorkshire status=pass
+--------------------------------------------------------------------
+| Ingestion :: Wessex workbook [wessex] |
+--------------------------------------------------------------------
+-> [wessex] Starting ingestion (Wessex workbook)
+INFO src.ingest._utils: /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/wessex/wessex_full.xlsx already exists — skipping download
+INFO src.ingest._utils: /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/wessex/distance_to_large_user.xlsx already exists — skipping download
+INFO src.ingest._utils: /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/wessex/repair_data_gis.xlsx already exists — skipping download
+WARNING __main__: Falling back to 'logger' as the logger identifier column
+INFO __main__: Merged _dist columns -> ['j100m_dist']
+INFO __main__: Merged _repair columns -> ['pipe_type_repair', 'diameter_repair', 'units_repair', 'material_repair', 'bedrock_repair']
+INFO __main__: Wrote Wessex daily table -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/wessex/wessex_daily.parquet (230066 rows)
+INFO src.ingest._utils: Wrote metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/wessex/profile.json
+-> [wessex] Ingestion completed
+-> [wessex] raw -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/wessex (data/raw/wessex) [ok]
+-> [wessex] processed -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/wessex (data/processed/wessex) [ok]
+-> [wessex] metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/wessex (data/metadata/wessex) [ok]
+-> [wessex] QA -> rows=230066, labelled=4733 (2.1%), label_source=result
+-> [wessex] wessex status=pass
+--------------------------------------------------------------------
+| Ingestion :: BattLeDIM SCADA telemetry [battledim] |
+--------------------------------------------------------------------
+-> [battledim] Starting ingestion (BattLeDIM SCADA telemetry)
+INFO src.ingest._utils: /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/battledim/2019_SCADA_Pressures.csv already exists — skipping download
+INFO src.ingest._utils: /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/battledim/2019_SCADA_Flows.csv already exists — skipping download
+INFO src.ingest._utils: /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/battledim/2019_SCADA.xlsx already exists — skipping download
+INFO src.ingest._utils: /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/battledim/2019_Leakages.csv already exists — skipping download
+INFO __main__: Loading 2019_SCADA_Flows.csv
+INFO __main__: raw CSV 2019_SCADA_Flows.csv -> shape=105120x4 columns=['Timestamp', 'p227', 'p235', 'PUMP_1']
+INFO __main__: normalised CSV 2019_SCADA_Flows.csv -> shape=105120x4 columns=['timestamp', 'p227', 'p235', 'pump_1']
+INFO __main__: processed CSV 2019_SCADA_Flows.csv -> shape=105120x4 columns=['p227', 'p235', 'pump_1', 'timestamp']
+INFO __main__: Loading 2019_SCADA_Pressures.csv
+INFO __main__: raw CSV 2019_SCADA_Pressures.csv -> shape=105120x34 columns=['Timestamp', 'n1', 'n4', 'n31', 'n54', 'n105', 'n114', 'n163', 'n188', 'n215', 'n229', 'n288', '…']
+INFO __main__: normalised CSV 2019_SCADA_Pressures.csv -> shape=105120x34 columns=['timestamp', 'n1', 'n4', 'n31', 'n54', 'n105', 'n114', 'n163', 'n188', 'n215', 'n229', 'n288', '…']
+INFO __main__: processed CSV 2019_SCADA_Pressures.csv -> shape=105120x34 columns=['n1', 'n4', 'n31', 'n54', 'n105', 'n114', 'n163', 'n188', 'n215', 'n229', 'n288', 'n296', '…']
+INFO __main__: combined SCADA telemetry -> shape=105120x37 columns=['timestamp', 'p227', 'p235', 'pump_1', 'n1', 'n4', 'n31', 'n54', 'n105', 'n114', 'n163', 'n188', '…']
+INFO __main__: raw leak annotations -> shape=105120x24 columns=['Timestamp', 'p123', 'p142', 'p193', 'p257', 'p277', 'p280', 'p331', 'p426', 'p427', 'p455', 'p514', '…']
+INFO __main__: normalised leak annotations -> shape=105120x24 columns=['timestamp', 'p123', 'p142', 'p193', 'p257', 'p277', 'p280', 'p331', 'p426', 'p427', 'p455', 'p514', '…']
+INFO __main__: Resolved leak start columns: ['timestamp']
+INFO __main__: Resolved leak end columns: <derived from start>
+INFO __main__: Collapsed measurement leak annotations into 2 intervals from 23 measurement columns
+INFO __main__: SCADA telemetry post-sort -> shape=105120x37 columns=['timestamp', 'p227', 'p235', 'pump_1', 'n1', 'n4', 'n31', 'n54', 'n105', 'n114', 'n163', 'n188', '…']
+INFO __main__: SCADA telemetry with labels -> shape=105120x38 columns=['timestamp', 'p227', 'p235', 'pump_1', 'n1', 'n4', 'n31', 'n54', 'n105', 'n114', 'n163', 'n188', '…']
+INFO __main__: Wrote BattLeDIM telemetry -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/battledim/battledim_windows.parquet (105120 rows)
+INFO src.ingest._utils: Wrote metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/battledim/profile.json
+-> [battledim] Ingestion completed
+-> [battledim] raw -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/battledim (data/raw/battledim) [ok]
+-> [battledim] processed -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/battledim (data/processed/battledim) [ok]
+-> [battledim] metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/battledim (data/metadata/battledim) [ok]
+-> [battledim] QA -> rows=105120, labelled=105120 (100.0%)
+-> [battledim] battledim status=pass
+-------------------------------------------------------------------------
+| Ingestion :: HydroGNN digital twin graph artifacts [digital_twin] |
+-------------------------------------------------------------------------
+-> [digital_twin] Starting ingestion (HydroGNN digital twin graph artifacts)
+-> [digital_twin] Using bundled twin GeoJSON -> /Users/test/Code/aabcor/projectK/nrw-ai/data/digital_twin/naperville_water.geojson
+WARNING No hydraulic windows supplied; skipping scaler generation
+INFO HydroGNN graph tensors written to /Users/test/Code/aabcor/projectK/models/baseline/hydraulic_gnn/hydrognn_graph.npz
+INFO Metadata written to /Users/test/Code/aabcor/projectK/models/baseline/hydraulic_gnn/hydrognn_graph_metadata.json
+INFO Copied twin GeoJSON -> /Users/test/Code/aabcor/projectK/models/baseline/hydraulic_gnn/naperville_water.geojson
+INFO Wrote digital twin ingestion manifest -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/digital_twin/digital_twin_graph_manifest.json
+-> [digital_twin] Ingestion completed
+-> [digital_twin] raw -> /Users/test/Code/aabcor/projectK/nrw-ai/data/raw/digital_twin (data/raw/digital_twin) [ok]
+-> [digital_twin] processed -> /Users/test/Code/aabcor/projectK/nrw-ai/data/processed/digital_twin (data/processed/digital_twin) [ok]
+-> [digital_twin] metadata -> /Users/test/Code/aabcor/projectK/nrw-ai/data/metadata/digital_twin (data/metadata/digital_twin) [ok]
+-> Successfully ingested datasets: yorkshire wessex battledim digital_twin

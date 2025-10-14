@@ -1,0 +1,54 @@
+../venv/bin/python -m pytest -q
+........................................................................ [ 25%]
+...........................................F............................ [ 50%]
+........................................................................ [ 75%]
+.....................................................................    [100%]
+=================================== FAILURES ===================================
+_________________________ test_custom_weights_change_q _________________________
+
+>   ???
+E   assert 0.08336442329439803 == 0.09828781475694656 ± 9.8e-08
+E     
+E     comparison failed
+E     Obtained: 0.08336442329439803
+E     Expected: 0.09828781475694656 ± 9.8e-08
+
+/Users/test/Code/drystate/projectK/nrw-ai/tests/unit/test_fusion.py:21: AssertionError
+=============================== warnings summary ===============================
+../venv/lib/python3.11/site-packages/starlette/formparsers.py:12
+  /Users/test/Code/aabcor/projectK/venv/lib/python3.11/site-packages/starlette/formparsers.py:12: PendingDeprecationWarning: Please use `import python_multipart` instead.
+    import multipart
+
+../venv/lib/python3.11/site-packages/opentelemetry/instrumentation/dependencies.py:4
+  /Users/test/Code/aabcor/projectK/venv/lib/python3.11/site-packages/opentelemetry/instrumentation/dependencies.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+    from pkg_resources import (
+
+../venv/lib/python3.11/site-packages/wandb/analytics/sentry.py:90
+  /Users/test/Code/aabcor/projectK/venv/lib/python3.11/site-packages/wandb/analytics/sentry.py:90: SentryHubDeprecationWarning: `sentry_sdk.Hub` is deprecated and will be removed in a future major release. Please consult our 1.x to 2.x migration guide for details on how to migrate `Hub` usage to the new API: https://docs.sentry.io/platforms/python/migration/1.x-to-2.x
+    self.hub = sentry_sdk.Hub(client)
+
+tests/integration/test_model_registry.py::test_model_registry_predictions_vary
+tests/integration/test_model_registry.py::test_model_registry_predictions_vary
+tests/integration/test_model_registry.py::test_model_registry_predictions_vary
+tests/integration/test_model_registry.py::test_model_registry_predictions_vary
+  /Users/test/Code/aabcor/projectK/venv/lib/python3.11/site-packages/pydantic/main.py:1070: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+    warnings.warn('The `dict` method is deprecated; use `model_dump` instead.', category=PydanticDeprecatedSince20)
+
+tests/unit/test_build_spectrograms.py::test_build_spectrograms_normalisation_and_splits
+  /Users/test/Code/aabcor/projectK/venv/lib/python3.11/site-packages/librosa/core/intervals.py:15: DeprecationWarning: path is deprecated. Use files() instead. Refer to https://importlib-resources.readthedocs.io/en/latest/using.html#migrating-from-legacy for migration advice.
+    with resources.path("librosa.core", "intervals.msgpack") as imsgpack:
+
+tests/unit/test_predict_helpers.py: 1 warning
+tests/unit/test_predict_router.py: 66 warnings
+tests/unit/test_registry.py: 2 warnings
+  The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.7/migration/
+
+tests/unit/test_train_acoustic.py::test_deterministic_training_with_and_without_specaugment
+tests/unit/test_train_acoustic.py::test_acoustic_emits_training_metrics
+  Early stopping conditioned on metric `val_brier` which is not available. Available metrics are: loss
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/unit/test_fusion.py::test_custom_weights_change_q - assert 0.083...
+1 failed, 284 passed, 79 warnings in 65.73s (0:01:05)
+make: *** [test] Error 1

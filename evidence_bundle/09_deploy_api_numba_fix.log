@@ -1,0 +1,34 @@
+----------------------------------------------------------------------
+| NRW API Deployment |
+----------------------------------------------------------------------
+-> Image tag      : nrw-ai-api:local
+-> Container name : nrw-ai-api-smoke
+-> Dockerfile     : /Users/test/Code/aabcor/projectK/nrw-ai/infra/Dockerfile
+----------------------------------------------------------------------
+| Build :: Docker Image |
+----------------------------------------------------------------------
+-> Skipping docker build (using existing image nrw-ai-api:local)
+----------------------------------------------------------------------
+| Run :: Smoke Container |
+----------------------------------------------------------------------
+!! Removing pre-existing container named nrw-ai-api-smoke
+-> Starting container nrw-ai-api-smoke from image nrw-ai-api:local
+-> Container started: nrw-ai-api-smoke (acf523885e4108e2e8608ef6c9b5adc339552f2af19ec87364e8dd72b659e13d)
+----------------------------------------------------------------------
+| Health Check :: http://127.0.0.1:8000/health |
+----------------------------------------------------------------------
+-> Polling health endpoint at http://127.0.0.1:8000/health
+!! Health probe attempt 1 failed; retrying in 2s
+!! Health probe attempt 2 failed; retrying in 2s
+-> API healthy after 4s
+----------------------------------------------------------------------
+| Deployment Summary |
+----------------------------------------------------------------------
+-> Deployment summary:
+->   Image:          nrw-ai-api:local
+->   Container:      nrw-ai-api-smoke
+->   Port mapping:   127.0.0.1:8000->8000
+->   Health check:   http://127.0.0.1:8000/health
+->   Synthetic demo: not included
+-> Container left running. Stop with: docker rm -f nrw-ai-api-smoke
+-> View logs with: docker logs -f nrw-ai-api-smoke

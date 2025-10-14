@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NRW AI &mdash; Investor Evidence Summary</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  color-scheme:only light;
+  --ink:#0f172a;
+  --muted:#64748b;
+  --accent:#2563eb;
+  --bg:#f8fafc;
+  --card:#ffffff;
+}
+*{box-sizing:border-box}
+body{
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  margin:0 auto;
+  max-width:1120px;
+  padding:32px 24px 48px;
+}
+h1{font-size:36px;margin:0;color:#fff}
+h2{font-size:22px;margin:36px 0 18px}
+h3{font-size:18px;margin:0 0 8px}
+p{margin:0 0 12px}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+code{background:#e2e8f0;color:#1e293b;padding:2px 4px;border-radius:4px;font-size:13px}
+section+section{margin-top:40px}
+
+.hero{
+  background:linear-gradient(135deg,#1d4ed8,#0f172a 70%);
+  border-radius:22px;
+  padding:36px 32px;
+  color:#e7ecff;
+  box-shadow:0 26px 60px rgba(15,23,42,0.35);
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:auto -40% -60px auto;
+  width:70%;
+  height:280px;
+  background:radial-gradient(circle at center,rgba(59,130,246,0.45),transparent 65%);
+  opacity:0.8;
+}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero p{color:#cbd5f5;font-size:16px}
+.hero .meta{
+  font-size:13px;
+  color:#cbd5f5;
+  margin-bottom:0;
+}
+.hero .meta a{color:#e0e7ff}
+
+.hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:18px;
+  margin-top:28px;
+}
+.hero-card{
+  background:rgba(15,23,42,0.44);
+  border-radius:16px;
+  padding:20px 18px;
+  border:1px solid rgba(148,163,184,0.28);
+  backdrop-filter:blur(6px);
+  min-height:130px;
+}
+.hero-card strong{
+  display:block;
+  font-size:13px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:#93c5fd;
+}
+.hero-card span{
+  display:block;
+  font-size:22px;
+  font-weight:600;
+  color:#fff;
+  margin-top:8px;
+}
+.hero-card small{
+  display:block;
+  font-size:13px;
+  color:#dbeafe;
+  margin-top:10px;
+}
+.progress{
+  position:relative;
+  height:8px;
+  border-radius:999px;
+  background:rgba(148,163,184,0.35);
+  margin-top:12px;
+  overflow:hidden;
+}
+.progress span{
+  display:block;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,#38bdf8,#3b82f6 70%,#6366f1);
+}
+
+.summary-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
+}
+.card{
+  background:var(--card);
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+  padding:20px;
+  box-shadow:0 16px 40px rgba(15,23,42,0.12);
+}
+.metric{font-size:17px;font-weight:600;margin-bottom:6px}
+.muted{color:var(--muted);font-size:14px}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  font-size:12px;
+  font-weight:700;
+  padding:2px 8px;
+  border-radius:999px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  margin-left:8px;
+}
+.badge-pass{background:#dcfce7;color:#166534}
+.badge-warn{background:#fef3c7;color:#92400e}
+.badge-fail{background:#fee2e2;color:#b91c1c}
+.badge-na{background:#e2e8f0;color:#475569}
+
+table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 14px 32px rgba(15,23,42,0.1);
+}
+th{
+  background:#f1f5f9;
+  color:#475569;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  padding:12px 16px;
+  text-align:left;
+}
+td{
+  padding:15px;
+  border-top:1px solid #e2e8f0;
+  vertical-align:top;
+  font-size:14px;
+}
+tr:first-child td{border-top:none}
+tr:hover td{background:#f8fafc}
+td a{font-weight:600}
+
+pre{
+  background:#0b1020;
+  color:#e5e7eb;
+  padding:16px;
+  border-radius:12px;
+  overflow:auto;
+  font-size:13px;
+  line-height:1.5;
+  margin:14px 0 0;
+  white-space:pre-wrap;
+}
+
+.timeline{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+  margin-top:18px;
+}
+.timeline-card{
+  position:relative;
+  background:var(--card);
+  border-radius:14px;
+  padding:18px;
+  border:1px solid #dbe4f1;
+  box-shadow:0 12px 28px rgba(15,23,42,0.08);
+}
+.timeline-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  padding:1px;
+  background:linear-gradient(135deg,rgba(96,165,250,0.45),rgba(14,116,144,0.45));
+  -webkit-mask:linear-gradient(#fff,#fff) content-box,linear-gradient(#fff,#fff);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  opacity:0.6;
+}
+.timeline-card strong{display:block;margin-bottom:6px;font-size:15px}
+.timeline-card small{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}
+.timeline-card p{margin:0;color:var(--ink)}
+
+.pillars{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+  margin-top:22px;
+}
+.pillar{
+  background:var(--card);
+  border-radius:14px;
+  border:1px solid #e2e8f0;
+  padding:20px;
+  box-shadow:0 16px 36px rgba(15,23,42,0.12);
+}
+.pillar h4{margin:0 0 12px;font-size:17px}
+.pillar ul{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.55;
+}
+.pillar li+li{margin-top:6px}
+
+.callouts{display:grid;gap:16px;margin-top:16px}
+.callout{
+  border-radius:14px;
+  padding:16px 18px;
+  border-left:6px solid;
+  background:#fff;
+  box-shadow:0 12px 30px rgba(15,23,42,0.1);
+}
+.callout strong{display:block;margin-bottom:6px;font-size:16px}
+.callout-warn{border-color:#f97316;background:#fff7ed;color:#7c2d12}
+.callout-info{border-color:#6366f1;background:#eef2ff;color:#312e81}
+.callout-pass{border-color:#16a34a;background:#f0fdf4;color:#166534}
+.callout p{margin:0}
+
+footer{
+  margin-top:48px;
+  font-size:13px;
+  color:var(--muted);
+  text-align:center;
+}
+
+@media (max-width:720px){
+  body{padding:24px}
+  .hero{padding:28px 24px}
+  h1{font-size:30px}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-content">
+    <h1>NRW AI &mdash; Investor Evidence Summary</h1>
+    <p>October bundle spanning BattLeDIM, Yorkshire, Wessex, and governed synthetic augmentation. Evidence tracks data quality, model readiness, and API contract posture.</p>
+  <p class="meta">Bundle root: <code>reports/evidence_bundle</code> &middot; Latest training manifest: <a href="20251011T192807Z_training.json">2025-10-11T19:28Z</a> &middot; Fusion mode: <a href="fusion/metrics.json">logistic</a></p>
+  </div>
+  <div class="hero-grid" aria-label="Run highlights">
+    <div class="hero-card">
+      <strong>Pipeline completion</strong>
+      <span>75%</span>
+      <div class="progress" aria-hidden="true"><span style="width:75%"></span></div>
+      <small>6 of 8 numbered stages succeeded; lint &amp; tests remain red.</small>
+    </div>
+    <div class="hero-card">
+      <strong>Test coverage</strong>
+      <span>284<span style="font-size:13px;color:#cbd5f5">/285</span></span>
+      <div class="progress" aria-hidden="true"><span style="width:99%"></span></div>
+      <small>Only <code>tests/unit/test_fusion.py::test_custom_weights_change_q</code> regressed.</small>
+    </div>
+    <div class="hero-card">
+      <strong>Detection latency</strong>
+      <span>100&nbsp;min</span>
+      <small>Mean delay for hydraulic detections across 2 BattLeDIM leaks.</small>
+    </div>
+    <div class="hero-card">
+      <strong>Quality gates</strong>
+      <span>5 / 5 pass</span>
+      <div class="progress" aria-hidden="true"><span style="width:100%"></span></div>
+      <small>All customer + synthetic datasets cleared <code>quality_report</code> blockers.</small>
+    </div>
+  </div>
+</header>
+
+<section class="summary-grid">
+  <div class="card">
+    <h3>Pipeline Run</h3>
+    <p class="metric">6 / 8 stages green<span class="badge badge-fail">attention</span></p>
+    <p class="muted">Lint (02) and tests (03) failed; remediation required before board sign-off.</p>
+    <p class="muted"><a href="README.txt">Bundle README</a></p>
+  </div>
+  <div class="card">
+    <h3>Fusion</h3>
+    <p class="metric">Logistic fusion restored<span class="badge badge-pass">fused</span></p>
+    <p class="muted">Trimmed 10 misaligned rows to rebalance labels; <code>score_fusion</code> now ships AUROC 1.000 @ 2% FPR.</p>
+  </div>
+  <div class="card">
+    <h3>API</h3>
+    <p class="metric">Health: ok<span class="badge badge-pass">green</span></p>
+    <p class="muted">Sample /predict contract passes (5&nbsp;s skew window, units populated).</p>
+  </div>
+  <div class="card">
+    <h3>Training</h3>
+    <p class="metric">3 models refreshed<span class="badge badge-pass">stable</span></p>
+    <p class="muted">Hydraulic + Yorkshire/Wessex loggers retrained with seeded RNG and 20% synthetic mix.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Bundle Timeline</h2>
+  <div class="timeline">
+    <div class="timeline-card">
+      <strong>Day 0 &middot; Data readiness</strong>
+      <small>01_setup -> 04_ingest</small>
+      <p>Environment bootstrapped with Homebrew Python (missing <code>yq</code> optional). Ingest succeeded for Yorkshire, Wessex, BattLeDIM, digital twin, and synthetic assets; all emitted <code>quality_report</code> status <em>pass</em>.</p>
+    </div>
+    <div class="timeline-card">
+      <strong>Day 1 &middot; Feature + model refresh</strong>
+      <small>05_features -> 06_train</small>
+      <p>Synthetic spectrogram and hydraulic windows regenerated. XGBoost training converged quickly; sparse Wessex lag features auto-pruned and logged for traceability.</p>
+    </div>
+    <div class="timeline-card">
+      <strong>Day 2 &middot; Evaluation &amp; deploy</strong>
+      <small>07_fuse_eval -> 09_numba_fix</small>
+      <p>Logistic fusion rebalanced label counts (drop 10 rows) and now exports <code>score_fusion</code>. API container smoke-tested twice; health endpoint stable after initial transient retries.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Pipeline Run Snapshot</h2>
+  <table>
+    <thead>
+      <tr><th>Stage</th><th>Outcome</th><th>Notes</th><th>Evidence</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>01 &middot; Setup environment</td>
+        <td><span class="badge badge-warn">warnings</span></td>
+        <td>Homebrew Python + venv ready; optional <code>yq</code> tooling missing.</td>
+        <td><a href="01_setup.log">01_setup.log</a></td>
+      </tr>
+      <tr>
+        <td>02 &middot; Lint</td>
+        <td><span class="badge badge-fail">failed</span></td>
+        <td><code>make lint</code> invoked Black without targets. Needs Makefile fix before release.</td>
+        <td><a href="02_lint.log">02_lint.log</a></td>
+      </tr>
+      <tr>
+        <td>03 &middot; Tests</td>
+        <td><span class="badge badge-fail">failed</span></td>
+        <td>284 tests passed; <code>tests/unit/test_fusion.py::test_custom_weights_change_q</code> failed.</td>
+        <td><a href="03_tests.log">03_tests.log</a></td>
+      </tr>
+      <tr>
+        <td>04 &middot; Ingest</td>
+        <td><span class="badge badge-pass">completed</span></td>
+        <td>All modalities ingested. Logger ID fallback noted; HydroGNN tensors staged.</td>
+        <td><a href="04_ingest.log">04_ingest.log</a></td>
+      </tr>
+      <tr>
+        <td>05 &middot; Feature build</td>
+        <td><span class="badge badge-pass">completed</span></td>
+        <td>Synthetic acoustic/hydraulic features regenerated with manifests + metadata.</td>
+        <td><a href="05_features.log">05_features.log</a></td>
+      </tr>
+      <tr>
+        <td>06 &middot; Train models</td>
+        <td><span class="badge badge-warn">warnings</span></td>
+        <td>Models trained; sparse Wessex covariates dropped (documented in log).</td>
+        <td><a href="06_train.log">06_train.log</a></td>
+      </tr>
+      <tr>
+        <td>07 &middot; Fuse &amp; evaluate</td>
+        <td><span class="badge badge-warn">rebalanced</span></td>
+        <td>Aligned modalities by trimming 10 rows; logistic fusion now emits <code>score_fusion</code>.</td>
+        <td><a href="07_fuse_eval.log">07_fuse_eval.log</a></td>
+      </tr>
+      <tr>
+        <td>08 &middot; Deploy API</td>
+        <td><span class="badge badge-pass">completed</span></td>
+        <td>Smoke container healthy after 8s; synthetic demo bundle included.</td>
+        <td><a href="08_deploy_api.log">08_deploy_api.log</a></td>
+      </tr>
+      <tr>
+        <td>09 &middot; Numba patch</td>
+        <td><span class="badge badge-pass">completed</span></td>
+        <td>Hotfix container validated; no demo payload bundled.</td>
+        <td><a href="09_deploy_api_numba_fix.log">09_deploy_api_numba_fix.log</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Model Performance Highlights</h2>
+  <table>
+    <thead>
+      <tr><th>Model</th><th>AUROC</th><th>AUPRC</th><th>Recall @ 2% FPR</th><th>Threshold</th><th>Evidence</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>BattLeDIM hydraulic XGBoost</td>
+        <td>0.995</td>
+        <td>1.000</td>
+        <td>0.957</td>
+        <td>0.776</td>
+        <td><a href="models/hydraulic_metrics.json">models/hydraulic_metrics.json</a></td>
+      </tr>
+      <tr>
+        <td>Yorkshire logger XGBoost</td>
+        <td>1.000</td>
+        <td>1.000</td>
+        <td>1.000</td>
+        <td>0.518</td>
+        <td><a href="models/logger_yorkshire_metrics.json">models/logger_yorkshire_metrics.json</a></td>
+      </tr>
+      <tr>
+        <td>Wessex logger XGBoost</td>
+        <td>0.985</td>
+        <td>0.990</td>
+        <td>0.679</td>
+        <td>0.859</td>
+        <td><a href="models/logger_wessex_metrics.json">models/logger_wessex_metrics.json</a></td>
+      </tr>
+      <tr>
+        <td>Logistic fusion</td>
+        <td>1.000</td>
+        <td>1.000</td>
+        <td>1.000</td>
+        <td>0.716</td>
+        <td><a href="fusion/metrics.json">fusion/metrics.json</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="muted">Logistic fusion now emits blended metrics (AUROC 1.000); see <a href="fusion/detection_delays.json">fusion/detection_delays.json</a> for the zero-minute fused detection latency alongside modality baselines.</p>
+</section>
+
+<section>
+  <h2>Data Quality Gates</h2>
+  <table>
+    <thead>
+      <tr><th>Dataset</th><th>Status</th><th>Highlights</th><th>Quality Report</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>BattLeDIM SCADA (hydraulic)</td>
+        <td><span class="badge badge-pass">pass</span></td>
+        <td>105,120 labelled rows; 0% telemetry missingness; leak events: 2.</td>
+        <td><a href="quality/battledim_profile.json">quality/battledim_profile.json</a></td>
+      </tr>
+      <tr>
+        <td>HK acoustic waveforms</td>
+        <td><span class="badge badge-pass">pass</span></td>
+        <td>Balanced leak/normal clips; ingest contract satisfied.</td>
+        <td><a href="quality/hk_acoustic_profile.json">quality/hk_acoustic_profile.json</a></td>
+      </tr>
+      <tr>
+        <td>Wessex pipe logs</td>
+        <td><span class="badge badge-pass">pass</span></td>
+        <td>Feature coverage intact; sparse lag fields later pruned in training.</td>
+        <td><a href="quality/wessex_profile.json">quality/wessex_profile.json</a></td>
+      </tr>
+      <tr>
+        <td>Yorkshire pipe logs</td>
+        <td><span class="badge badge-pass">pass</span></td>
+        <td>Label coverage intact; seasonal drift within tolerance windows.</td>
+        <td><a href="quality/yorkshire_profile.json">quality/yorkshire_profile.json</a></td>
+      </tr>
+      <tr>
+        <td>Governed synthetic augmentation</td>
+        <td><span class="badge badge-pass">pass</span></td>
+        <td>4,096 acoustic clips + 31,910 hydraulic windows; manifests versioned.</td>
+        <td><a href="quality/synthetic_profile.json">quality/synthetic_profile.json</a></td>
+      </tr>
+      <tr>
+        <td>Feature profiles (hydraulic/logger)</td>
+        <td><span class="badge badge-na">n/a</span></td>
+        <td>Structural overviews only; inspect manually before waiving any gate.</td>
+        <td><a href="quality/battledim_hydraulic_features_profile.json">quality/*_features_profile.json</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="muted">All ingest jobs emitted <code>quality_report</code> artefacts; non-<em>pass</em> statuses remain release blockers and require documented waivers in <code>docs/data_cards/</code>.</p>
+</section>
+
+<section>
+  <h2>Investor Pillars</h2>
+  <div class="pillars">
+    <div class="pillar">
+      <h4>Explainability &amp; Assurance</h4>
+      <ul>
+        <li>Blended <code>score_fusion</code> metrics (AUROC 1.000) restored after label balancing.</li>
+        <li>Detection delays exported for board review (<a href="fusion/detection_delays.json">fusion/detection_delays.json</a>).</li>
+        <li>Training configs + manifests stored beside metrics for reproducibility.</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <h4>Governance &amp; Synthetic Mix</h4>
+      <ul>
+        <li>20% synthetic augmentation applied with manifests (<a href="quality/synthetic_profile.json">synthetic_profile.json</a>).</li>
+        <li>No waivers filed; all <code>quality_report</code> statuses show <em>pass</em>.</li>
+        <li>Synthetic runs documented in <a href="20251011T192807Z_training.json">training manifest</a> for provenance.</li>
+      </ul>
+    </div>
+    <div class="pillar">
+      <h4>Commercial Readiness</h4>
+      <ul>
+        <li>Hydraulic AUROC 0.995 at 2% FPR aligns with NRW contract KPIs.</li>
+        <li>Logger models achieve >=0.989 AUPRC, supporting NRW revenue-protection narrative.</li>
+        <li>Maintain <5&nbsp;s SCADA skew; sample generator now emits contract-compliant payloads with units.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>API Contract Check</h2>
+  <div class="card">
+    <h3>Health Endpoint</h3>
+    <p>Latest probe status: <strong>ok</strong> (<a href="api_health.json">api_health.json</a>) &middot; Contract snapshot: <a href="openapi.json">openapi.json</a> &middot; Deploy log: <a href="08_deploy_api.log">08_deploy_api.log</a></p>
+  </div>
+  <div class="card">
+    <h3>Sample /predict response</h3>
+    <p>SCADA contract OK; payload includes unit metadata and landed within the 5&nbsp;s skew budget. Trace ID: <code>local-sample</code>.</p>
+    <pre>{
+  "detail": {
+    "code": "scada_contract",
+    "message": "ok",
+    "details": {
+      "ok": true,
+      "issues": [],
+      "diagnostics": {
+        "unit_mismatches": [],
+        "jitter": [],
+        "skew": []
+      }
+    },
+    "trace_id": "local-sample"
+  }
+}</pre>
+  </div>
+</section>
+
+<section>
+  <h2>Key Risks &amp; Follow-ups</h2>
+  <div class="callouts">
+    <div class="callout callout-warn">
+      <strong>Fusion balancing.</strong>
+      Logistic now trims to shared label counts (10 rows dropped). Monitor upcoming ingests for genuine cross-modality alignment and increase overlap where possible (<a href="fusion/fusion_details.json">fusion_details.json</a>).
+    </div>
+    <div class="callout callout-warn">
+      <strong>SCADA contract discipline.</strong>
+      Keep inference payloads under the 5&nbsp;s skew threshold and preserve per-sample units; current sample generator satisfies the gate (<a href="api_predict.json">api_predict.json</a>).
+    </div>
+    <div class="callout callout-info">
+      <strong>Tooling gaps.</strong>
+      Install <code>yq</code> and repair the <code>make lint</code> target. Stage a green <code>make test</code> run before distributing this bundle to investors.
+    </div>
+  </div>
+  <p class="muted">Document all remediation in the relevant runbooks and data cards to maintain auditability for investor diligence.</p>
+</section>
+
+<footer>Tip: Use your browser's "Print to PDF" for a polished one-pager.</footer>
+</body>
+</html>

@@ -1,0 +1,141 @@
+{
+  "raw_files": {
+    "Acoustic_Logger_Data.csv": "/Users/test/Code/aabcor/projectK/nrw-ai/data/raw/yorkshire/Acoustic_Logger_Data.csv",
+    "Leak_Alarm_Results.csv": "/Users/test/Code/aabcor/projectK/nrw-ai/data/raw/yorkshire/Leak_Alarm_Results.csv"
+  },
+  "duplicates_removed": 97590,
+  "logger_count": 1148,
+  "profile": {
+    "rows": 97580,
+    "columns": 7,
+    "missing_ratio": {
+      "logger_id": 0.0,
+      "lvl_spr": 0.0,
+      "date": 0.0,
+      "reading": 0.5892498462799755,
+      "leak_alarm": 0.9991699118671858,
+      "leak_found": 0.9991699118671858,
+      "is_leak": 0.9991699118671858
+    },
+    "numeric_summary": {
+      "logger_id": {
+        "min": 1.0,
+        "max": 1148.0,
+        "mean": 574.5,
+        "median": 574.5
+      },
+      "reading": {
+        "min": 0.0,
+        "max": 102.0,
+        "mean": 6.735186247848108,
+        "median": 5.0
+      },
+      "is_leak": {
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.7901234567901234,
+        "median": 1.0
+      }
+    },
+    "top_values": {
+      "lvl_spr": {
+        "Spr": 97580
+      },
+      "leak_alarm": {
+        "Y": 64,
+        "N": 17
+      },
+      "leak_found": {
+        "Y": 47,
+        "N": 28,
+        "N-PRV": 6
+      }
+    },
+    "time_range": {
+      "start": "2018-02-07T00:00:00",
+      "end": "2018-05-02T00:00:00"
+    },
+    "preview": [
+      {
+        "logger_id": 1,
+        "lvl_spr": "Spr",
+        "date": "2018-02-07T00:00:00",
+        "reading": NaN,
+        "leak_alarm": NaN,
+        "leak_found": NaN,
+        "is_leak": null
+      },
+      {
+        "logger_id": 1,
+        "lvl_spr": "Spr",
+        "date": "2018-02-08T00:00:00",
+        "reading": NaN,
+        "leak_alarm": NaN,
+        "leak_found": NaN,
+        "is_leak": null
+      },
+      {
+        "logger_id": 1,
+        "lvl_spr": "Spr",
+        "date": "2018-02-09T00:00:00",
+        "reading": NaN,
+        "leak_alarm": NaN,
+        "leak_found": NaN,
+        "is_leak": null
+      },
+      {
+        "logger_id": 1,
+        "lvl_spr": "Spr",
+        "date": "2018-02-10T00:00:00",
+        "reading": NaN,
+        "leak_alarm": NaN,
+        "leak_found": NaN,
+        "is_leak": null
+      },
+      {
+        "logger_id": 1,
+        "lvl_spr": "Spr",
+        "date": "2018-02-11T00:00:00",
+        "reading": NaN,
+        "leak_alarm": NaN,
+        "leak_found": NaN,
+        "is_leak": null
+      }
+    ]
+  },
+  "label_column": "leak_alarm",
+  "label_source": "leak_alarm",
+  "label_diagnostics": {
+    "score": 8.0,
+    "coverage": 1.0,
+    "positives": 69,
+    "negatives": 17
+  },
+  "labelled_rows": 172,
+  "quality_report": {
+    "dataset": "yorkshire",
+    "rows": 97580,
+    "primary_key": [
+      "logger_id",
+      "date"
+    ],
+    "null_counts": {
+      "logger_id": 0,
+      "date": 0,
+      "is_leak": 97499
+    },
+    "future_records": 0,
+    "time_range": {
+      "start": "2018-02-07T00:00:00",
+      "end": "2018-05-02T00:00:00"
+    },
+    "labels": {
+      "column": "is_leak",
+      "labelled_rows": 81,
+      "positives": 64,
+      "negatives": 17,
+      "missing": 97499
+    },
+    "status": "pass"
+  }
+}

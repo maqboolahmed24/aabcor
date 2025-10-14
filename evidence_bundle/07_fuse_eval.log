@@ -1,0 +1,49 @@
+------------------------------------------------------------------------
+| NRW Fusion & Evaluation |
+------------------------------------------------------------------------
+-> Using python interpreter: /Users/test/Code/aabcor/projectK/venv/bin/python (v3.11.13)
+-> Using acoustic predictions -> /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/acoustic_cnn/predictions.parquet
+-> Using hydraulic predictions -> /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/hydraulic_xgb/predictions.parquet
+-> Running fusion evaluation (mode=logistic, fpr_target=0.02)
+Matplotlib created a temporary cache directory at /var/folders/1x/r4l_xpbj0k72g4qn8qkvd1y00000gn/T/matplotlib-clhcse_3 because the default path (/Users/test/.matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/test/.cache/fontconfig
+	/Users/test/.fontconfig
+INFO __main__: Loading acoustic predictions from /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/acoustic_cnn/predictions.parquet
+/Users/voltrondata/github-actions-runner/_work/crossbow/crossbow/arrow/cpp/src/arrow/util/cpu_info.cc:239: IOError: sysctlbyname failed for 'hw.l1dcachesize'. Detail: [errno 1] Operation not permitted
+/Users/voltrondata/github-actions-runner/_work/crossbow/crossbow/arrow/cpp/src/arrow/util/cpu_info.cc:239: IOError: sysctlbyname failed for 'hw.l2cachesize'. Detail: [errno 1] Operation not permitted
+/Users/voltrondata/github-actions-runner/_work/crossbow/crossbow/arrow/cpp/src/arrow/util/cpu_info.cc:239: IOError: sysctlbyname failed for 'hw.l3cachesize'. Detail: [errno 1] Operation not permitted
+/Users/voltrondata/github-actions-runner/_work/crossbow/crossbow/arrow/cpp/src/arrow/util/cpu_info.cc:239: IOError: sysctlbyname failed for 'hw.optional.neon'. Detail: [errno 1] Operation not permitted
+INFO __main__: Loading hydraulic predictions from /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/hydraulic_xgb/predictions.parquet
+WARNING __main__: Label mismatch detected between label_acoustic and label_hydraulic; dropping 10 rows before fusion
+INFO __main__: Evaluated score_acoustic -> AUROC=0.754 AUPRC=0.878 Recall@FPR0.02=0.421 threshold=0.561
+INFO __main__: Evaluated score_hydraulic -> AUROC=1.000 AUPRC=1.000 Recall@FPR0.02=1.000 threshold=0.964
+INFO __main__: Evaluated score_fusion -> AUROC=1.000 AUPRC=1.000 Recall@FPR0.02=1.000 threshold=0.716
+INFO __main__: Evaluated score_acoustic -> AUROC=0.754 AUPRC=0.878 Recall@FPR0.02=0.421 threshold=0.561
+INFO __main__: Evaluated score_hydraulic -> AUROC=1.000 AUPRC=1.000 Recall@FPR0.02=1.000 threshold=0.964
+INFO __main__: Evaluated score_fusion -> AUROC=1.000 AUPRC=1.000 Recall@FPR0.02=1.000 threshold=0.716
+INFO __main__: Wrote fused predictions -> /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/fusion/logistic/fused_predictions.parquet (28 rows)
+-> Evaluation metrics summary:
+  score_acoustic: AUROC=0.754 AUPRC=0.878 Recall@FPR=0.421 threshold=0.561
+  score_hydraulic: AUROC=1.000 AUPRC=1.000 Recall@FPR=1.000 threshold=0.964
+  score_fusion: AUROC=1.000 AUPRC=1.000 Recall@FPR=1.000 threshold=0.716
+  Source breakdown:
+    [hk_acoustic]
+      score_acoustic: AUROC=0.754 AUPRC=0.878 Recall@FPR=0.421 threshold=0.561
+      score_hydraulic: AUROC=1.000 AUPRC=1.000 Recall@FPR=1.000 threshold=0.964
+      score_fusion: AUROC=1.000 AUPRC=1.000 Recall@FPR=1.000 threshold=0.716
+-> Detection delay summary:
+  score_acoustic: events=1 detected=1 missed=0 mean_delay=865.0m
+    median=865.0m max=865.0m
+  score_hydraulic: events=1 detected=1 missed=0 mean_delay=0.0m
+    median=0.0m max=0.0m
+  score_fusion: events=1 detected=1 missed=0 mean_delay=0.0m
+    median=0.0m max=0.0m
+-> Fusion artifacts available under: /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/fusion/logistic
+  /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/fusion/logistic/fused_predictions.parquet
+  /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/fusion/logistic/metrics.json
+  /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/fusion/logistic/fusion_details.json
+  /Users/test/Code/aabcor/projectK/nrw-ai/models/baseline/fusion/logistic/detection_delays.json
+-> Fusion evaluation complete

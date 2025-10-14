@@ -1,0 +1,37 @@
+{
+  "mode": "logistic",
+  "coefficients": {
+    "score_acoustic": 0.046874705095696925,
+    "score_hydraulic": 2.7142708245486253
+  },
+  "intercept": -1.5655753529508658,
+  "n_splits": 5,
+  "components": [
+    "score_acoustic",
+    "score_hydraulic"
+  ],
+  "source_counts": {
+    "hk_acoustic": 28
+  },
+  "label_mismatch": {
+    "strategy": "balanced_by_label",
+    "labels": {
+      "1": 19,
+      "0": 9
+    },
+    "drops": [
+      {
+        "label_column": "label_acoustic",
+        "kept_rows": 28,
+        "original_rows": 28,
+        "dropped_rows": 0
+      },
+      {
+        "label_column": "label_hydraulic",
+        "kept_rows": 28,
+        "original_rows": 4000,
+        "dropped_rows": 3972
+      }
+    ]
+  }
+}
