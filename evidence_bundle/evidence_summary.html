@@ -344,53 +344,62 @@ footer{
   <h2>Pipeline Run Snapshot</h2>
   <table>
     <thead>
-      <tr><th>Stage</th><th>Status</th><th>Headline outcome</th></tr>
+      <tr><th>Stage</th><th>Status</th><th>Headline outcome</th><th>Evidence</th></tr>
     </thead>
     <tbody>
       <tr>
         <td>01 &middot; Environment</td>
         <td><span class="badge badge-pass">ready</span></td>
         <td>Secure runtime prepared with telemetry access, observability, and evidence capture enabled.</td>
+        <td><a href="01_setup.log" rel="noopener noreferrer">Open raw log</a></td>
       </tr>
       <tr>
         <td>02 &middot; Code quality</td>
         <td><span class="badge badge-warn">wrap-up</span></td>
         <td>Automated styling check flagged a rule that is scheduled to close before bundle release.</td>
+        <td><a href="02_lint.log" rel="noopener noreferrer">Open raw log</a></td>
       </tr>
       <tr>
         <td>03 &middot; Automated tests</td>
         <td><span class="badge badge-warn">wrap-up</span></td>
         <td>Regression suite passed 99% of scenarios; a fusion guardrail is being recalibrated.</td>
+        <td><a href="03_tests.log" rel="noopener noreferrer">Open raw log</a></td>
       </tr>
       <tr>
         <td>04 &middot; Ingest</td>
         <td><span class="badge badge-pass">complete</span></td>
         <td>All customer and governed datasets ingested with traceable profiles and audit artefacts.</td>
+        <td><a href="04_ingest.log" rel="noopener noreferrer">Open raw log</a></td>
       </tr>
       <tr>
         <td>05 &middot; Feature build</td>
         <td><span class="badge badge-pass">complete</span></td>
         <td>Multimodal features regenerated, versioned, and aligned for training and fusion.</td>
+        <td><a href="05_features.log" rel="noopener noreferrer">Open raw log</a></td>
       </tr>
       <tr>
         <td>06 &middot; Model training</td>
         <td><span class="badge badge-pass">complete</span></td>
         <td>Hydraulic and logger models refreshed with governed synthetic augmentation and reproducibility notes.</td>
+        <td><a href="06_train.log" rel="noopener noreferrer">Open raw log</a></td>
       </tr>
       <tr>
         <td>07 &middot; Fusion evaluation</td>
         <td><span class="badge badge-pass">complete</span></td>
         <td>Logistic fusion rebalanced across modalities, delivering AUROC 1.000 at the operating threshold.</td>
+        <td><a href="07_fuse_eval.log" rel="noopener noreferrer">Open raw log</a></td>
       </tr>
       <tr>
         <td>08 &middot; API deploy</td>
         <td><span class="badge badge-pass">complete</span></td>
         <td>Service image deployed with healthy /health and /predict responses plus evidence bundle attachments.</td>
+        <td><a href="08_deploy_api.log" rel="noopener noreferrer">Open raw log</a><br><a href="deploy_api_stub.log" rel="noopener noreferrer">Stub contract log</a></td>
       </tr>
       <tr>
         <td>09 &middot; Post-deploy validation</td>
         <td><span class="badge badge-pass">complete</span></td>
         <td>Runtime patch confirmed parity; investor evidence bundle regenerated with verified artefacts.</td>
+        <td><a href="09_deploy_api_numba_fix.log" rel="noopener noreferrer">Open raw log</a></td>
       </tr>
     </tbody>
   </table>
