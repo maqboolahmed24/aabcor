@@ -48,8 +48,8 @@ html{scroll-behavior:smooth;}
 /* Nav refinement with active indicator */
 nav{border-bottom:1px solid var(--line);background:rgba(255,255,255,0.86);}
 nav a{position:relative;padding-top:2px;padding-bottom:2px;}
-nav a[aria-current="true"]{color:var(--ink);} 
-nav a[aria-current="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:2px;background:linear-gradient(90deg,var(--accent),#88a3ff);border-radius:2px;} 
+nav a[aria-current="page"]{color:var(--ink);} 
+nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:2px;background:linear-gradient(90deg,var(--accent),#88a3ff);border-radius:2px;} 
 
 /* Hero blueprint pattern (no generic blur/glass) */
 .hero-shell{position:relative;}
