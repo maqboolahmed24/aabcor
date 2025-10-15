@@ -23,7 +23,7 @@
     navLinks.forEach((link) => {
       const match = link.getAttribute('href') === id;
       if (match) {
-        link.setAttribute('aria-current', 'true');
+        link.setAttribute('aria-current', 'page');
         link.classList.add('text-ink-900');
       } else {
         link.removeAttribute('aria-current');
@@ -34,10 +34,8 @@
     if (moreBtn) {
       if (activeInMore) {
         moreBtn.setAttribute('data-active', 'true');
-        moreBtn.setAttribute('aria-current', 'true');
       } else {
         moreBtn.removeAttribute('data-active');
-        moreBtn.removeAttribute('aria-current');
       }
     }
   }
@@ -76,6 +74,7 @@
     if (!mobilePanel || !mobileToggle) return;
     mobilePanel.classList.remove('open');
     mobilePanel.hidden = true;
+    mobilePanel.setAttribute('aria-hidden', 'true');
     mobileToggle.setAttribute('aria-expanded', 'false');
   }
 
@@ -83,6 +82,7 @@
     if (!mobilePanel || !mobileToggle) return;
     mobilePanel.hidden = false;
     mobilePanel.classList.add('open');
+    mobilePanel.setAttribute('aria-hidden', 'false');
     mobileToggle.setAttribute('aria-expanded', 'true');
   }
 
@@ -229,6 +229,7 @@
       if (!tooltip) return;
       tooltip.textContent = tip;
       placeTooltip(target);
+      tooltip.hidden = false;
       tooltip.classList.add('show');
       tooltip.setAttribute('aria-hidden', 'false');
     };
@@ -246,6 +247,7 @@
       if (tooltip) {
         tooltip.classList.remove('show');
         tooltip.setAttribute('aria-hidden', 'true');
+        tooltip.hidden = true;
         tooltip.textContent = '';
       }
       if (activeStage) activeStage.setAttribute('aria-pressed', 'false');
