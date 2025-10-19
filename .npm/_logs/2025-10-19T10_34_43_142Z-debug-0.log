@@ -1,0 +1,18 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.9.2
+2 info using node@v22.15.1
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/test/Code/aabcor/landing/aabcor/.npmrc
+5 silly config load:file:/usr/local/etc/npmrc
+6 verbose title npm run build
+7 verbose argv "run" "build"
+8 verbose logfile logs-max:10 dir:/Users/test/Code/aabcor/landing/aabcor/.npm/_logs/2025-10-19T10_34_43_142Z-
+9 verbose logfile /Users/test/Code/aabcor/landing/aabcor/.npm/_logs/2025-10-19T10_34_43_142Z-debug-0.log
+10 silly logfile done cleaning log files
+11 http fetch GET https://registry.npmjs.org/npm attempt 1 failed with ENOTFOUND
+12 verbose cwd /Users/test/Code/aabcor/landing/aabcor
+13 verbose os Darwin 24.6.0
+14 verbose node v22.15.1
+15 verbose npm  v10.9.2
+16 verbose exit 0
+17 info ok
