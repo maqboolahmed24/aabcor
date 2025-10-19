@@ -86,10 +86,12 @@
     .flow .badge .dot{display:inline-block;width:.5rem;height:.5rem;border-radius:999px;background:#0B7A3B;box-shadow:0 0 6px rgba(11,122,59,.25);margin-right:.35rem;vertical-align:middle}
     .flow svg .stage{ transition: transform .18s ease; }
     .flow svg .stage:hover{ transform: translateY(-2px); }
-    .flow svg .node{ fill:url(#nodeGrad); stroke:var(--brand-green); stroke-width:1; rx:12; ry:12; filter:url(#flowGlow); transition: filter .2s ease, stroke-width .2s ease }
-    .flow svg .stage:hover .node{ filter: drop-shadow(0 2px 6px rgba(11,122,59,.18)); stroke-width:1.5 }
+    .flow svg .stage:focus-visible{ outline:2px solid rgba(43,92,246,.35); outline-offset:4px; border-radius:18px; }
+    .flow svg .node{ fill:url(#nodeGrad); stroke:var(--brand-green); stroke-width:1; filter:url(#flowGlow); transition: filter .2s ease, stroke-width .2s ease }
+    .flow svg .stage:hover .node,
+    .flow svg .stage:focus-visible .node{ filter: drop-shadow(0 3px 8px rgba(11,122,59,.22)); stroke-width:1.6 }
     .flow svg .label{ font: 16px/1.6 Inter, ui-sans-serif, system-ui; fill:#0f2439 }
-    .flow svg .arrow{ stroke:#94a3b8; stroke-opacity:.7; stroke-width:1.2; stroke-linecap:round; marker-end:url(#arrowHead); stroke-dasharray:4 12; animation: dashMove 7s linear infinite }
+    .flow svg .arrow{ stroke:url(#arrowGradient); stroke-opacity:.9; stroke-width:1.4; stroke-linecap:round; marker-end:url(#arrowHead); stroke-dasharray:4 12; animation: dashMove 7s linear infinite }
     @keyframes dashMove{ to { stroke-dashoffset: -260; } }
 
     /* Reduced motion preferences */
@@ -100,10 +102,10 @@
 
     /* Flow tooltip */
     .flow{ position:relative; }
-    #flow-tooltip{ position:absolute; top:0; left:0; transform:translate(-50%,-110%) scale(.98); opacity:0; pointer-events:none; transition:opacity .15s ease, transform .18s ease; background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:.6rem .75rem; box-shadow:0 10px 22px rgba(16,33,59,.12), 0 2px 6px rgba(16,33,59,.06); max-width:280px; z-index:20; color:#10213b; font: 13px/1.45 Inter, ui-sans-serif, system-ui; }
+    #flow-tooltip{ position:absolute; top:0; left:0; transform:translate(-50%,-110%) scale(.98); opacity:0; pointer-events:none; transition:opacity .15s ease, transform .18s ease; background:linear-gradient(160deg, rgba(255,255,255,.97), rgba(233,248,254,.95)); border:1px solid rgba(15,35,58,.12); border-radius:14px; padding:.65rem .8rem; box-shadow:0 16px 34px rgba(16,33,59,.18), 0 4px 12px rgba(16,33,59,.08); max-width:300px; z-index:20; color:#10213b; font: 13px/1.45 Inter, ui-sans-serif, system-ui; backdrop-filter:blur(12px) saturate(140%); word-break:break-word; }
     #flow-tooltip.show{ opacity:1; transform:translate(-50%,-110%) scale(1); }
-    #flow-tooltip::after{ content:""; position:absolute; left:50%; bottom:-6px; transform:translateX(-50%); border:6px solid transparent; border-top-color:#e5e7eb; }
-    #flow-tooltip::before{ content:""; position:absolute; left:50%; bottom:-5px; transform:translateX(-50%); border:6px solid transparent; border-top-color:#fff; }
+    #flow-tooltip::after{ content:""; position:absolute; left:50%; bottom:-6px; transform:translateX(-50%); border:6px solid transparent; border-top-color:rgba(15,35,58,.12); }
+    #flow-tooltip::before{ content:""; position:absolute; left:50%; bottom:-5px; transform:translateX(-50%); border:6px solid transparent; border-top-color:rgba(255,255,255,.96); }
 
     /* Flow info icons */
     .flow svg .info{ pointer-events:none; }
@@ -120,13 +122,15 @@
     #nav-more-btn{ border:none; background:none; padding:.35rem .6rem; border-radius:999px; font:600 14px/1.2 Inter, ui-sans-serif, system-ui; color:#29384b; display:inline-flex; align-items:center; gap:.25rem; }
     #nav-more-btn:focus-visible{ outline:2px solid #1f4ed8; outline-offset:2px; }
     #nav-more-btn[data-active="true"]{ background:rgba(11,122,59,.10); color:var(--brand-green); }
-    #nav-more-menu{ border:1px solid #e5e7eb; box-shadow:0 12px 28px rgba(16,33,59,.12), 0 2px 8px rgba(16,33,59,.06); background:#fff; border-radius:12px; padding:.4rem; min-width:13rem; }
+    #nav-more-menu{ position:absolute; overflow:hidden; border:1px solid rgba(15,35,58,.08); box-shadow:0 18px 36px rgba(15,35,58,.16), 0 4px 12px rgba(15,35,58,.08); background:linear-gradient(160deg, rgba(255,255,255,.94), rgba(235,248,244,.96)); backdrop-filter:blur(14px) saturate(140%); border-radius:14px; padding:.5rem; min-width:13rem; }
+    #nav-more-menu::before{ content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0)); pointer-events:none; }
     #nav-more-menu[hidden]{ display:none; }
-    #nav-more-menu .menu-item{ display:flex; align-items:center; gap:.6rem; padding:.5rem .65rem; border-radius:.5rem; color:#10213b; text-decoration:none; }
+    #nav-more-menu .menu-item{ display:flex; align-items:center; gap:.6rem; padding:.55rem .75rem; border-radius:.6rem; color:#0f2439; text-decoration:none; transition:background-color .18s ease, color .18s ease, box-shadow .18s ease; }
+    #nav-more-menu .menu-item + .menu-item{ margin-top:.15rem; }
     #nav-more-menu .menu-item:hover,
-    #nav-more-menu .menu-item:focus-visible{ background:#f1f5f9; outline:none; }
-    #nav-more-menu .menu-item[aria-current="page"]{ background:rgba(11,122,59,.1); color:var(--brand-green); }
-    #nav-more-menu .menu-icon{ width:16px; height:16px; color:#6b7890; flex-shrink:0; }
+    #nav-more-menu .menu-item:focus-visible{ background:rgba(43,92,246,.12); color:#0b1e33; box-shadow:0 8px 18px rgba(15,35,58,.12); outline:none; }
+    #nav-more-menu .menu-item[aria-current="page"]{ background:rgba(30,142,90,.15); color:var(--brand-green); box-shadow:0 8px 18px rgba(11,122,59,.18); }
+    #nav-more-menu .menu-icon{ width:16px; height:16px; color:#6b7890; flex-shrink:0; transition:color .18s ease; }
     #nav-more-menu .menu-item:hover .menu-icon,
     #nav-more-menu .menu-item:focus-visible .menu-icon{ color:var(--brand-green); }
     #mobile-nav-toggle{ display:none; align-items:center; gap:.45rem; border:1px solid var(--line); background:#fff; border-radius:10px; padding:.45rem .75rem; font:600 14px/1.2 Inter, ui-sans-serif, system-ui; color:#10213b; box-shadow:0 1px 2px rgba(16,33,59,.08); }
@@ -135,11 +139,12 @@
     @media (max-width: 639px){
       #mobile-nav-toggle{ display:inline-flex; }
     }
-    #mobile-nav-panel{ display:none; background:#fff; border-bottom:1px solid var(--line); box-shadow:0 18px 40px rgba(15,23,42,.1); }
+    #mobile-nav-panel{ display:none; background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(236,253,245,.96)); border-bottom:1px solid rgba(15,35,58,.08); box-shadow:0 22px 46px rgba(15,35,58,.16); }
     #mobile-nav-panel.open{ display:block; }
-    #mobile-nav-panel ul{ list-style:none; margin:0; padding:1rem 1.25rem 1.4rem; display:grid; gap:.5rem; }
-    #mobile-nav-panel a{ display:block; padding:.55rem .75rem; border-radius:10px; font:600 15px/1.25 Inter, ui-sans-serif, system-ui; color:#10213b; }
-    #mobile-nav-panel a[aria-current="page"]{ background:rgba(11,122,59,.1); color:var(--brand-green); }
+    #mobile-nav-panel ul{ list-style:none; margin:0; padding:1rem 1.25rem 1.4rem; display:grid; gap:.35rem; }
+    #mobile-nav-panel li{ border:1px solid rgba(15,35,58,.08); border-radius:12px; background:rgba(255,255,255,.92); box-shadow:0 10px 22px rgba(15,35,58,.12); }
+    #mobile-nav-panel a{ display:block; padding:.6rem .85rem; border-radius:10px; font:600 15px/1.25 Inter, ui-sans-serif, system-ui; color:#10213b; }
+    #mobile-nav-panel a[aria-current="page"]{ background:rgba(11,122,59,.12); color:var(--brand-green); box-shadow:inset 0 0 0 1px rgba(11,122,59,.24); }
     #mobile-nav-panel a:focus-visible{ outline:2px solid #1f4ed8; outline-offset:2px; }
     .nav-noscript{ margin-top:.75rem; display:flex; flex-wrap:wrap; gap:.5rem; }
     .nav-noscript a{ display:inline-flex; align-items:center; padding:.35rem .6rem; border-radius:999px; background:#eef2ff; color:#1f2937; font:600 13px/1.2 Inter, ui-sans-serif; text-decoration:none; }
@@ -152,6 +157,20 @@
     .cta-secondary{ background:#fff; color:#10213b; border:1px solid #e5e7eb }
     .cta-secondary:hover{ background:#f8fafc; border-color:#d7dee9; transform:translateY(-1px) }
     .cta-secondary:focus-visible{ outline:2px solid #1f4ed8; outline-offset:2px }
+
+    .hero-cta{ flex-wrap:wrap; }
+    .hero-cta .cta{ min-width:220px; justify-content:center; text-align:center; }
+    @media (max-width: 520px){
+      .hero-cta{ flex-direction:column; align-items:stretch; gap:.65rem; }
+      .hero-cta .cta{ width:100%; }
+    }
+
+    .mini-stat{ display:flex; flex-direction:column; gap:.45rem; min-height:98px; border-radius:14px; box-shadow:0 8px 18px rgba(15,23,42,.08); transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+    .mini-stat p{ margin:0; }
+    .mini-stat:hover{ transform:translateY(-2px); border-color:rgba(30,142,90,.22); box-shadow:0 16px 30px rgba(15,23,42,.12); }
+    @media (max-width:640px){
+      .mini-stat{ min-height:auto; }
+    }
 
     /* Evidence bundle presentation */
     .evidence-metric-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px }
@@ -180,16 +199,17 @@
     .card-list li strong{ color:#10213b; }
     .card-list li span{ display:block; color:#4b5563; font-size:13px; }
     .evidence-timeline{ display:grid; gap:18px; }
-    .evidence-timeline li{ padding:1.1rem 1.25rem 1.1rem 2.4rem; border-radius:18px; border:1px solid rgba(15,23,42,.06); background:#fff; box-shadow:0 18px 32px rgba(15,23,42,.08); }
-    .evidence-timeline li::after{ display:none; }
-    .evidence-timeline li::before{ left:18px; width:12px; height:12px; border:0; box-shadow:0 0 0 4px rgba(11,122,59,.12); background:var(--brand-green); }
+    .evidence-timeline li{ position:relative; padding:1.15rem 1.3rem 1.15rem 2.75rem; border-radius:18px; border:1px solid rgba(15,23,42,.08); background:linear-gradient(160deg, rgba(255,255,255,.97), rgba(235,248,244,.96)); box-shadow:0 18px 32px rgba(15,23,42,.08); }
+    .evidence-timeline li::before{ content:""; position:absolute; left:20px; top:1.25rem; width:12px; height:12px; border-radius:999px; background:linear-gradient(135deg, var(--brand-green), #2b5cf6); box-shadow:0 0 0 6px rgba(43,92,246,.14); }
+    .evidence-timeline li::after{ content:""; position:absolute; left:25px; top:calc(1.25rem + 14px); bottom:1.25rem; width:2px; background:linear-gradient(180deg, rgba(43,92,246,.36), rgba(30,142,90,0)); }
     .evidence-timeline li span.status-pill{ margin-bottom:.4rem; }
     .evidence-timeline p{ margin-bottom:.3rem; }
     .evidence-timeline p:last-child{ margin-bottom:0; color:#6b7890; font-size:12px; }
     @media (min-width:1024px){
       .evidence-timeline{ grid-template-columns:repeat(2,minmax(0,1fr)); }
       .evidence-timeline li{ padding:1.25rem 1.35rem 1.2rem 1.35rem; }
-      .evidence-timeline li::before{ display:none; }
+      .evidence-timeline li::before,
+      .evidence-timeline li::after{ display:none; }
     }
    </style>
   
@@ -275,6 +295,9 @@
     <div class="hero-aurora hero-aurora--emerald" aria-hidden="true"></div>
     <div class="hero-aurora hero-aurora--cobalt" aria-hidden="true"></div>
     <div class="hero-aurora hero-aurora--amber" aria-hidden="true"></div>
+    <div class="floating-spark floating-spark--lg floating-spark--teal" style="top:-140px; left:-120px;" aria-hidden="true"></div>
+    <div class="floating-spark floating-spark--md floating-spark--blue" data-direction="reverse" style="bottom:-140px; right:-90px;" aria-hidden="true"></div>
+    <div class="floating-spark floating-spark--sm floating-spark--amber" data-delay="slow" style="top:220px; right:18%;" aria-hidden="true"></div>
     <div class="hero-pattern"></div>
     <div class="hero-lines" aria-hidden="true">
       <svg viewBox="0 0 1200 420" preserveAspectRatio="none">
@@ -293,41 +316,67 @@
     <div class="grid items-center gap-10 lg:grid-cols-2">
       <div>
         <span class="kicker"><span class="brand-fixed">aabcor.<span class="brand-com">com</span></span> - AI‑Driven NRW</span>
+        <div class="hero-flag">
+          <span class="hero-chip hero-chip--accent"><span>Utility‑Grade AI</span></span>
+          <span class="hero-chip"><span>Explainable Fusion</span></span>
+          <span class="hero-chip hero-chip--outline"><span>Audit‑Trail Inside</span></span>
+        </div>
         <h1 class="mt-3 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">Stop Losing Water.<br class="hidden sm:block" /> Start Proving It.</h1>
-        <p class="mt-4 max-w-xl text-[17px] leading-7 text-ink-700">Multi‑modal detection and explainability with DMA‑level risk control and audit‑ready evidence - shipped with OpenAPI, observability, and enterprise deployment options.</p>
-        <div class="mt-6 flex flex-wrap items-center gap-3">
+        <p class="mt-4 max-w-xl text-[17px] leading-7 text-ink-700">Precision NRW detection with sculpted multi‑modal fusion, conformal risk control, and explainability, delivered alongside OpenAPI, observability, and enterprise deployment patterns.</p>
+        <div class="mt-6 flex flex-wrap items-center gap-3 hero-cta">
           <a href="#contact" class="cta cta-primary" aria-label="Request a Pilot">Request a Pilot</a>
-          <a href="openapi.json" class="cta cta-secondary" rel="nofollow" aria-label="View OpenAPI contract">View OpenAPI</a>
-          <a href="solution-overview.html" class="cta cta-secondary" aria-label="Explore the Solution Overview">Explore Solution Overview</a>
+          <a href="openapi.json" class="cta cta-secondary" rel="nofollow" aria-label="View OpenAPI contract">OpenAPI Contract</a>
+          <a href="solution-overview.html" class="cta cta-secondary" aria-label="Explore the Solution Overview">Solution Overview</a>
         </div>
         <ul class="mt-6 grid max-w-xl grid-cols-1 gap-3 text-[15px] text-ink-700 sm:grid-cols-2">
-          <li class="feature-item">Multimodal fusion &amp; explainability</li>
-          <li class="feature-item">Per‑DMA conformal thresholds</li>
-          <li class="feature-item">WORM evidence bundles</li>
-          <li class="feature-item">OpenAPI + /metrics + /health</li>
+          <li class="feature-item">Sculpted multimodal fusion &amp; explainability</li>
+          <li class="feature-item">Per‑DMA conformal thresholds &amp; guardrails</li>
+          <li class="feature-item">Signed WORM evidence bundles</li>
+          <li class="feature-item">OpenAPI, /metrics &amp; /health baked in</li>
         </ul>
-        <p class="mt-6 text-sm text-ink-500">Metrics shown use curated datasets; field performance depends on telemetry quality and per‑DMA calibration.</p>
-        <p class="mt-4 text-[15px] leading-7 text-ink-700">Telemetry sources include Hong Kong acoustics, Yorkshire &amp; Wessex logger/hydraulic data, and BattLeDIM simulation. Synthetic augmentation is governed: no raw customer data is committed, and waivers are documented when bypassing data‑quality gates.</p>
+        <div class="hero-metric-grid">
+          <div class="hero-metric">
+            <strong>Coverage</strong>
+            <em>97%</em>
+            <span>Recall at 1.2% false positives across DMA pilots.</span>
+            <small>calibrated</small>
+          </div>
+          <div class="hero-metric">
+            <strong>Evidence</strong>
+            <em>WORM</em>
+            <span>Immutable manifests with per‑event provenance &amp; optional signatures.</span>
+            <small>audit ready</small>
+          </div>
+          <div class="hero-metric">
+            <strong>Deployment</strong>
+            <em>18&nbsp;days</em>
+            <span>Typical handoff from telemetry integration to operator dashboards.</span>
+            <small>playbooks</small>
+          </div>
+        </div>
+        <p class="mt-6 text-sm text-ink-500">Metrics pair curated datasets with cross‑DMA calibration; field performance depends on telemetry quality and ongoing threshold governance.</p>
+        <p class="mt-4 text-[15px] leading-7 text-ink-700">Telemetry mix draws from Hong Kong acoustics, Yorkshire &amp; Wessex hydraulic data, and BattLeDIM simulation. Synthetic augmentation is governed: no raw customer data persists, and waivers are logged when bypassing quality gates.</p>
       </div>
       <div class="relative">
         <div class="card rail hero-card relative overflow-hidden p-6">
+          <div class="floating-spark floating-spark--sm floating-spark--blue" style="top:-80px; right:-40px;" aria-hidden="true"></div>
           <div class="relative">
             <img src="attachment/d.svg?v=green2" alt="aabcor.com schematic" width="56" height="56" class="rounded" />
             <h3 class="mt-4 text-xl font-semibold tracking-tight">Audit‑Ready Leak Detection</h3>
             <p class="mt-2 text-[15px] leading-6 text-ink-700">Calibrated fusion with uncertainty, smoothing and guards, and evidence bundles that stand up to scrutiny.</p>
             <div class="mt-4 grid grid-cols-2 gap-3 text-sm text-ink-700">
-              <div class="rounded-md border border-[var(--line)] bg-white p-3">
-              <p class="font-medium">Conformal per DMA</p>
-              <p class="mt-1 text-ink-500">Recall at low FPR after calibration.</p>
-            </div><div class="rounded-md border border-[var(--line)] bg-white p-3">
-              <p class="font-medium">Explainability</p>
-              <p class="mt-1 text-ink-500">Grad‑CAM / SHAP‑like artefacts.</p>
-            </div><div class="rounded-md border border-[var(--line)] bg-white p-3">
-              <p class="font-medium">Evidence</p>
-              <p class="mt-1 text-ink-500">WORM manifests; optional signing.</p>
-            </div><div class="rounded-md border border-[var(--line)] bg-white p-3">
-              <p class="font-medium">Observability</p>
-              <p class="mt-1 text-ink-500">/metrics • /health • /openapi.json</p>
+              <div class="mini-stat rounded-md border border-[var(--line)] bg-white p-3">
+              <p class="font-medium">Per-DMA conformal guard</p>
+              <p class="mt-1 text-ink-500">Recall preserved while keeping false positives under control.</p>
+            </div><div class="mini-stat rounded-md border border-[var(--line)] bg-white p-3">
+              <p class="font-medium">Explainability stack</p>
+              <p class="mt-1 text-ink-500">Grad‑CAM spectrograms, SHAP features, Hydro heatmaps.</p>
+            </div><div class="mini-stat rounded-md border border-[var(--line)] bg-white p-3">
+              <p class="font-medium">Evidence minted</p>
+              <p class="mt-1 text-ink-500">WORM manifests with optional signing and verifiers.</p>
+            </div><div class="mini-stat rounded-md border border-[var(--line)] bg-white p-3">
+              <p class="font-medium">Operational surface</p>
+              <p class="mt-1 text-ink-500">OpenAPI, /metrics, /health baked into every release.</p>
             </div>
             </div>
           </div>
@@ -338,11 +387,17 @@
 </section>
 
 <section id="capabilities" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="floating-spark floating-spark--md floating-spark--teal" style="top:-140px; right:12%;" aria-hidden="true"></div>
   <div class="container">
     
   <div class="mx-auto max-w-3xl">
     <p class="mb-2 kicker">Product</p>
     <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Multi‑modal detection with built‑in governance</h2>
+    <div class="capsule-lane">
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Low-noise guardrails</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5 9.5 16l8.5-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Signed evidence bundles</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12.5 9.5 16l8.5-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Operator-ready APIs</span>
+    </div>
   </div>
 
     <div class="mt-8">
@@ -370,12 +425,18 @@
 </section>
 
 <section id="how" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="floating-spark floating-spark--sm floating-spark--blue" style="top:-120px; left:8%;" aria-hidden="true"></div>
   <div class="container">
     
   <div class="mx-auto max-w-3xl">
     <p class="mb-2 text-sm font-medium uppercase tracking-wider text-ink-500">Architecture</p>
     <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">From telemetry to trusted, auditable events</h2>
   </div>
+    <div class="capsule-lane">
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12 9 16.5 19 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Quality gates first</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12 9 16.5 19 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Conformal fusion</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12 9 16.5 19 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Evidence on close</span>
+    </div>
 
     <div class="mt-8">
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -404,12 +465,18 @@
 </section>
 
 <section id="apis" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="floating-spark floating-spark--sm floating-spark--teal" style="top:-100px; right:6%;" aria-hidden="true"></div>
   <div class="container">
     
   <div class="mx-auto max-w-3xl">
     <p class="mb-2 kicker">Integration</p>
     <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">APIs &amp; Contracts</h2>
   </div>
+    <div class="capsule-lane">
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Contract-first</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Observability baked-in</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Lifecycle endpoints</span>
+    </div>
 
     <div class="mt-8">
       
@@ -533,17 +600,21 @@
               <animate attributeName="stop-color" values="#36d399; #1E8E5A; #36d399" dur="6s" repeatCount="indefinite" />
             </stop>
           </linearGradient>
+          <linearGradient id="arrowGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="rgba(43,92,246,.7)" />
+            <stop offset="100%" stop-color="rgba(30,142,90,.9)" />
+          </linearGradient>
           <filter id="flowGlow" x="-20%" y="-20%" width="140%" height="140%">
             <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#1E8E5A" flood-opacity="0.22" />
           </filter>
           <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L6,3 z" fill="#6b7890" />
+            <path d="M0,0 L0,6 L6,3 z" fill="#1E8E5A" />
           </marker>
         </defs>
         <!-- Vertical flow: centered nodes -->
         <!-- Step 1 -->
         <g class="stage" tabindex="0" role="button" aria-pressed="false" aria-label="Inputs stage" aria-describedby="flow-tooltip" data-tip="Preprocessed acoustic spectrogram and SCADA window validated by quality gates; optional arrivals/sensors for localization.">
-        <rect class="node" x="200" y="20" width="360" height="64" />
+        <rect class="node" x="200" y="20" width="360" height="64" rx="18" ry="18" />
         <text class="label" x="380" y="54" text-anchor="middle">Inputs: Spectrogram + SCADA</text>
           <g class="info pulse-mobile" aria-hidden="true">
             <circle class="info-ring" cx="548" cy="52" r="10" />
@@ -553,7 +624,7 @@
         <line class="arrow" x1="380" y1="92" x2="380" y2="120" />
         <!-- Step 2 -->
         <g class="stage" tabindex="0" role="button" aria-pressed="false" aria-label="Models stage" aria-describedby="flow-tooltip" data-tip="Acoustic CNN probability + XGB DMA score; HydroGNN adds node heatmaps when available.">
-        <rect class="node" x="200" y="120" width="360" height="64" />
+        <rect class="node" x="200" y="120" width="360" height="64" rx="18" ry="18" />
         <text class="label" x="380" y="156" text-anchor="middle">Models: Acoustic + XGB + HydroGNN</text>
           <g class="info pulse-mobile" aria-hidden="true">
             <circle class="info-ring" cx="548" cy="152" r="10" />
@@ -563,7 +634,7 @@
         <line class="arrow" x1="380" y1="192" x2="380" y2="220" />
         <!-- Step 3 -->
         <g class="stage" tabindex="0" role="button" aria-pressed="false" aria-label="Fusion stage" aria-describedby="flow-tooltip" data-tip="Meta‑learner blends modalities with uncertainties and context features.">
-        <rect class="node" x="260" y="220" width="240" height="64" />
+        <rect class="node" x="260" y="220" width="240" height="64" rx="18" ry="18" />
         <text class="label" x="380" y="256" text-anchor="middle">Fusion</text>
           <g class="info pulse-mobile" aria-hidden="true">
             <circle class="info-ring" cx="488" cy="252" r="10" />
@@ -573,7 +644,7 @@
         <line class="arrow" x1="380" y1="292" x2="380" y2="320" />
         <!-- Step 4 -->
         <g class="stage" tabindex="0" role="button" aria-pressed="false" aria-label="Guard, Smoothing, Conformal stage" aria-describedby="flow-tooltip" data-tip="Changepoint guard, temporal smoothing, and per‑DMA conformal thresholds control risk.">
-        <rect class="node" x="230" y="320" width="300" height="64" />
+        <rect class="node" x="230" y="320" width="300" height="64" rx="18" ry="18" />
         <text class="label" x="380" y="356" text-anchor="middle">Guard • Smooth • Conformal</text>
           <g class="info pulse-mobile" aria-hidden="true">
             <circle class="info-ring" cx="520" cy="352" r="10" />
@@ -583,7 +654,7 @@
         <line class="arrow" x1="380" y1="392" x2="380" y2="420" />
         <!-- Step 5-6 -->
         <g class="stage" tabindex="0" role="button" aria-pressed="false" aria-label="Decision and evidence stage" aria-describedby="flow-tooltip" data-tip="Event lifecycle update; WORM evidence bundle with scores, thresholds, timestamps; optional localization &amp; attachments.">
-        <rect class="node" x="260" y="420" width="240" height="64" />
+        <rect class="node" x="260" y="420" width="240" height="64" rx="18" ry="18" />
         <text class="label" x="380" y="458" text-anchor="middle">Decision → Event &amp; Evidence</text>
           <g class="info pulse-mobile" aria-hidden="true">
             <circle class="info-ring" cx="488" cy="452" r="10" />
@@ -608,12 +679,23 @@
 </section>
 
 <section id="evidence" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="floating-spark floating-spark--md floating-spark--blue" data-direction="reverse" style="top:-130px; left:12%;" aria-hidden="true"></div>
   <div class="container">
     
   <div class="mx-auto max-w-3xl">
     <p class="mb-2 kicker">Audit trail</p>
     <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Evidence bundle: Oct 2025 fusion run</h2>
     <p class="mt-3 text-[15px] leading-7 text-ink-700">The latest bundle packages logs, models, API contracts and charts from the 14 Oct 2025 run. Everything here is surfaced directly from the extracted artefacts so decision makers can trace performance without leaving the page.</p>
+    <div class="capsule-lane">
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>WORM manifests</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Artefacts surfaced inline</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Regulator-grade story</span>
+    </div>
+    <div class="evidence-banner">
+      <strong>Bundle snapshot</strong>
+      <span>14 Oct 2025 • Fusion AUROC 1.00 • governance finishing final QA</span>
+      <small>Directly referenced from evidence_bundle/manifest.json with hash verification.</small>
+    </div>
   </div>
 
     <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -758,11 +840,17 @@
 </section>
 
 <section id="benchmarks" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="floating-spark floating-spark--sm floating-spark--amber" style="top:-110px; right:14%;" aria-hidden="true"></div>
   <div class="container">
     
   <div class="mx-auto max-w-3xl">
     <p class="mb-2 kicker">Evidence</p>
     <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Benchmarks &amp; caveats (curated datasets)</h2>
+    <div class="capsule-lane">
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Curated datasets</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Conformal guard</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Latency disclosures</span>
+    </div>
   </div>
 
     <div class="mt-8">
@@ -780,11 +868,17 @@
 </section>
 
 <section id="security" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="floating-spark floating-spark--md floating-spark--teal" style="top:-140px; left:16%;" aria-hidden="true"></div>
   <div class="container">
     
   <div class="mx-auto max-w-3xl">
     <p class="mb-2 kicker">Operations</p>
     <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Deployment, security &amp; observability</h2>
+    <div class="capsule-lane">
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Signed SBOMs</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>mTLS &amp; RBAC patterns</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Observability baked in</span>
+    </div>
   </div>
 
     <div class="mt-8">
@@ -803,11 +897,17 @@
 </section>
 
 <section id="roi" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="floating-spark floating-spark--sm floating-spark--blue" data-direction="reverse" style="top:-110px; right:20%;" aria-hidden="true"></div>
   <div class="container">
     
   <div class="mx-auto max-w-3xl">
     <p class="mb-2 text-sm font-medium uppercase tracking-wider text-ink-500">Economics</p>
     <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">ROI examples (assumptions disclosed)</h2>
+    <div class="capsule-lane">
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Telemetry-dependent</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Scenario modelling</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Energy &amp; carbon savings</span>
+    </div>
   </div>
 
     <div class="mt-8">
@@ -830,11 +930,17 @@
 </section>
 
 <section id="investors" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="floating-spark floating-spark--md floating-spark--amber" style="top:-130px; left:10%;" aria-hidden="true"></div>
   <div class="container">
     <div class="mx-auto max-w-3xl">
       <p class="mb-2 kicker">Investors</p>
       <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">Investor brief</h2>
       <p class="mt-3 text-[15px] leading-7 text-ink-700">NRW reduction is a board‑level priority for many utilities. Our platform focuses on audit‑ready detection built on authentic telemetry with governed synthetic augmentation, contract‑driven releases, and evidence that stands up to scrutiny.</p>
+      <div class="capsule-lane">
+        <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Audit proofs</span>
+        <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Utility partnerships</span>
+        <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Evidence bundle access</span>
+      </div>
     </div>
 
     <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -872,11 +978,17 @@
 </section>
 
 <section id="roadmap" class="section scroll-mt-24 py-16 sm:py-20 lg:py-28">
+  <div class="floating-spark floating-spark--sm floating-spark--teal" style="top:-120px; right:18%;" aria-hidden="true"></div>
   <div class="container">
     
   <div class="mx-auto max-w-3xl">
     <p class="mb-2 kicker">Roadmap</p>
     <h2 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">What’s coming</h2>
+    <div class="capsule-lane">
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Field pilots</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Satellite overlays</span>
+      <span class="capsule"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5 9.5 17l9-10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Certification path</span>
+    </div>
   </div>
 
     <div class="mt-8">
@@ -911,7 +1023,7 @@
   <p class="mt-2 text-[15px] leading-7 text-ink-700">We'd love to hear from you. For engagements, partnerships, or media enquiries, use the details below.</p>
   <div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2">
     <div class="flex items-center gap-3">
-      <span class="avatar-glow"><img src="attachment/maqbool.png" alt="Maqbool Ahmed Inamdar profile photo" class="h-16 w-16 object-contain" width="64" height="64" loading="lazy" decoding="async" /></span>
+      <img src="attachment/maqbool.png" alt="Maqbool Ahmed Inamdar profile photo" class="h-16 w-16 rounded-xl border border-[var(--line)] bg-white object-contain p-1" width="64" height="64" loading="lazy" decoding="async" />
       <div>
         <p class="text-[15px] font-medium">Maqbool Ahmed Inamdar</p>
         <p class="text-[13px] text-ink-500">Founder and Chief Executive Officer</p>
@@ -920,7 +1032,7 @@
       </div>
     </div>
     <div class="flex items-center gap-3">
-      <span class="avatar-glow"><img src="attachment/haseena.jpg" alt="Haseena Inamdar profile photo" class="h-16 w-16 object-contain" width="64" height="64" loading="lazy" decoding="async" /></span>
+      <img src="attachment/haseena.jpg" alt="Haseena Inamdar profile photo" class="h-16 w-16 rounded-xl border border-[var(--line)] bg-white object-contain p-1" width="64" height="64" loading="lazy" decoding="async" />
       <div>
         <p class="text-[15px] font-medium">Haseena Inamdar</p>
         <p class="text-[13px] text-ink-500">Cofounder and Business Advisor</p>
@@ -929,7 +1041,7 @@
       </div>
     </div>
     <div class="flex items-center gap-3">
-      <span class="avatar-glow"><img src="attachment/ahesan.png" alt="Ahesan Ali profile photo" class="h-16 w-16 object-contain" width="64" height="64" loading="lazy" decoding="async" /></span>
+      <img src="attachment/ahesan.png" alt="Ahesan Ali profile photo" class="h-16 w-16 rounded-xl border border-[var(--line)] bg-white object-contain p-1" width="64" height="64" loading="lazy" decoding="async" />
       <div>
         <p class="text-[15px] font-medium">Ahesan Ali</p>
         <p class="text-[13px] text-ink-500">Cofounder &amp; Chief Operating Officer</p>
@@ -938,7 +1050,7 @@
       </div>
     </div>
     <div class="flex items-center gap-3">
-      <span class="avatar-glow"><img src="attachment/khadar.jpg" alt="Khadar R J profile photo" class="h-16 w-16 object-contain" width="64" height="64" loading="lazy" decoding="async" /></span>
+      <img src="attachment/khadar.jpg" alt="Khadar R J profile photo" class="h-16 w-16 rounded-xl border border-[var(--line)] bg-white object-contain p-1" width="64" height="64" loading="lazy" decoding="async" />
       <div>
         <p class="text-[15px] font-medium">Khadar R J</p>
         <p class="text-[13px] text-ink-500">Business Admin</p>
@@ -1016,6 +1128,6 @@
   </script>
 
   <!-- Active section highlighting for accessibility -->
-  <script src="main.js?v=3" defer></script>
+  <script src="main.js?v=5" defer></script>
 </body>
 </html>

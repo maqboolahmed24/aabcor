@@ -10,6 +10,7 @@
   });
   const sections = Array.from(sectionMap.values());
 
+  const navBar = document.querySelector('nav');
   const moreBtn = document.getElementById('nav-more-btn');
   const moreMenu = document.getElementById('nav-more-menu');
   const mobileToggle = document.getElementById('mobile-nav-toggle');
@@ -43,31 +44,9 @@
   function scrollToTarget(target) {
     if (!target) return;
     const behavior = prefersReducedMotion() ? 'auto' : 'smooth';
-    try {
-      target.scrollIntoView({ behavior, block: 'start' });
-    } catch (err) {
-      target.scrollIntoView();
-    }
-  }
-
-  function closeMoreMenu() {
-    if (!moreMenu || !moreBtn) return;
-    if (!moreMenu.hidden) {
-      moreMenu.hidden = true;
-      moreMenu.setAttribute('aria-hidden', 'true');
-      moreBtn.setAttribute('aria-expanded', 'false');
-    }
-  }
-
-  function openMoreMenu() {
-    if (!moreMenu || !moreBtn) return;
-    moreMenu.hidden = false;
-    moreMenu.setAttribute('aria-hidden', 'false');
-    moreBtn.setAttribute('aria-expanded', 'true');
-    const first = moreMenu.querySelector('a');
-    if (first) {
-      try { first.focus({ preventScroll: true }); } catch { first.focus(); }
-    }
+    const navOffset = navBar ? navBar.offsetHeight + 12 : 0;
+    const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+    window.scrollTo({ top, left: 0, behavior });
   }
 
   function closeMobileNav() {
@@ -114,44 +93,6 @@
     if (!flowRoot || !prefersReducedMotion()) return;
     flowRoot.querySelectorAll('animate').forEach((el) => {
       if (el.parentNode) el.parentNode.removeChild(el);
-    });
-  }
-
-  if (moreMenu) {
-    moreMenu.hidden = true;
-    moreMenu.setAttribute('aria-hidden', 'true');
-  }
-  if (moreBtn && moreMenu) {
-    moreBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      if (moreMenu.hidden) openMoreMenu(); else closeMoreMenu();
-    });
-    document.addEventListener('click', (event) => {
-      if (!moreMenu.contains(event.target) && event.target !== moreBtn && !moreBtn.contains(event.target)) {
-        closeMoreMenu();
-      }
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeMoreMenu();
-      if (!moreMenu.hidden && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
-        event.preventDefault();
-        const items = Array.from(moreMenu.querySelectorAll('a'));
-        if (!items.length) return;
-        const index = items.indexOf(document.activeElement);
-        let next = 0;
-        if (event.key === 'ArrowDown') {
-          next = index >= 0 && index < items.length - 1 ? index + 1 : 0;
-        } else {
-          next = index > 0 ? index - 1 : items.length - 1;
-        }
-        items[next].focus();
-      }
-    });
-    moreMenu.addEventListener('focusout', (event) => {
-      if (!moreMenu.contains(event.relatedTarget)) closeMoreMenu();
-    });
-    Array.from(moreMenu.querySelectorAll('a')).forEach(link => {
-      link.addEventListener('click', () => closeMoreMenu());
     });
   }
 
@@ -299,12 +240,71 @@
     }, { passive: true });
 
     disableFlowAnimation(flow);
-    if (reduceMotionQuery) {
-      const handleMotionChange = (event) => {
-        if (event.matches) disableFlowAnimation(flow);
-      };
-      if (typeof reduceMotionQuery.addEventListener === 'function') reduceMotionQuery.addEventListener('change', handleMotionChange);
-      else if (typeof reduceMotionQuery.addListener === 'function') reduceMotionQuery.addListener(handleMotionChange);
+  if (reduceMotionQuery) {
+    const handleMotionChange = (event) => {
+      if (event.matches) disableFlowAnimation(flow);
+    };
+    if (typeof reduceMotionQuery.addEventListener === 'function') reduceMotionQuery.addEventListener('change', handleMotionChange);
+    else if (typeof reduceMotionQuery.addListener === 'function') reduceMotionQuery.addListener(handleMotionChange);
+  }
+}
+
+  function closeMoreMenu() {
+    if (!moreMenu || !moreBtn) return;
+    if (!moreMenu.hidden) {
+      moreMenu.hidden = true;
+      moreMenu.setAttribute('aria-hidden', 'true');
+      moreBtn.setAttribute('aria-expanded', 'false');
     }
   }
+
+  function openMoreMenu() {
+    if (!moreMenu || !moreBtn) return;
+    moreMenu.hidden = false;
+    moreMenu.setAttribute('aria-hidden', 'false');
+    moreBtn.setAttribute('aria-expanded', 'true');
+    const first = moreMenu.querySelector('a');
+    if (first) {
+      try { first.focus({ preventScroll: true }); } catch { first.focus(); }
+    }
+  }
+
+  if (moreMenu) {
+    moreMenu.hidden = true;
+    moreMenu.setAttribute('aria-hidden', 'true');
+  }
+  if (moreBtn && moreMenu) {
+    moreBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (moreMenu.hidden) openMoreMenu(); else closeMoreMenu();
+    });
+    document.addEventListener('click', (event) => {
+      if (!moreMenu.contains(event.target) && event.target !== moreBtn && !moreBtn.contains(event.target)) {
+        closeMoreMenu();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMoreMenu();
+      if (!moreMenu.hidden && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
+        event.preventDefault();
+        const items = Array.from(moreMenu.querySelectorAll('a'));
+        if (!items.length) return;
+        const index = items.indexOf(document.activeElement);
+        let next = 0;
+        if (event.key === 'ArrowDown') {
+          next = index >= 0 && index < items.length - 1 ? index + 1 : 0;
+        } else {
+          next = index > 0 ? index - 1 : items.length - 1;
+        }
+        items[next].focus();
+      }
+    });
+    moreMenu.addEventListener('focusout', (event) => {
+      if (!moreMenu.contains(event.relatedTarget)) closeMoreMenu();
+    });
+    Array.from(moreMenu.querySelectorAll('a')).forEach(link => {
+      link.addEventListener('click', () => closeMoreMenu());
+    });
+  }
+
 })();
