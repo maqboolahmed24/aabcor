@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI‑Powered NRW – Competitive Matrix | aabcor.com</title>
+  <meta name="description" content="A high‑fidelity, interactive comparison of Aabcor’s AI NRW platform vs. leading solutions across fusion, modeling, deployment, explainability, risk control, and synthetic data." />
+  <meta name="color-scheme" content="light" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" id="canonical" href="https://aabcor.com/comparison-report.html" />
+  <link rel="icon" href="attachment/d.svg?v=green2" />
+  <link rel="apple-touch-icon" href="og.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="AI‑Powered NRW – Competitive Matrix" />
+  <meta property="og:description" content="How Aabcor compares to top NRW platforms across critical technical pillars and enterprise readiness." />
+  <meta property="og:url" content="https://aabcor.com/comparison-report.html" />
+  <meta property="og:image" content="https://aabcor.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI‑Powered NRW – Competitive Matrix" />
+  <meta name="twitter:description" content="Side‑by‑side technical comparison with a polished, responsive design." />
+  <meta name="twitter:image" content="https://aabcor.com/og.png" />
+  <link rel="stylesheet" href="dist/styles.css" />
+  <style>
+    :root{
+      --ink: #0b0f19; --muted:#475569; --line:#e5e7eb;
+      --emerald:#1E8E5A; --emerald-2:#16a34a; --cobalt:#2b5cf6; --blue-ink:#0b1e33;
+      --water-dark:#023e8a; --water:#0096c7; --water-mid:#00b4d8; --water-light:#e9f8ff;
+      --gold:#ffd166; --slate:#0f172a; --glass: rgba(255,255,255,0.7);
+    }
+    html,body{ height:100%; }
+    body{ margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink); background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(34,197,94,.18), transparent 60%),
+      radial-gradient(1000px 600px at 90% -20%, rgba(43,92,246,.20), transparent 60%),
+      linear-gradient(180deg, #f7fbff 0%, #eef7ff 50%, #ebfff7 100%);
+    }
+    .shell{ min-height:100%; display:flex; flex-direction:column; }
+    .skip{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip:focus{ position:fixed; left:14px; top:14px; z-index:100; background:#fff; padding:.5rem .75rem; border:1px solid var(--line); border-radius:10px; box-shadow:0 8px 20px rgba(15,23,42,.15); }
+
+    /* Top brand bar */
+    .topbar{ position:sticky; top:0; z-index:60; backdrop-filter:saturate(180%) blur(10px); background:rgba(255,255,255,.72); border-bottom:1px solid rgba(15,23,42,.08); }
+    .topbar-inner{ max-width:1200px; margin:0 auto; padding:.6rem 1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .brand{ display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--ink); font:800 20px/1 Inter, ui-sans-serif; letter-spacing:.01em; }
+    .brand .brand-com{ color:var(--emerald); }
+    .back{ display:inline-flex; align-items:center; gap:.45rem; font:600 14px/1.2 Inter, ui-sans-serif; color:var(--blue-ink); border:1px solid var(--line); background:#fff; padding:.45rem .8rem; border-radius:10px; text-decoration:none; box-shadow:0 1px 2px rgba(16,33,59,.06); }
+    .back:hover{ background:#f8fafc; border-color:#d7dee9; }
+    .back:focus-visible{ outline:2px solid var(--cobalt); outline-offset:2px; }
+
+    /* Hero */
+    .hero{ position:relative; overflow:hidden; }
+    .hero-inner{ max-width:1100px; margin:0 auto; padding: clamp(1.2rem, 1.6vw + 1rem, 2rem) 1rem 0; }
+    .glass{ position:relative; border:1px solid rgba(15,23,42,.08); background:linear-gradient(160deg, rgba(255,255,255,.85), rgba(235,248,244,.92)); backdrop-filter: blur(10px) saturate(140%); border-radius:18px; box-shadow:0 20px 48px rgba(15,23,42,.12); padding: clamp(1rem, 2vw + 1rem, 1.6rem); }
+    .hero h1{ margin:0; font-size: clamp(1.8rem, 2vw + 1.4rem, 2.4rem); letter-spacing:-.01em; color:#0b1e33; }
+    .lead{ color:#374151; margin:.65rem 0 0; max-width:70ch; }
+    .chips{ display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.9rem; }
+    .chip{ display:inline-flex; align-items:center; gap:.35rem; padding:.25rem .55rem; border-radius:999px; font:600 12px/1 Inter, ui-sans-serif; background:#ecfdf5; color:#065f46; border:1px solid #d1fae5; }
+    .stats{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.75rem; margin-top:.85rem; }
+    .stat{ border:1px solid var(--line); border-radius:12px; background:#fff; padding:.7rem .9rem; box-shadow:0 12px 28px rgba(15,23,42,.08); }
+    .stat strong{ font-size:1.15rem; color:#0f172a; }
+    .stat span{ display:block; color:#64748b; font-size:.9rem; }
+
+    /* Matrix Shell */
+    .section{ max-width:1100px; margin: 1.4rem auto 3rem; padding: 0 1rem; }
+    .table-shell{ position:relative; border:1px solid rgba(15,23,42,.08); border-radius:18px; background:#fff; overflow:auto; box-shadow:0 22px 48px rgba(15,23,42,.12); }
+    .table-shell.scrolling::before,
+    .table-shell.scrolling::after{ content:""; position:sticky; top:0; bottom:0; width:18px; z-index:2; pointer-events:none; }
+    .table-shell.scrolling::before{ left:0; background:linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0)); }
+    .table-shell.scrolling::after{ right:0; background:linear-gradient(270deg, rgba(255,255,255,0.9), rgba(255,255,255,0)); }
+    table.matrix{ border-collapse:separate; border-spacing:0; min-width:900px; width:100%; }
+    thead th{ position:sticky; top:0; background:linear-gradient(180deg, var(--water-dark), #0353b6); color:#fff; font-weight:700; text-align:left; padding:14px 14px; border-bottom:1px solid rgba(255,255,255,.25); z-index:1; }
+    thead th:first-child{ left:0; z-index:3; }
+    tbody th, tbody td{ padding:14px 14px; border-bottom:1px solid #eef2ff; vertical-align:top; color:#10213b; }
+    tbody tr:nth-child(odd) td, tbody tr:nth-child(odd) th{ background:rgba(0, 150, 199, 0.05); }
+    tbody tr:hover td, tbody tr:hover th{ background: rgba(43,92,246,0.06); }
+    .first-col{ position:sticky; left:0; background:#fff; border-right:1px solid #eef2ff; z-index:1; font-weight:700; color:#012a5a; white-space:nowrap; }
+    tbody tr:nth-child(odd) .first-col{ background:linear-gradient(0deg, rgba(0,150,199,0.05), rgba(0,150,199,0.05)); }
+    .badge{ display:inline-block; padding:.25em .6em; border-radius:999px; font:700 12px/1 Inter,ui-sans-serif; }
+    .badge.platinum{ background:linear-gradient(120deg,#cfd3d7,#9aa3ad); color:#0b0f19; }
+    .badge.gold{ background:var(--gold); color:#111827; }
+    .check{ color:#0f9d58; font-weight:800; margin-right:.35rem; }
+    .cross{ color:#9aa0a6; font-weight:800; margin-right:.35rem; }
+    .col-title{ display:flex; align-items:center; gap:.45rem; }
+    .vendor{ color:#0b1e33; font-weight:700; text-decoration:none; }
+    .vendor:hover{ text-decoration:underline; }
+    .vendor.external::after{ content:"\2197"; margin-left:.25rem; color:#64748b; font-weight:600; }
+    .stars{ color:#f59e0b; font-weight:800; letter-spacing:.06em; margin-right:.4rem; display:inline-block; }
+
+    .note{ color:#4b5563; font-size:.95rem; margin-top:1rem; }
+
+    /* Footer */
+    .footer{ margin: 2.5rem auto 3.5rem; max-width:1100px; padding: 0 1rem; color:#475569; }
+
+    /* Print */
+    @media print{
+      .topbar, .skip{ display:none !important; }
+      body{ background:#fff; }
+      .section, .hero-inner{ max-width:100%; }
+      .table-shell{ box-shadow:none; }
+      thead th{ color:#000; background:#fff; border-bottom:1px solid #000; }
+      .first-col{ position:static; }
+    }
+  </style>
+</head>
+<body class="shell">
+  <a href="#matrix" class="skip">Skip to matrix</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand">
+        <img src="attachment/d.svg?v=green2" alt="aabcor logo" width="28" height="28" loading="lazy" decoding="async" style="border-radius:8px" />
+        <span>aabcor.<span class="brand-com">com</span></span>
+      </a>
+      <a href="index.html#overview" class="back" aria-label="Back to main site">← Back</a>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Page header">
+    <div class="hero-inner">
+      <div class="glass">
+        <h1>AI‑Powered NRW – Competitive Matrix</h1>
+        <p class="lead">A side‑by‑side view of Aabcor versus leading NRW solutions across seven technical pillars: multi‑source fusion, modeling depth, deployment, auditability, explainability, risk control, and synthetic data.</p>
+        <div class="chips" role="list">
+          <span class="chip" role="listitem">Updated Oct 2025</span>
+          <span class="chip" role="listitem">Version 1.0</span>
+          <span class="chip" role="listitem">Enterprise‑grade</span>
+        </div>
+        <div class="stats" aria-hidden="true">
+          <div class="stat"><strong>7</strong><span>Technical pillars</span></div>
+          <div class="stat"><strong>4</strong><span>Vendors compared</span></div>
+          <div class="stat"><strong>24×7</strong><span>Operational focus</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="section" id="matrix">
+    <div class="table-shell" id="matrixShell" tabindex="0" role="region" aria-label="Comparison matrix container">
+      <table class="matrix" aria-describedby="matrix-caption">
+        <caption id="matrix-caption" class="sr-only">Technical capability comparison across vendors</caption>
+        <thead>
+          <tr>
+            <th scope="col" class="first-col">Technical Capability</th>
+            <th scope="col"><span class="col-title"><a class="vendor" href="https://aabcor.com/" target="_blank" rel="noopener">Aabcor</a> <span class="badge platinum">Platinum</span></span></th>
+            <th scope="col"><span class="col-title"><a class="vendor external" href="https://www.takadu.com/" target="_blank" rel="noopener noreferrer" aria-label="Open TaKaDu website">TaKaDu</a> <span class="badge gold">Gold</span></span></th>
+            <th scope="col"><span class="col-title"><a class="vendor external" href="https://www.gutermann-water.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Gutermann website">Gutermann</a> <span class="badge gold">Gold</span></span></th>
+            <th scope="col"><span class="col-title"><a class="vendor external" href="https://www.innovyze.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Innovyze website">Innovyze (Info360)</a> <span class="badge gold">Gold</span></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="first-col">Multi‑Source Data Fusion</th>
+            <td><span class="check">✓</span><span class="stars" aria-label="5 out of 5">★★★★★</span>Acoustic + hydraulic sensor fusion (e.g., sound, flow, pressure) with simulated data integration.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>SCADA and multiple data inputs unified via central event management.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="3 out of 5">★★★☆☆</span>Acoustic‑focused (correlating logger networks); integrates external data via partner platforms.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>Digital twin combines SCADA with hydraulic models for holistic network view.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="first-col">Modeling Sophistication</th>
+            <td><span class="check">✓</span><span class="stars" aria-label="5 out of 5">★★★★★</span>Deep learning (CNN for acoustics, GNN for network) plus meta‑learner fusion with uncertainty quantification.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>Advanced statistical anomaly detection augmented by machine learning algorithms.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="3 out of 5">★★★☆☆</span>AI acoustic classifier (“AI Predictor”) trained on large leak sound databases for probability of leak.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>Library of analytics &amp; modeling tools (forecasting, simulation) for incident detection and response.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="first-col">Deployment Readiness</th>
+            <td><span class="check">✓</span><span class="stars" aria-label="5 out of 5">★★★★★</span>Cloud‑native container packaging (Helm/Kubernetes), API‑first design (OpenAPI), CI/CD with automated rollouts.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>Proven SaaS platform (cloud‑based); integration APIs for third‑party data and rapid deployment.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>IoT‑enabled hardware with cloud portal (ZONESCAN NET); scalable to tens of thousands of sensors.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>Web‑based cloud service (Autodesk Info360); on‑prem/cloud extensibility via Autodesk’s infrastructure.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="first-col">Auditability &amp; Evidence</th>
+            <td><span class="check">✓</span><span class="stars" aria-label="5 out of 5">★★★★★</span>Immutable WORM evidence bundles (signed manifests) per event; full decision trace for regulator audits.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>Comprehensive event tracking from detection to resolution (timestamped lifecycle management).</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="3 out of 5">★★★☆☆</span>Leak event records with audio and correlation graphs for operator validation (audit trail).</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>Incident management logs and compliance reports aligned with utility standards.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="first-col">Explainability</th>
+            <td><span class="check">✓</span><span class="stars" aria-label="5 out of 5">★★★★★</span>Explainable AI outputs: Grad‑CAM spectrograms, SHAP feature importance, network leak heatmaps.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="3 out of 5">★★★☆☆</span>Contextual dashboards (trends, thresholds, maps) to explain anomalies (no explicit ML explainers).</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="3 out of 5">★★★☆☆</span>Correlation visuals and “AI Predictor” score enabling listen/verify workflows.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>Visual overlays on the digital twin; scenario simulations for interpretation.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="first-col">Risk &amp; Threshold Management</th>
+            <td><span class="check">✓</span><span class="stars" aria-label="5 out of 5">★★★★★</span>Conformal risk control with per‑DMA calibrated thresholds; drift detection &amp; auto‑retraining triggers.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="3 out of 5">★★★☆☆</span>Configurable alert thresholds and KPIs (tuned analytics; no formal conformal guarantees).</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>Automated daily correlation to minimize false outcomes; confidence scoring for filtering.</td>
+            <td><span class="check">✓</span><span class="stars" aria-label="4 out of 5">★★★★☆</span>Rule‑based and ML alerting with adjustable sensitivity leveraging historical patterns.</td>
+          </tr>
+          <tr>
+            <th scope="row" class="first-col">Synthetic Data Augmentation</th>
+            <td><span class="check">✓</span><span class="stars" aria-label="5 out of 5">★★★★★</span>Extensive synthetic leaks and simulated hydraulics to supplement training (governed; no data leakage).</td>
+            <td><span class="cross">–</span>Relies on real network data and historical incidents (no known synthetic generation).</td>
+            <td><span class="cross">–</span>Relies on real acoustic samples; emphasizes field data over synthetic augmentation.</td>
+            <td><span class="cross">–</span>Primarily actual sensor and model data; scenarios via digital twin rather than generated training data.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">Note: Company names and products are trademarks of their respective owners. This comparative view is technical and indicative; capabilities may vary by deployment.</p>
+  </main>
+
+  <footer class="footer" aria-label="Page footer">
+    <p>Looking for the full solution write‑up? Read the <a href="solution-overview.html">Solution Overview</a> or return to the <a href="index.html#overview">homepage</a>.</p>
+  </footer>
+
+  <script>
+  (function(){
+    const shell = document.getElementById('matrixShell');
+    if (!shell) return;
+    function updateShadows(){
+      const max = shell.scrollWidth - shell.clientWidth - 1; // account for rounding
+      if (max <= 0){ shell.classList.remove('scrolling'); return; }
+      shell.classList.add('scrolling');
+    }
+    updateShadows();
+    window.addEventListener('resize', updateShadows, { passive:true });
+  })();
+  </script>
+</body>
+</html>
